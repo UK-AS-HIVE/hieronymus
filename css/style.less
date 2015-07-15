@@ -1,0 +1,209 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+//********* Temporary 
+#page-wrapper {
+	padding-top:50px;
+}
+
+//********* Global Styles 
+
+//**** Variables
+@uk-blue: #005daa;
+@as-gray: #e7e7e8;
+@light-blue: #6a9ad8;
+@dark-blue: #00325b;
+@text-color: #252729;
+@default-spacing: 15px;
+@small-text: 13px;
+@default-width: 1200px;
+
+//**** Global Mixins
+.reset {
+	border:0;
+	padding:0;
+	margin:0;
+}
+.blue-gradient {
+	background: #005daa; /* Old browsers */
+	background: -moz-linear-gradient(top, #005daa 0%, #004a87 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005daa), color-stop(100%,#004a87)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #005daa 0%,#004a87 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #005daa 0%,#004a87 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #005daa 0%,#004a87 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #005daa 0%,#004a87 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005daa', endColorstr='#004a87',GradientType=0 ); /* IE6-9 */
+}
+.full-width {
+	width:100%
+}
+.arrows-width {
+	max-width: 1360px;
+	width:95%;
+	margin:0 auto;
+}
+.default-width {
+	max-width:1200px;
+	width:95%;
+	margin:0 auto;
+}
+.visible-arrows {
+	#back-arrow, #forward-arrow {
+		display:block;
+		position:absolute;
+		height:73px;
+		width:23px;
+		background-size:100%;
+		top:110px;
+		&:hover {
+			cursor:pointer;
+		}
+	}
+	#back-arrow {
+		background-image: url("../images/arrow-back-white.png");
+		left:0;
+	}
+	#forward-arrow {
+		background-image: url("../images/arrow-forward-white.png");
+		right:0;
+	}
+}
+.last-child-fix {
+	padding-right:0;
+	margin-right:0;
+}
+.all-columns {
+	display:inline-block;
+	margin-right:@default-spacing;
+	vertical-align:top;
+}
+.column-6 {
+	.all-columns;
+	width:184px;
+	&:nth-child(6n+6) { .last-child-fix; }
+}
+.column-5 {
+	.all-columns;
+	max-width:225px;
+	width:5%;
+	&:nth-child(5n+5) { .last-child-fix; }
+}
+.column-4 {
+	.all-columns;
+	width:285px;
+	&:nth-child(4n+4) { .last-child-fix; }
+}
+.clearfixing {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+
+//**** Globals
+body { font:300 15px/140% 'Open Sans', sans-serif; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { font-size: 16px; font-weight: 600; text-transform:uppercase;}
+h1 a, h2 a, h3 a { color: @text-color; text-decoration: none;} 
+
+#main-wrapper {
+	.block {
+		&:before {
+			content:'';
+		}
+	}
+}
+.block-width {
+	position:relative;
+	top:70px;
+	.default-width;
+	.arrows { display:none; }
+	h2 { display:none; }
+}
+.standard-button {
+	display:inline-block;
+	text-transform:capitalize;
+	font-weight:600;
+	color:white;
+	padding:8px 15px 8px 15px;
+	background-color:@uk-blue;
+	margin-top:7px;
+	float: right;
+	&:after { .clearfixing; }
+}
+
+//********* Row View Styles
+
+//**** Events Row View
+
+//** Events Row View Mixins
+.date-styles {
+	display:inline-block;
+	font-weight:600;
+	text-transform:uppercase;
+	vertical-align:top;
+}
+
+//** Events Row View Styles
+#block-views-redesign-events-block { 
+	background-color:@as-gray;
+	height:440px;
+	& > .block-width {
+		.arrows-width;
+		.visible-arrows;
+	}
+	.slider-wrapper {
+		.default-width;
+		position:relative;
+		overflow:hidden;
+	}
+	.view-content {
+		position:relative;
+		height:300px;
+		left:0px;
+		transition: left 0.8s;
+		.views-row {
+			.column-5;
+			background-color:white;
+			height:290px;
+			margin-bottom:@default-spacing;
+			.event-date-wrapper {
+				.blue-gradient;
+				color:white;
+				box-sizing:border-box;
+				padding:10px 15px 25px 15px;
+				& > div:first-child {
+					color:@light-blue;
+				}
+				& > div:nth-child(2) {
+					.date-styles;
+					font-size: 22px;
+				}
+				& > div:last-child {
+					.date-styles;
+					font-size: 38px;
+					position:relative;
+					top:5px;
+				}
+			}
+			.views-field-nothing {
+				box-sizing:border-box;
+				padding:@default-spacing;
+				font-size:@small-text;
+				height:215px;
+				span {
+					display:block;
+					position:relative;
+					height:100%;
+					width:100%;
+				}
+				& div:last-child {
+					position:absolute;
+					bottom:0;
+					font-weight:600;
+					color:@dark-blue;
+				}
+			}
+		}
+	}
+}
