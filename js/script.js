@@ -131,6 +131,24 @@
         });
     };
 
+    function fieldSet() {
+        $('.expandable').each(function() {
+            var fieldHeight = $(this).find('.fieldset-wrapper').height();
+            $(this).find('.fieldset-wrapper').css('max-height', fieldHeight);
+
+            //toggles ".expandable>.feildset-wrapper" max-height between 0 and feildHeight on click.
+            $(this).children('legend').unbind("click").click(function(e) {
+              if($(this).siblings('.fieldset-wrapper').height() == 0){
+                $(this).siblings('.fieldset-wrapper').css('max-height', fieldHeight);
+              }else{
+                $(this).siblings('.fieldset-wrapper').css('max-height', 0);
+              }
+            });
+
+        });
+    }
+
+    fieldSet();
     doesTabs();
     doesSlider();
 

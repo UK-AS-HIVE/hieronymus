@@ -571,6 +571,40 @@ input[type=text] {
 	}
 }
 
+//**** Fieldsets
+fieldset {
+	border:2px solid @light-blue;
+	box-sizing:border-box;
+	padding:30px;
+	vertical-align: top;
+	border-top:36px solid @light-blue;
+	position:relative;
+	border-radius:3px;
+	max-height:1000px;
+	.fieldset-wrapper {
+		transition: max-height 0.5s;
+	}
+
+}
+legend {
+	position:absolute;
+	color:white;
+	top:-28px;
+	left:30px;
+	font-size:1.3em;
+	text-transform: uppercase;
+}
+fieldset.expandable legend::before {
+	font-family: 'FontAwesome';
+	content: "\f01a";
+	margin-right:15px;
+}
+
+/*I, Anton Vinogradov, added this, I hope it doesnt break anything.*/
+fieldset.expandable>.fieldset-wrapper {
+  overflow: hidden;
+}
+
 //**** Colors
 .dark-blue { background: @dark-blue; }
 .blue { background: @uk-blue; }

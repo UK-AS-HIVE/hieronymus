@@ -1,6 +1,7 @@
 <?php
 
 drupal_add_library('system', 'effects.bounce');
+drupal_add_css('https://cdn.as.uky.edu/fonts/font-awesome/css/font-awesome.min.css', array('type' => 'external'));
 //drupal_add_library('system', 'effects.slide');
 
 /**
