@@ -6,28 +6,28 @@ version = VERSION
 core = 7.x
 
 stylesheets[all][] = css/style.css.less
+stylesheets[all][] = css/menu.css.less
+stylesheets[all][] = css/media.css.less
 stylesheets[print][] = css/print.css
-stylesheets[] = https://cdn.as.uky.edu/fonts/font-awesome/css/font-awesome.min.css
+stylesheets[] = https://cdn.as.uky.edu/fonts/font-awesome-4.4.0/css/font-awesome.min.css
 
+scripts[] = js/menu.js
 scripts[] = js/script.js
+scripts[] = js/gallery.js
 
+regions[global-nav] = Global Nav
 regions[header] = Header
+regions[navigation] = Navigation
 regions[help] = Help
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
-regions[highlighted] = Highlighted
 
 regions[featured] = Featured
+regions[highlighted] = Highlighted
 regions[content] = Content
+regions[sidebar] = Sidebar
 
-regions[triptych_first] = Triptych first
-regions[triptych_middle] = Triptych middle
-regions[triptych_last] = Triptych last
-
-regions[footer_firstcolumn] = Footer first column
-regions[footer_secondcolumn] = Footer second column
-regions[footer_thirdcolumn] = Footer third column
-regions[footer_fourthcolumn] = Footer fourth column
+regions[footer_buttons] = Footer Buttons
 regions[footer] = Footer
 
 settings[shortcut_module_link] = 0

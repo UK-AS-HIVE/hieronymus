@@ -1,7 +1,7 @@
 <?php
 
 drupal_add_library('system', 'effects.bounce');
-drupal_add_css('https://cdn.as.uky.edu/fonts/font-awesome/css/font-awesome.min.css', array('type' => 'external'));
+drupal_add_css('https://cdn.as.uky.edu/fonts/font-awesome-4.4.0/css/font-awesome.min.css', array('type' => 'external'));
 //drupal_add_library('system', 'effects.slide');
 
 /**
@@ -12,18 +12,38 @@ function hieronymus_preprocess_html(&$variables) {
     $variables['classes_array'][] = 'featured';
   }
 
-  if (!empty($variables['page']['triptych_first'])
-    || !empty($variables['page']['triptych_middle'])
-    || !empty($variables['page']['triptych_last'])) {
-    $variables['classes_array'][] = 'triptych';
-  }
-
   if (!empty($variables['page']['footer_firstcolumn'])
     || !empty($variables['page']['footer_secondcolumn'])
     || !empty($variables['page']['footer_thirdcolumn'])
     || !empty($variables['page']['footer_fourthcolumn'])) {
     $variables['classes_array'][] = 'footer-columns';
   }
+
+  if (!empty($variables['page']['sidebar'])) {
+    $variables['classes_array'][] = 'has-sidebar';
+  }
+
+  // Force IE out of compatibility view
+  drupal_add_html_head(
+    array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'http-equiv' => 'X-UA-Compatible',
+        'content' => 'IE=edge',
+      ),
+      '#weight' => -2000,
+    ),
+    'force_ie8_compatibility'
+  );
+
+  $viewport = array(
+    '#tag' => 'meta', 
+    '#attributes' => array(
+      'name' => 'viewport', 
+      'content' => 'width=device-width, initial-scale=1, maximum-scale=1',
+    ),
+  );
+  drupal_add_html_head($viewport, 'viewport');
 
   // Add conditional stylesheets for IE
   drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
@@ -143,7 +163,7 @@ function hieronymus_field__taxonomy_term_reference($variables) {
 
   // Render the label, if it's not hidden.
   if (!$variables['label_hidden']) {
-    $output .= '<h3 class="field-label">' . $variables['label'] . ': </h3>';
+    $output .= '<div class="field-label">' . $variables['label'] . ': </div>';
   }
 
   // Render the items.

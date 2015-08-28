@@ -1,0 +1,117 @@
+.alignleft {
+  float: left;
+  margin-left: 0;
+}
+.alignright {
+  float: right;
+}
+#provost-global-nav img {
+  position:relative;
+  top:11px;
+  width:120px;
+  height:auto;
+}
+#provost-global-nav .menulink {
+  display: none;
+}
+
+#block-block-340 {
+  background: #222222;
+  height:45px;
+}
+#provost-global-nav .wrap-inner {
+  margin: auto;
+}
+#provost-global-nav li {
+  text-transform: uppercase;
+  list-style: none;  
+}
+#provost-global-nav fieldset {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+
+  border-top:0;
+}
+.topRightLink li a {
+  display: block;
+  line-height: 28px;
+  font-size: 11px;
+  color: #f7f7f7;
+  text-transform: uppercase;
+  font-family: helvetica,arial,sans-serif;
+}
+.topRightLink li {
+  float: left;
+  padding: 8px 22px 8px 0;
+}
+.top-link li {
+  color: #F7F7F7;
+  display: block;
+  font-family: 'HelveticaNeue-Roman';
+  font-size: 10px;
+  line-height: 28px;
+  text-transform: uppercase;
+  float: left;
+  padding: 8px 0 8px 26px;
+}
+.top-link li a {
+  display: block;
+  line-height: 28px;
+  font-size: 12px;
+  color: #f7f7f7;
+  text-transform: uppercase;
+  font-family: 'HelveticaNeue-Roman',helvetica,arial,san-serif;
+}
+.top-link li a:hover {
+  border-bottom:0;
+}
+#provost-global-nav .searchform {
+  position:relative;
+  top:11px;
+}
+#provost-global-nav .searchform input {
+  float: left;
+  border: 1px solid #005daa;
+  background: #222222;
+  width: 100px;
+  line-height: 17px;
+  font-size: 12px;
+  color: white;
+  font-family: Arial,Helvetica,sans-serif;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  padding: 1px 5px;
+  margin: 0;
+  min-width:0;
+  max-width:100px;
+}
+.searchform input::-webkit-input-placeholder {
+  color:white;
+}
+.searchform input:moz-placeholder {
+  color:white;
+}
+.searchform input::moz-placeholder {
+  color:white;
+}
+.searchform input:ms-input-placeholder {
+  color:white;
+}
+.block .top-link {
+  padding-right: 12px;
+}
+#provost-global-nav .searchform button {
+  border: 1px solid #005daa;
+  background: url(//www.uky.edu/provost/sites/www.uky.edu.provost/themes/seeblue/img/bgi/sprites.png) no-repeat left top;
+  width: 21px;
+  height: 21px;
+  display: block;
+  text-indent: -999em;
+}
+@media screen and (max-width:720px) {
+  .top-link {
+    display:none;
+  }
+}

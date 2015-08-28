@@ -43,20 +43,24 @@
  *
  * @ingroup themeable
  */
+
+$classes .= ' block-wrapper';
+
 ?>
+
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
-    <div class="block-width">
-      <div id="back-arrow" class="arrows"></div>
-      <div id="forward-arrow" class="arrows"></div>
-          <?php print render($title_prefix); ?>
-        <?php if ($block->subject): ?>
-          <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
-        <?php endif;?>
-          <?php print render($title_suffix); ?>
-        <div class="slider-wrapper">
-          <div class="content"<?php print $content_attributes; ?>>
-          	  <?php print $content ?>
-          </div>
-        </div>
+  <div class="width-container">
+    <div class="back-arrow arrows"></div>
+    <div class="forward-arrow arrows"></div>
+    <?php print render($title_prefix); ?>
+    <?php if ($block->subject): ?>
+        <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
+    <?php endif;?>
+    <?php print render($title_suffix); ?>
+    <div class="content-wrapper">
+      <div class="content"<?php print $content_attributes; ?>>
+        <?php print $content ?>
+      </div>
     </div>
+  </div>
 </div>

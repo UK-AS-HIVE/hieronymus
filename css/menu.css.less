@@ -1,0 +1,427 @@
+@import "variables.css.less";
+
+//**** Drupal tabs (to edit content/profiles/etc)
+li.expanded, li.collapsed, li.leaf {
+	padding-top:0;
+	padding-right:0;
+	font-size: 1em;
+}
+.tabs.primary {
+	float: right;
+	border: solid 2px @uk-blue;
+	height: 0;
+	overflow: hidden;
+	padding: 31px 0 0;
+	position: relative;
+
+	&:hover {
+		overflow: visible;
+	}
+	&:before {
+	    content: "\f013 \f063";
+	    font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	    letter-spacing: 0.15em;
+	    color: @uk-blue;
+	    font-size: 23px;
+	    position: absolute;
+	    top: 5px;
+	    left: 0;
+	    right: 0;
+	    display: block;
+	    text-align: center;
+	}
+	li {
+		display: block;
+		width: 100%;
+		.border-box;
+		position: relative;
+		z-index: 5;
+
+		a {
+			display: block;
+			width: 100%;
+			.border-box;
+			padding: 6px 11px;
+			.no-underline;
+		}
+	}
+}
+
+//**** Hide Drupal Admin Toolbar below desktop
+@media @tablet-max {
+	#toolbar {
+		display: none;
+	}
+	body {
+		padding-top: 0 !important;
+	}
+}
+
+//**** Hide content when a menu is open.
+#shadow {
+	position: fixed;
+	z-index: 20;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 100%;
+	background: rgba(0,0,0,0.87);
+	opacity: 0;
+	@media @desktop {
+		transition: opacity 0.3s 0.1s, right 0s 0.4s;
+	}
+}
+//** On desktop, keep everything above the menu above the shadow.
+@media @desktop {
+	.region-global-nav,
+	.region-navigation,
+	#header {
+		position: relative;
+		z-index: 30;
+	}
+	.desktop-menu-open #shadow {
+		right: 0;
+		opacity: 0.85;
+		transition: opacity 0.3s;
+	}
+}
+
+
+.menu-toggle-block.responsive-element {
+	font-size: 40px;
+	text-align: right;
+
+	#menu-toggle {
+		cursor: pointer;
+		display: inline-block;
+		.no-select;
+	}
+
+	@media @tablet-max {
+		display: block;
+		z-index: 25;
+	}
+}
+
+.menu-open {
+	overflow: hidden;
+
+	@media @tablet-max {
+		#page-wrapper {
+			position: relative;
+		}
+
+		.region-navigation {
+			max-width: 470px;
+			width:100%;
+			padding: 42px 11px;
+			z-index: 50;
+			overflow-y: scroll;
+		}
+		#menu-toggle {
+			position: relative;
+			right: 470px;
+			color: @medium-gray;
+		}
+		#shadow {
+			right: 0;
+			opacity: 1;
+			transition: opacity 0.3s;
+		}
+	}
+	@media @mobile-max {
+		.region-navigation {
+			padding: 123px 16px 42px 16px;
+			width:100%;
+			max-width:100%;
+			right:auto;
+			left:auto;
+			box-sizing: border-box;
+			.restricted-width .width-container {
+				.content-wrapper {
+					margin:0;
+					width:100%;
+					padding: 0;
+					ul {
+						margin-left:0;
+					}
+				}
+			}
+		}
+		#header, .region-global-nav {
+			position: relative;
+			z-index: 1000;
+		}
+		#menu-toggle {
+			right: auto;
+			color: @uk-blue;
+		}
+	}
+}
+
+.region-navigation {
+	.no-select;
+
+	@media @tablet-max {
+		position: fixed;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 0;
+		overflow: hidden;
+		padding: 42px 0;
+		background: @medium-gray;
+		#block-menu-menu-students-main-menu {
+			background: @medium-gray;
+			.menu {
+				font-size: 1em;
+			}
+			.content > .menu {
+				> li {
+					list-style: none;
+					box-sizing:border-box;
+					a {
+						color: @dark-gray;
+						line-height: 1.5;
+						font-size: 1.25em;
+						.no-underline;
+					}
+					> a {
+						font-size: 1.9em;
+						.no-underline;
+					}
+					.menu {
+						height: 0;
+						overflow: hidden;
+						margin-left: 7px;
+					}
+				}
+				li {
+					position: relative;
+					padding-right: 0.19em;
+					list-style: none;
+
+					li > a {
+						line-height: 1.7;
+						.no-underline;
+					}
+				}
+				li.expanded:after {		
+					content: "\f078";
+					font-family: FontAwesome;
+					font-style: normal;
+					font-weight: normal;
+					text-decoration: inherit;
+					color: @medium-gray;
+					font-size: 1.2em;
+					padding: 0.42em;
+					position: absolute;
+					right: 0;
+					top: 0.42em;
+					width: 1.3em;
+					text-align: center;
+					z-index: 5;
+					background: @dark-gray;
+					border-radius: 3px;
+				}
+				li.expanded:hover:after {
+					background: @uk-blue;
+				}
+				li.expanded.open:after {
+					content: "\f10c";
+				}
+				li.expanded.open > .menu {
+					height: auto;
+
+					li.expanded:after {
+						font-size: 1em;
+						padding: 0.07em 0.42em;
+						opacity: 0.5;
+					}
+				}
+				//** These parts are specific to www
+				//@TODO Generalize for other domains
+				> li:first-child {
+					> .menu > li:nth-child(n+2):nth-child(-n+3) {
+						padding: 0;
+
+						&:after {
+							display: none;
+						}
+						> a {
+							display: none;
+						}
+					}
+					> .menu > li.open:first-child + li:nth-child(2) > .menu,
+					> .menu > li.open:first-child + li:nth-child(2) + li:nth-child(3) > .menu {
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+#block-menu-menu-students-main-menu {
+	@media @desktop {
+		.content > .menu {
+			position: relative;
+			margin-left: 0;
+			text-align: right;
+	
+			> li {
+				margin-left: 0;
+			}
+			> li.expanded > a:after {		
+				content: "\f0d7";
+				font-family: FontAwesome;
+				font-style: normal;
+				font-weight: normal;
+				text-decoration: inherit;
+				color: @dark-gray;
+				font-size: 1em;
+				position: relative;
+				margin-left:5px;
+				z-index: 5;
+				display:inline-block;
+				-ms-transform: rotate(-90deg); /* IE 9 */
+				-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+				transform: rotate(-90deg);
+				transition: 0.3s;
+			}
+			> li.expanded:hover {
+				> a:after {
+					-ms-transform: rotate(0deg); /* IE 9 */
+					-webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+					transform: rotate(0deg);
+					transition: 0.3s;
+				}
+			}
+			//** These parts are specific to www
+			//@TODO Generalize for other domains
+			> li:nth-child(-n+5) {
+				float: left;
+			}
+			> li:nth-child(6):before {
+				content: '';
+				display: block;
+				height: 100%;
+				position: absolute;
+				background: @medium-gray;
+				width: 10000px;
+				margin-left: -10042px;
+				top: 0;
+				pointer-events: none;
+			}
+			> li:nth-child(n+6):hover > a {
+				background-color:@text-color;
+			}
+			> li:nth-child(n+6):hover > ul {
+				background-color:@text-color;
+				a {
+					background-color:transparent;
+					color: @medium-gray;
+				}
+				ul > li {
+					&:hover a {
+						color:white;
+					}
+					a {
+						background-color:transparent;
+						color: @medium-gray;
+					}
+				}
+			}
+			> li:nth-child(n+6) a:after {
+				color: @medium-gray;
+			}
+			> li:nth-child(n+6) > a {
+				color: @medium-gray;
+			}
+			> li:nth-child(1) > .menu > li:nth-child(2) > a,
+			> li:nth-child(1) > .menu > li:nth-child(3) > a {
+				visibility: hidden;
+			}
+			> li {
+				display: inline-block;
+				&:hover a {
+					background-color:@light-gray;
+				}
+				a {
+					color: @dark-gray;
+					position: relative;
+					z-index: 5;
+					.no-underline;
+					font-size: 1em;
+				}
+				> a {
+					.no-underline;
+					padding: 0.7em 0.9em;
+					display:inline-block;
+				}
+				> .menu {
+					margin-left: 0;
+					position: absolute;
+					left: -99999px;
+					top: 100%;
+					width: 100%;
+					background: @light-gray;
+					box-sizing: border-box;
+					padding: 22px 38px;
+					text-align: left;
+					transition: left 0s 0.1s, background-color 0s 0.1s;
+					overflow:hidden;
+	
+					> li {
+						float: left;
+						width: 32%;
+						margin-left: 0;
+						margin-bottom: 0.42em;
+						list-style: none;
+						padding: 0 1%;
+						-moz-box-sizing: border-box;
+							 box-sizing: border-box;
+						.menu {
+							> li {
+								list-style-type: none;
+								list-style-image: none;
+								a {
+									transition: 0.3s;
+								}
+								&:hover a {
+									color: @text-color - 11;
+									transition:0.3s;
+								}
+							}
+						}
+						> a {
+							font-weight:bold;
+						}
+					}
+					> li.expanded > a {
+						font-weight: bold;
+						.no-underline;
+					}
+				}
+				&:hover > .menu {
+					left: 0;
+					z-index: 10;
+					transition: left 0s 0.1s;
+				}
+			}
+	
+		}
+	}
+} 
+
+
+
+
+
+
+
+
+
