@@ -29,7 +29,7 @@
     $('.book-explorer li.expanded > a').after($('<a class="book-toggle"><i class="fa fa-caret-right"></i></a>'));
     $('.book-toggle').click(function(){
       $(this).next().slideToggle(200);
-      $(this).toggleClass('clicked');
+      $(this).parent().toggleClass('open');
     });
     $('.book-explorer > .menu .menu').each(function(i, item) {
       console.log(item);
@@ -38,7 +38,7 @@
         console.log(item);
       }
       else {
-        $(item).prev().addClass('clicked');
+        $(item).parent().addClass('open active-book');
       }
     });
   });
