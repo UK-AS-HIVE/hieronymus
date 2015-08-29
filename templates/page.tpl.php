@@ -42,12 +42,6 @@
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
 
-    <?php if ($page['sidebar']): ?>
-      <div id="sidebar" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar']); ?>
-      </div></div> <!-- /.section, /#sidebar-first -->
-    <?php endif; ?>
-
     <div id="content" class="column"><div class="section">
       <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
       <a id="main-content"></a>
@@ -75,6 +69,12 @@
       <?php print $feed_icons; ?>
 
     </div></div> <!-- /.section, /#content -->
+    
+    <?php if ($page['sidebar']): ?>
+      <div id="sidebar" class="column sidebar"><div class="section">
+        <?php print render($page['sidebar']); ?>
+      </div></div> <!-- /.section, /#sidebar-first -->
+    <?php endif; ?>
 
   </div></div> <!-- /#main, /#main-wrapper -->
 

@@ -36,6 +36,7 @@ iframe {
 	}
 }
 #sidebar {
+	text-align: left;
 	@media @desktop {
 		max-width:360px;
 		width:29%;
@@ -44,7 +45,11 @@ iframe {
 		display:inline-block;
 		vertical-align:top;
 	}
-	text-align: left;
+	@media @tablet-max {
+		max-width: 810px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 body.has-sidebar #main-wrapper {
 	text-align: left;
@@ -52,12 +57,20 @@ body.has-sidebar #main-wrapper {
 	width:95%;
 	margin:45px auto;
 	#content {
-		width:68%;
-		display:inline-block;
 		max-width:810px;
+		@media @desktop {
+			width:68%;
+			float: right;
+		}
+		@media @tablet-max {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		p, h1, h2, h3, h4, h5, h6 {
 			margin-left:0;
 			margin-right:0;
+
 		}
 	}
 }
