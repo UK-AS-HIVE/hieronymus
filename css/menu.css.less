@@ -538,7 +538,76 @@ li.expanded, li.collapsed, li.leaf {
 	display: none;
 }
 
+// Below full desktop uses core book block as a breakcrumb above content.
+@media @tablet-max {
+	#block-book-navigation {
+		display: block;
+		margin: -21px auto 21px;
 
+		.content-wrapper,
+		.content-wrapper > .content {
+			display: inline;
+		}
+
+		// One-time mixin
+		.responsive-book-breadcrumb {
+			float: left;
+			> a {
+				float: left;
+				background: @as-gray;
+				color: @dark-gray;
+				padding: 7px 19px 5px 11px;
+				position: relative;
+				z-index: 10;
+				line-height: 1;
+				margin-bottom: 3px;
+				.no-underline;
+			}
+			a:after {
+				content: '>';
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				padding-top: 7px;
+				padding-left: 2px;
+				z-index: 11;
+				width: 0.7em;
+				background: white;
+				color: @medium-gray;
+			}
+		}
+		h2 {
+			.responsive-book-breadcrumb;
+			font-size: 16px;
+			padding-bottom: 0;
+			a {
+				font-weight: 300;
+				text-transform: none;
+				display: block;
+			}
+		}
+		ul.menu {
+			margin-left: 0;
+			display: inline;
+
+			li {
+				display: none;
+				margin-left: 0;
+
+				&.active-trail {
+					display: inline;
+					.responsive-book-breadcrumb;
+
+					.active {
+						display: none;
+					}
+				}
+			}
+		}
+
+	}
+}
 
 
 
