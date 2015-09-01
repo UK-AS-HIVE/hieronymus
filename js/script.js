@@ -72,20 +72,24 @@
         }else if(this.page > 1) {
           $(this.arrowbackward).css({'opacity' : '1', 'pointer-events' : 'auto'});
         }
+        //when page resizes, while the current page number exceeds the max page number i trigger clicking the back arrow
         while(this.page>this.maxPageNum){
-          $(this.arrowbackward).trigger("click")
+          this.page -= 1;
         }
         
         $(this.arrowforward).unbind("click").click(this.forwardArrowClick);
         $(this.arrowbackward).unbind("click").click(this.backwardArrowClick);
+        
+        if(this.autoscroll){this.autoscrollSetup();}
+        this.moveSlider()
+        
       }
       
       this.forwardArrowClick = function(){
         var that = (sliderArray[Number($(this).parent().find(".slide").attr("data-index"))])
         if(that.page < that.maxPageNum) {
           that.page += 1;
-          var move=100*(that.page-1);
-          $('.visible-arrows').has(that.slider).find('.view-content').css('left', -move + "%");
+          
         }
         that.update()
       }
@@ -93,8 +97,6 @@
         var that = (sliderArray[Number($(this).parent().find(".slide").attr("data-index"))])
         if(that.page > 1) {
           that.page -= 1;
-          var move=100*(that.page-1);
-          $('.visible-arrows').has(that.slider).find('.view-content').css('left', -move + "%");
         }
         that.update()
       }
@@ -110,21 +112,48 @@
       this.autoscrollSetup = function(){
         $(this.arrowbackward).toggle(false);
         $(this.arrowforward).toggle(false);
-        this.scrollIndicator = {}
+        this.createScrollIndicator()
+        
       }
       this.scrollOne = function(){
         if(!this.autoscroll){return;}
         if(this.mouseOver){return;}
         if(this.page != this.maxPageNum){
-          $(this.arrowforward).trigger("click")
+          this.page += 1;
         }else{
-          for(var i = 1;i<this.maxPageNum;i++){
-            $(this.arrowbackward).trigger("click")
-          }
+          
+          this.page = 1;
         }
+        this.moveSlider()
+        
       }
-      
-      if(this.autoscroll){this.autoscrollSetup();}
+      this.moveSlider = function(){
+          var move=100*(this.page-1);
+          $('.visible-arrows').has(this.slider).find('.view-content').css('left', -move + "%");
+          if(this.autoscroll){
+            $(".dynamic-scroll-indicator-bubble-selected").removeClass("dynamic-scroll-indicator-bubble-selected")
+            $(this.slider).parent().find(".dynamic-scroll-indicator").find("[data-page-indicator="+this.page+"]").addClass("dynamic-scroll-indicator-bubble-selected")
+          }
+      }
+      this.createScrollIndicator = function(){
+        $(this.slider).parent().find(".dynamic-scroll-indicator").remove()
+        var scrollIndicator = document.createElement("div")
+        $(scrollIndicator).addClass("dynamic-scroll-indicator")
+        $(scrollIndicator).css({
+          "width": 30*this.maxPageNum+"px"
+        })
+        for(var i=1;i<=this.maxPageNum;i++){
+          var scrollIndicatorBubble = document.createElement("div")
+          $(scrollIndicatorBubble).attr("data-page-indicator",i).addClass("indicator-bubble")
+          $(scrollIndicatorBubble).unbind("click").click(function(){
+            var that = (sliderArray[Number($(this).parent().parent().find(".slide").attr("data-index"))])
+            that.page = Number($(this).attr("data-page-indicator"))
+            that.moveSlider()
+          })
+          $(scrollIndicator).append(scrollIndicatorBubble)
+        }
+        $(this.slider).parent().append(scrollIndicator)
+      }
       
       //maybe not needed
       this.hideArrows = function(n){

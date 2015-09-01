@@ -33,7 +33,7 @@
     });
     $('.book-explorer > .menu .menu').each(function(i, item) {
       console.log(item);
-      if ($(item).find('a.active').length == 0) {
+      if ($(item).find('a.active').length == 0 && $(item).siblings('a.active').length == 0) {
         $(item).hide();
         console.log(item);
       }

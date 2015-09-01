@@ -1,0 +1,45 @@
+@import 'variables.css.less';
+
+.quick-links {
+	background: @uk-blue;
+	padding: 19px 42px 9px;
+	margin-bottom: @default-spacing * 2;
+	display: inline-block;
+	line-height: 1;
+
+	h3 {
+		color: white;
+		float: left;
+
+		&:after {
+			content: "\f061";
+		    font-family: FontAwesome;
+		    font-style: normal;
+		    font-weight: normal;
+			margin: 0 0.6em;
+		}
+	}
+}
+
+#initiatives-row-1{
+	background: @as-gray;
+	padding: 9px 13px;
+	a {
+		display: inline-block;
+		padding: 2px;
+		height: 107px;
+		width: 117px;
+		font-size: 0;
+		padding: 0 21px 3px 0;
+		vertical-align: middle;
+
+		img {
+			display: inline;
+		}
+	}
+}
+#initiatives-info {
+	background: @as-gray;
+	.clearfix;
+	padding: 9px 13px;
+}

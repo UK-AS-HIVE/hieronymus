@@ -13,10 +13,12 @@
 @half-spacing: 7px;
 @small-text: 13px;
 @restricted-width: 1200px;
+@max-content-width: 810px;
 
 //**** Media Queries
 @desktop: ~"only screen and (min-width: 1025px)";
 @tablet-max: ~"only screen and (max-width: 1024px)";
+@phablet-max: ~"only screen and (max-width: 820px)";
 @mobile-max: ~"only screen and (max-width:600px)";
 
 //**** Mixins
@@ -76,10 +78,13 @@
 	display:table;
 	clear:both;
 }
-.no-underline {
-	&:hover {
-		border-bottom:0;
+.clearfix {
+	&:before,
+	&:after {
+		.clearfixing;
 	}
+}
+.no-underline {
 }
 .last-child-fix {
 	padding-right:0;

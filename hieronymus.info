@@ -8,6 +8,7 @@ core = 7.x
 stylesheets[all][] = css/style.css.less
 stylesheets[all][] = css/menu.css.less
 stylesheets[all][] = css/media.css.less
+stylesheets[all][] = css/special.css.less
 stylesheets[print][] = css/print.css
 stylesheets[] = https://cdn.as.uky.edu/fonts/font-awesome-4.4.0/css/font-awesome.min.css
 

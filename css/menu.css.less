@@ -178,6 +178,7 @@ li.expanded, li.collapsed, li.leaf {
 			background: @medium-gray;
 			.menu {
 				font-size: 1em;
+				margin-bottom:0;
 			}
 			.content > .menu {
 				> li {
@@ -271,7 +272,7 @@ li.expanded, li.collapsed, li.leaf {
 			position: relative;
 			margin-left: 0;
 			text-align: right;
-	
+			margin-bottom:0;
 			> li {
 				margin-left: 0;
 			}
@@ -319,13 +320,16 @@ li.expanded, li.collapsed, li.leaf {
 			> li:nth-child(n+6):hover > a {
 				background-color:@text-color;
 			}
-			> li:nth-child(n+6):hover > ul {
+			> li:nth-child(n+6) > ul.menu {
 				background-color:@text-color;
 				a {
 					background-color:transparent;
 					color: @medium-gray;
+					&:hover {
+						color: white;
+					}
 				}
-				ul > li {
+				ul.menu > li {
 					&:hover a {
 						color:white;
 					}
@@ -440,10 +444,19 @@ li.expanded, li.collapsed, li.leaf {
 	h2 {
 		font-size:20px;
 		line-height:120%;
-		padding:7px 10px 7px 10px;
-		border-bottom: 2px solid @dark-blue;
+		padding-bottom: 0;
+		@media @desktop {
+			padding:7px 10px 7px 10px;
+			border-bottom: 2px solid @dark-blue;
+		}
 		a {
 			color:@dark-blue;
+			@media @tablet-max {
+				background: @dark-blue;
+				color: @light-gray;
+				display: block;
+				padding:7px 10px 7px 10px;
+			}
 		}
 	}
 	.book-explorer {
@@ -452,7 +465,7 @@ li.expanded, li.collapsed, li.leaf {
 				background:none;
 				padding-left:0;
 				position:relative;
-
+				a {	.no-select; }
 				> a:not(.book-toggle) {
 					color: @text-color;
 					font-size:14px;
@@ -542,7 +555,7 @@ li.expanded, li.collapsed, li.leaf {
 @media @tablet-max {
 	#block-book-navigation {
 		display: block;
-		margin: -21px auto 21px;
+		margin: -33px auto 33px;
 
 		.content-wrapper,
 		.content-wrapper > .content {
@@ -599,10 +612,10 @@ li.expanded, li.collapsed, li.leaf {
 					display: inline;
 					.responsive-book-breadcrumb;
 
-					.active {
-						display: none;
-					}
 				}
+			}
+			.active {
+				display: none;
 			}
 		}
 
