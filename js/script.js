@@ -139,9 +139,6 @@
         $(this.slider).parent().find(".dynamic-scroll-indicator").remove()
         var scrollIndicator = document.createElement("div")
         $(scrollIndicator).addClass("dynamic-scroll-indicator")
-        $(scrollIndicator).css({
-          "width": 30*this.maxPageNum+"px"
-        })
         for(var i=1;i<=this.maxPageNum;i++){
           var scrollIndicatorBubble = document.createElement("div")
           $(scrollIndicatorBubble).attr("data-page-indicator",i).addClass("indicator-bubble")
