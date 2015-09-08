@@ -1171,99 +1171,98 @@ fieldset.expandable.rotateArrow {
 }
 
 //**** Pages - Profile
-#sidebar {
-	.view-redesign-profile-sidebar {
-		.views-field {
-			border-bottom:1px solid @uk-blue;
-			box-sizing:border-box;
-			padding:6px 0 6px 0;
+.view-redesign-profile-sidebar, .view-redesign-profile-sidebar-mobile {
+	.views-field {
+		border-bottom:1px solid @uk-blue;
+		box-sizing:border-box;
+		padding:6px 0 6px 0;
+	}
+	.views-field-picture, .views-field-field-user-email, .views-field-field-office, .views-field-field-phone {
+		border-bottom:0;
+	}
+	.views-field-field-job {
+		ul {
+			list-style-type: none;
+			margin:0;
+			margin-left:1em;
+			text-indent: -1em;
+			li {
+				margin:0;
+			}
 		}
-		.views-field-picture, .views-field-field-user-email, .views-field-field-office, .views-field-field-phone {
-			border-bottom:0;
+	}
+	.views-field-field-external-affiliations {
+		border-bottom:0;
+		border-top:1px solid @uk-blue;
+		.views-label-field-external-affiliations {
+			font-weight: bold;
 		}
-		.views-field-field-job {
-			ul {
-				list-style-type: none;
+		ul {
+			list-style-type: none;
+			margin:0;
+			li {
 				margin:0;
 				margin-left:1em;
 				text-indent: -1em;
-				li {
-					margin:0;
-				}
-			}
-		}
-		.views-field-field-external-affiliations {
-			border-bottom:0;
-			border-top:1px solid @uk-blue;
-			.views-label-field-external-affiliations {
-				font-weight: bold;
-			}
-			ul {
-				list-style-type: none;
-				margin:0;
-				li {
-					margin:0;
-					margin-left:1em;
-					text-indent: -1em;
-				}
-			}
-		}
-		.views-field-field-assignments {
-			ul {
-				list-style-type: none;
-				margin:0;
-				li {
-					margin:0;
-				}
-			}
-		}
-		.views-field-field-user-email, .views-field-field-office, .views-field-field-phone {
-			padding:2px 0 2px 0;
-			box-sizing:border-box;
-		}
-		.views-field-nothing {
-			border-bottom:0;
-			padding: 6px 0 0 0;
-		}
-		.views-field-field-user-email {
-			padding-top:6px;
-			& > .field-content {
-				&:before {
-					font-family:FontAwesome;
-					content:"\f0e0";
-					color:@light-blue;
-					margin-right:6px;
-				}
-			}
-		}
-		.views-field-field-office {
-			& > .field-content {
-				&:before {
-					font-family:FontAwesome;
-					content:"\f1ad";
-					color:@light-blue;
-					margin-right:6px;
-				}
-			}
-		}
-		.views-field-field-phone {
-			padding-bottom:6px;
-			& > .field-content {
-				&:before {
-					font-family:FontAwesome;
-					content:"\f098";
-					color:@light-blue;
-					margin-right:6px;
-				}
 			}
 		}
 	}
-	ul, p ,a {
-		font-size:0.96em;
+	.views-field-field-assignments {
+		ul {
+			list-style-type: none;
+			margin:0;
+			li {
+				margin:0;
+			}
+		}
+	}
+	.views-field-field-user-email, .views-field-field-office, .views-field-field-phone {
+		padding:2px 0 2px 0;
+		box-sizing:border-box;
+	}
+	.views-field-nothing {
+		border-bottom:0;
+		padding: 6px 0 0 0;
+	}
+	.views-field-field-user-email {
+		padding-top:6px;
+		& > .field-content {
+			&:before {
+				font-family:FontAwesome;
+				content:"\f0e0";
+				color:@light-blue;
+				margin-right:6px;
+			}
+		}
+	}
+	.views-field-field-office {
+		& > .field-content {
+			&:before {
+				font-family:FontAwesome;
+				content:"\f1ad";
+				color:@light-blue;
+				margin-right:6px;
+			}
+		}
+	}
+	.views-field-field-phone {
+		padding-bottom:6px;
+		& > .field-content {
+			&:before {
+				font-family:FontAwesome;
+				content:"\f098";
+				color:@light-blue;
+				margin-right:6px;
+			}
+		}
 	}
 }
-
 .page-user {
+	#sidebar {
+		ul, p ,a {
+			font-size:0.96em;
+		}
+	}
 	#content {
 		h1 {
 			padding-bottom:0;
@@ -1281,6 +1280,63 @@ fieldset.expandable.rotateArrow {
 			.views-field-title {
 				font-weight:bold;
 				padding-bottom:7px;
+			}
+		}
+	}
+}
+@media @tablet-max {
+	.page-user {
+		#sidebar {
+			display:none;
+		}
+		#content {
+			.responsive-element {
+				display:block;
+				margin-bottom:20px;
+				.clearfix;
+				.views-field-picture {
+					display:inline-block;
+					width:30%;
+					margin-right:20px;
+					float: left;
+				}
+				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-nothing, .views-field-field-external-affiliations {
+					display:inline-block;
+					width:60%;
+					float: left;
+				}
+			}
+		}
+	}
+}
+@media @phablet-max {
+	.page-user {
+		#content {
+			.responsive-element {
+				.views-field-picture {
+					width:45%;
+				}
+				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-nothing, .views-field-field-external-affiliations {
+					width:45%;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 700px) {
+	.page-user {
+		#content {
+			.responsive-element {
+				.views-field-picture {
+					width:100%;
+					max-width:400px;
+					float:none;
+				}
+				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-nothing, .views-field-field-external-affiliations {
+					width:100%;
+					max-width:400px;
+					float:none;
+				}
 			}
 		}
 	}
@@ -1658,6 +1714,7 @@ body:not(.has-sidebar).page-calendar #content {
 			transition:color 0.3s;
 			position:absolute;
 			right:0;
+			pointer-events:none;
 		}
 		a {
 			color:@text-color;
