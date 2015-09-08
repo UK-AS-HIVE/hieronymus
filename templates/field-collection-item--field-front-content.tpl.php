@@ -62,8 +62,6 @@ if ($content['field_badges']['#items'][0]['value'] == 1) {
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="<?php print $block_classes;?>">
     <div class="width-container">
-      <div class="back-arrow arrows"></div>
-      <div class="forward-arrow arrows"></div>
       <?php print render($title_prefix); ?>
       <?php if ($block->subject): ?>
           <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
@@ -74,6 +72,8 @@ if ($content['field_badges']['#items'][0]['value'] == 1) {
           <?php print render($content) ?>
         </div>
       </div>
+      <div class="back-arrow arrows"></div>
+      <div class="forward-arrow arrows"></div>
     </div>
   </div>
 </div>

@@ -16,13 +16,6 @@ td,th {
 	vertical-align: top;
 }
 
-//**** Javascript fix
-/*.view-redesign-front-features {
-	.views-row:not(.views-row-1) {
-		display:none;
-	}
-}*/
-
 //**** Set Up
 #toolbar ul {
 	width:auto;
@@ -93,19 +86,21 @@ body:not(.has-sidebar) #content {
 	ol, 
 	li, 
 	table, 
+	.links,
 	.view-filters, 
 	.webform-client-form, 
 	.title,
+	.field-name-field-asdate,
+	.field-name-field-location,
+	.field-name-body,
+	.views-field,
+	.field-name-field-presenter,
+	#block-views-course-promotions-block-2,
 	.field-type-taxonomy-term-reference:not(.form-wrapper) {
 		max-width:810px;
 		margin-left:auto;
 		margin-right:auto;
-	}
-	.views-field {
-		max-width:810px;
-		margin-left:auto;
-		margin-right:auto;
-	}
+	} 
 	@media screen and (max-width:850px) {
 		width:90%;
 		max-width:90%;
@@ -122,9 +117,15 @@ body:not(.has-sidebar) #content {
 		ol, 
 		li, 
 		table, 
+		.links,
 		.view-filters, 
 		.webform-client-form,
 		.title,
+		.field-name-field-asdate,
+		.field-name-field-location,
+		.field-name-body,
+		.field-name-field-presenter,
+		#block-views-course-promotions-block-2,
 		.field-type-taxonomy-term-reference:not(.form-wrapper) {
 			max-width:100%;
 			width:100%;
@@ -189,9 +190,11 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		float: right;
 		margin-top:-33px;
 		margin-left:14px;
+		@media @tablet-max {
+			margin-top:-20px;
+		}
 		@media @mobile-max {
 			margin-left:0;
-			margin-top:0;
 			margin-bottom:14px;
 			float:none;
 		}
@@ -210,6 +213,15 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		margin:0 auto;
 	}
 }
+/*@media @tablet-max {
+		.restricted-width .width-container {
+		width:100%;
+		max-width:810px;
+		.content-wrapper {
+			width:100%;
+		}
+	}
+}*/
 .content-wrapper {
 	position:relative;
 }
@@ -219,16 +231,22 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		position:absolute;
 		top: 50%;
 		transform: translateY(-50%);		
-		opacity:0;
 		transition: opacity 0.3s;
 		transition: color 0.3s;
-		//z-index: 50;
 		color:@uk-blue;
 		font-size:30px;
 		&:hover {
 			cursor:pointer;
 			color:@light-blue;
 			transition: color 0.3s;
+		}
+		@media @tablet-max {
+			display:block;
+			position:relative;
+			top:auto;
+			transform:none;
+			top:20px;
+			margin-bottom:7px;
 		}
 	}
 	.back-arrow {
@@ -241,6 +259,10 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		    font-size:40px;
 		}
 		left:0;
+		@media @tablet-max {
+			left:30%;
+			float: left;
+		}
 	}
 	.forward-arrow {
 		&:after {
@@ -252,9 +274,18 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		    font-size:40px;
 		}
 		right:0;
+		@media @tablet-max {
+			right:30%;
+			float: right;
+		}
 	}
 	.content-wrapper {
 		overflow:hidden;
+	}
+}
+.tab-width-container {
+	.back-arrow, .forward-arrow {
+		display:none;	
 	}
 }
 .all-columns {
@@ -299,6 +330,20 @@ p { font-size:1.08em; }
 .small-text { font-size:13px; }
 .light-text { color: #a4a4a4; }
 strong { font-weight:600; }
+
+#block-system-main {
+	h2 {
+		font-size:22px;
+		text-transform: none;
+		font-weight:normal;
+		color:@uk-blue;
+	}
+}
+@media @mobile-max {
+	.title, h2 {
+		font-size:28px;
+	}
+}
 
 //**** Paragraph
 h1, h2, h3, h4, .subtitle {
@@ -405,6 +450,10 @@ p {
 		text-align:center;
 		width:100%;
 		padding: 0;
+		@media @tablet-max {
+			font-size:28px;
+			top:16px;
+		}
 	}
 	&.tab-menu {
 		font-size: 0;
@@ -427,6 +476,11 @@ p {
 			padding:30px 0 28px 30px;
 			width:108px;
 			transition:background-color 0.3s;
+			@media @tablet-max {
+				font-size:30px;
+				padding:22px 22px 22px 22px;
+				width:75px;
+			}
 		}
 		ul.tabbed {
 			margin: 0;
@@ -552,7 +606,6 @@ ul {
 	line-height:150%;
 	ol { list-style-type: lower-latin;}
 }
-
 ol { 
 	list-style-type: decimal;
 	margin-left:2em;
@@ -561,6 +614,27 @@ ol {
 	line-height:150%;
 	ol {
 		list-style-type: lower-latin;
+	}
+}
+ul.links {
+	margin-left:0;
+}
+body ul.inline, 
+body ul.links.inline {
+	display:block;
+	width:90%;
+	margin-top:7px;
+	li.first {
+		padding-left:0;
+	}
+}
+body #content .field-name-field-tags {
+	ul.links {
+		list-style-type:none;
+		li {
+			display:inline-block;
+			margin-right:14px;
+		}
 	}
 }
 
@@ -602,6 +676,9 @@ table {
 		text-transform:uppercase;
 		color:white;
 		padding:8px 12px 8px 12px;
+		a {
+			color: white;
+		}
 	}
 	tr {
 		background: @light-gray;
@@ -841,10 +918,7 @@ textarea {
 		transition: 0.3s;
 	}
 }
-input[type=text] {
-	&:valid {
-	}
-}
+
 
 //**** Drupal Back End Styles 
 body.html.not-front {
@@ -1221,6 +1295,72 @@ fieldset.expandable.rotateArrow {
 	}
 }
 
+//**** Pages - Calendar
+body:not(.has-sidebar).page-calendar #content {
+	.title {
+		max-width:1200px;
+		min-width:810px;
+	}
+	.view-event-calendar {
+		table {
+			display:table;
+			max-width:1200px;
+			&.fc-header {
+				vertical-align:bottom;
+				tr, td { 
+					vertical-align:bottom;
+				}
+				.fc-header-center {
+					h2 {
+						font-family: 'open-sans', sans-serif;
+						padding-bottom:0;
+						font-size: 26px; 
+						font-weight: 600; 
+						text-transform:uppercase;
+						color:@text-color;
+					}
+				}
+			}
+		}
+		.fc-content {
+			th.ui-widget-header {
+				font-size:16px;
+			}
+			.fc-event {
+				background-color:@light-blue;
+				border: none;
+				border-radius:3px;
+				display: block;
+				box-sizing: border-box;
+				padding: 7px 10px 7px 10px;
+				line-height: 140%;
+				.fc-event-inner {
+				 	background-color:@light-blue;
+				 	border: none;
+				 	span {
+				 		display:block;
+				 	}
+				 	.fc-event-time {
+				 		background-color:@light-blue;
+				 	}
+				}
+			}
+		}
+	}
+}
+
+//**** Pages - Events
+.node-asevet {
+	.field {
+		margin-bottom:7px;
+		.field-label {
+			text-transform:uppercase;
+		}
+	}
+	.field-name-body {
+		margin-top:21px;
+	}
+}
 
 //**** Header 
 #header {
@@ -1336,8 +1476,6 @@ fieldset.expandable.rotateArrow {
 	}
 
 	@media @phablet-max {
-		background: @light-gray;
-
 		.views-field-field-main-image {
 			display: none;
 		}
@@ -1345,10 +1483,11 @@ fieldset.expandable.rotateArrow {
 			display: block;
 			line-height: 0;
 			font-size: 0;
+			margin-bottom:14px;
 		}
 		.views-field-view-node {
 			display: block;
-
+			margin-bottom:7px;
 			.standard-button {
 				max-width: 100%;
 				width: 100%;
@@ -1358,8 +1497,6 @@ fieldset.expandable.rotateArrow {
 		.views-field-field-subtitle-for-responsive {
 			.border-box;
 			display: block;
-			background: @medium-gray;
-			line-height: 1.3;
 			text-align: center;
 
 			.field-content {
@@ -1367,18 +1504,24 @@ fieldset.expandable.rotateArrow {
 				margin: auto;
 				padding: 7px 7px 0;
 			}
-			
-			@media @mobile-max {
-				max-width: 90%;
-			}
 		}
 		.views-field-field-title-for-responsive a {
 			display: block;
-			font-size: 29px;
-			color: white;
+			font-size: 22px;
+			font-weight:600;
+			color: @uk-blue;
+			text-transform: uppercase;
+			margin-bottom:3px;
+			line-height: 130%;
 		}
 		.views-field-field-subtitle-for-responsive .field-content {
 			padding: 3px 7px 11px;
+		}
+	}
+	@media @mobile-max {
+		.views-field-field-title-for-responsive .field-content,
+		.views-field-field-subtitle-for-responsive .field-content {
+			max-width: 90%;
 		}
 	}
 }
@@ -1389,7 +1532,9 @@ fieldset.expandable.rotateArrow {
 .dynamic-scroll-indicator {
 	position:relative;
 	text-align: center;
-
+	/*@media @mobile-max {
+		border-bottom: 1px solid @light-blue;
+	}*/
 	& > .indicator-bubble {
 		width:10px;
 		height:10px;
@@ -1449,6 +1594,9 @@ fieldset.expandable.rotateArrow {
 					color:@text-color;
 					line-height:130%;
 				}
+			}
+			p {
+				margin-bottom:0;
 			}
 		}
 	}
@@ -1620,6 +1768,7 @@ fieldset.expandable.rotateArrow {
 }
 .departments {
 	.department-circles {
+		margin-left:0;
 		& > li {
 			width:16.3%;
 			display:inline-block;
@@ -1742,7 +1891,6 @@ fieldset.expandable.rotateArrow {
 							background:@medium-gray;
 							top:3px;
 							right:0;
-							z-index:100;
 							@media screen and (max-width:900px) {
 								height:2px;
 								width:100%;
@@ -1758,8 +1906,7 @@ fieldset.expandable.rotateArrow {
 							width:2px;
 							background:@medium-gray;
 							top:3px;
-							left:0;;
-							z-index:100;	
+							left:0;
 							@media screen and (max-width:900px) {
 								display:none;
 							}
@@ -1842,12 +1989,16 @@ fieldset.expandable.rotateArrow {
 				text-align: center;
 			}
 			.content {
+				width:80%;
+				margin:0 auto;
 				br {
 					display:none;
 				}
 				a {
 					color:white;
+					display:inline-block;
 					margin-left:@default-spacing;
+					margin-bottom:7px;
 					i {
 						display:inline-block;
 						font-size:40px;

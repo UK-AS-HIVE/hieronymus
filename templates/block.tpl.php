@@ -50,8 +50,6 @@ $classes .= ' block-wrapper';
 
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="width-container">
-    <div class="back-arrow arrows"></div>
-    <div class="forward-arrow arrows"></div>
     <?php print render($title_prefix); ?>
     <?php if ($block->subject): ?>
         <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
@@ -62,5 +60,7 @@ $classes .= ' block-wrapper';
         <?php print $content ?>
       </div>
     </div>
+    <div class="back-arrow arrows"></div>
+    <div class="forward-arrow arrows"></div>
   </div>
 </div>

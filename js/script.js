@@ -63,14 +63,14 @@
         
         //update slider arrows.
         if(this.page >= this.maxPageNum) {
-          $(this.arrowforward).css({'opacity' : '0', 'pointer-events' : 'none'});
+          $(this.arrowforward).css({'color' : '#d0d0d0', 'pointer-events' : 'none'});
         }else{
-          $(this.arrowforward).css({'opacity' : '1', 'pointer-events' : 'auto'});
+          $(this.arrowforward).css({'color' : '#005daa', 'pointer-events' : 'auto'});
         }
         if(this.page == 1) {
-          $(this.arrowbackward).css({'opacity' : '0', 'pointer-events' : 'none'});
+          $(this.arrowbackward).css({'color' : '#d0d0d0', 'pointer-events' : 'none'});
         }else if(this.page > 1) {
-          $(this.arrowbackward).css({'opacity' : '1', 'pointer-events' : 'auto'});
+          $(this.arrowbackward).css({'color' : '#005daa', 'pointer-events' : 'auto'});
         }
         //when page resizes, while the current page number exceeds the max page number i trigger clicking the back arrow
         while(this.page>this.maxPageNum){
@@ -237,12 +237,14 @@
             })
 
             tabs.click(function(e){   
+              //Tab buttons classes to change header
               tabs.removeClass('current');
               $(this).addClass('current');
               
+              //Tab content switching
               tabWrapperContainer.find('.tab-content div').removeClass('current');
               var dataTabNumber = $(this).attr('data-tab');
-              tabWrapperContainer.find('.tab-content div[data-tab="' + dataTabNumber + '"').addClass('current');
+              tabWrapperContainer.find('.tab-content div[data-tab="' + dataTabNumber + '"]').addClass('current');
               
               setTabHeader(this)
               
