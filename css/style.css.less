@@ -160,6 +160,20 @@ div.vertical-tabs {
 .slide-1 .views-row {
 	width:100vw;
 }
+ul.directory-links {
+	li {
+		&:after {
+			content: "/";
+			color:@uk-blue;
+		}
+		&:last-of-type:after {
+			content:""
+		}
+		a {
+			margin: 0 0.5em 0 0.5em;
+		}
+	}
+}
 
 //**** Rows Set Up
 .entity-field-collection-item {
@@ -1168,6 +1182,15 @@ fieldset.expandable.rotateArrow {
 .tiny-avatar {
 	height:100%;
 	width:auto;
+}
+
+//**** Pages - User
+body:not(.has-sidebar).page-users #content {
+	table,
+	ul, 
+	.view-filters {
+		max-width:1200px;
+	}
 }
 
 //**** Pages - Profile
