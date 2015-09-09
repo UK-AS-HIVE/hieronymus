@@ -246,7 +246,6 @@ li.expanded, li.collapsed, li.leaf {
 				}
 				li.expanded.open > .menu {
 					height: auto;
-
 					li.expanded:after {
 						font-size: 1em;
 						padding: 0.07em 0.42em;
@@ -487,6 +486,13 @@ li.expanded, li.collapsed, li.leaf {
 						color:@light-blue;
 						transition:color 0.3s;
 					}
+					@media @tablet-max {
+						.no-effects;
+						&:hover {
+							.no-effects;
+							color:@text-color;
+						}
+					}
 					&.active {
 						color:white;
 						background-color:@uk-blue;
@@ -516,7 +522,6 @@ li.expanded, li.collapsed, li.leaf {
 				}
 				&.expanded {
 					position: relative;
-
 					.book-toggle {
 						height:17px;
 						text-align:center;
@@ -536,17 +541,21 @@ li.expanded, li.collapsed, li.leaf {
 							position:relative;
 							top:12px;
 							transition: 0.3s;
+							@media @tablet-max {
+								.no-effects;
+							}
 						}
 					}
 					&.open {
-							> .book-toggle i {
-								-ms-transform: rotate(90deg); /* IE 9 */
-								-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-								transform: rotate(90deg);
-								transition: 0.3s;
+						> .book-toggle i {
+							-ms-transform: rotate(90deg); /* IE 9 */
+							-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+							transform: rotate(90deg);
+							transition: 0.3s;
+							@media @tablet-max {
+								.no-effects;
 							}
-					}
-					&.active-book {
+						}
 					}
 				}
 			}
@@ -566,12 +575,10 @@ li.expanded, li.collapsed, li.leaf {
 	#block-book-navigation {
 		display: block;
 		margin: -33px auto 33px;
-
 		.content-wrapper,
 		.content-wrapper > .content {
 			display: inline;
 		}
-
 		// One-time mixin
 		.responsive-book-breadcrumb {
 			float: left;
@@ -584,6 +591,7 @@ li.expanded, li.collapsed, li.leaf {
 				z-index: 10;
 				line-height: 1;
 				margin-bottom: 3px;
+				display:inline;
 				.no-underline;
 			}
 			a:after {
@@ -613,19 +621,13 @@ li.expanded, li.collapsed, li.leaf {
 		ul.menu {
 			margin-left: 0;
 			display: inline;
-
 			li {
 				display: none;
 				margin-left: 0;
-
 				&.active-trail {
 					display: inline;
 					.responsive-book-breadcrumb;
-
 				}
-			}
-			.active {
-				display: none;
 			}
 		}
 

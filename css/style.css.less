@@ -236,7 +236,6 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		position:absolute;
 		top: 50%;
 		transform: translateY(-50%);		
-		transition: opacity 0.3s;
 		transition: color 0.3s;
 		color:@uk-blue;
 		font-size:30px;
@@ -252,6 +251,10 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 			transform:none;
 			top:20px;
 			margin-bottom:7px;
+			.no-effects;
+			&:hover {
+				.no-effects;
+			}
 		}
 	}
 	.back-arrow {
@@ -325,8 +328,8 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 
 //**** Typography
 body { font:300 16px/140% 'Open Sans', sans-serif; color:#303030; }
-h1 { font-size: 35px; color:#005daa; font-weight: 600; text-transform: uppercase; line-height:130%;}
-h2 { font-size: 35px; color:#005daa; font-weight: 600; text-transform: uppercase; line-height:130%;}
+h1 { font-size: 28px; color:#005daa; font-weight: 600; text-transform: uppercase; line-height:125%;}
+h2 { font-size: 28px; color:#005daa; font-weight: 600; text-transform: uppercase; line-height:125%;}
 h3 { font-size: 18px; font-weight: 600; text-transform:uppercase; line-height:130%;}
 h4 { font-size: 16px; font-weight:600; color: #00325b; line-height:130%;}
 .subtitle { font-size: 26px; color: #6e7071; text-transform: none; font-weight:300; line-height:130%;}
@@ -628,17 +631,23 @@ body ul.inline,
 body ul.links.inline {
 	display:block;
 	width:90%;
-	margin-top:7px;
-	li.first {
-		padding-left:0;
-	}
+	//margin-top:7px;  ---This was screwing some tabs up, can't remember why I put it here initally. -Will
 }
 body #content .field-name-field-tags {
-	ul.links {
+	ul.links.inline {
 		list-style-type:none;
 		li {
-			display:inline-block;
-			margin-right:14px;
+			padding:0;
+			a {
+				padding: 0 0.5em 0 0.5em;
+			}
+			&:after {
+				content:"/";
+				color:@uk-blue;
+			}
+			&:last-of-type:after {
+				content:"";
+			}
 		}
 	}
 }
@@ -1521,6 +1530,9 @@ body:not(.has-sidebar).page-calendar #content {
 		left:0px;
 		transition: left 0.8s;
 		width:20000%;
+		@media @tablet-max {
+			.no-effects;
+		}
 		.views-row {
 			.all-columns;
 		}
@@ -1602,9 +1614,6 @@ body:not(.has-sidebar).page-calendar #content {
 .dynamic-scroll-indicator {
 	position:relative;
 	text-align: center;
-	/*@media @mobile-max {
-		border-bottom: 1px solid @light-blue;
-	}*/
 	& > .indicator-bubble {
 		width:10px;
 		height:10px;
@@ -1627,10 +1636,14 @@ body:not(.has-sidebar).page-calendar #content {
 			width: 35px;
 			height: 35px;
 			padding: 13px 7px;
-
 			&:after {
 				font-size: 35px;
 				bottom: 0;
+				.no-effects;
+			}
+			&:hover:after {
+				.no-effects;
+				color:@medium-gray;
 			}
 		}
 	}
@@ -1638,6 +1651,14 @@ body:not(.has-sidebar).page-calendar #content {
 		&:after {
 			color:@uk-blue;
 			transition: color 0.6s;
+		}
+		&:hover:after {
+			color:@uk-blue;
+		}
+		@media @tablet-max {
+			&:after {
+				.no-effects;
+			}
 		}
 	}
 }
@@ -1751,6 +1772,12 @@ body:not(.has-sidebar).page-calendar #content {
 				color:@dark-gray;
 				transition:color 0.3s;
 			}
+			@media @tablet-max {
+				&:hover {
+					.no-effects;
+					color:@text-color;
+				}
+			}
 		}
 		&:hover {
 			cursor:pointer;
@@ -1759,6 +1786,16 @@ body:not(.has-sidebar).page-calendar #content {
 			&:after {
 				color:@light-blue;
 				transition:color 0.3s;
+			}
+		}
+		@media @tablet-max {
+			&:hover {
+				.no-effects;
+				border-bottom-color: @uk-blue;
+				&:after {
+					.no-effects;
+					color:@uk-blue;
+				}
 			}
 		}
 	}
@@ -1870,6 +1907,12 @@ body:not(.has-sidebar).page-calendar #content {
 				&:hover h3 {
 					color:@uk-blue;
 					transition:color 0.3s;
+				}
+				@media @tablet-max {
+					&:hover h3 {
+						color:@text-color;
+						.no-effects;
+					}
 				}
 			}
 			@media screen and (max-width:1200px) {
@@ -2023,6 +2066,12 @@ body:not(.has-sidebar).page-calendar #content {
 								background-color:@medium-gray;
 								transition: background-color 0.3s;
 							}
+							@media @tablet-max {
+								&:hover {
+									background-color:@as-gray;
+									.no-effects;
+								}
+							}
 						}
 					}
 				}
@@ -2082,8 +2131,6 @@ body:not(.has-sidebar).page-calendar #content {
 				text-align: center;
 			}
 			.content {
-				width:80%;
-				margin:0 auto;
 				br {
 					display:none;
 				}
@@ -2101,7 +2148,17 @@ body:not(.has-sidebar).page-calendar #content {
 							color:@light-blue;
 							transition:color 0.3s;
 						}
+						@media @tablet-max {
+							&:hover {
+								color:white;
+								.no-effects;
+							}
+						}
 					}
+				}
+				@media @mobile-max {
+					width:80%;
+					margin:0 auto;
 				}
 			}
 			@media screen and (max-width: 900px) {
