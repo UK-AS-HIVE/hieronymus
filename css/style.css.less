@@ -57,7 +57,7 @@ body.has-sidebar #main-wrapper {
 	#content {
 		max-width:810px;
 		@media @desktop {
-			width:68%;
+			width:70%;
 			float: right;
 		}
 		@media @tablet-max {
@@ -2032,6 +2032,7 @@ body:not(.has-sidebar).page-calendar #content {
 								width:100%;
 								right:auto;
 								top:auto;
+								z-index:50;
 							}
 					    }
 					    &:first-of-type:before {
@@ -2325,12 +2326,6 @@ body:not(.has-sidebar).page-calendar #content {
 					ul {
 						margin-bottom:15px;
 					}
-					/*&:last-child {
-						.full-width;
-						& > p {
-							.restricted-width;
-						}
-					}*/
 				}
 				ul {
 					margin-left:0;
