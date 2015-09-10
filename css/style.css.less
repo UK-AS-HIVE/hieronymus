@@ -680,7 +680,7 @@ table {
 	width:100%;
 	margin-bottom: @default-spacing*2;
 	min-width:700px;
-	overflow-x: scroll;
+	overflow-x: auto;
 	overflow-y: hidden;
 	display:block;
 	th {
@@ -1378,12 +1378,16 @@ body:not(.has-sidebar).page-users #content {
 body:not(.has-sidebar).page-calendar #content {
 	.title {
 		max-width:1200px;
-		min-width:810px;
 	}
 	.view-event-calendar {
+		.fullcalendar {
+			max-width:1200px;
+			margin:0 auto;
+			min-width:1000px;
+		}
 		table {
 			display:table;
-			max-width:1200px;
+			max-width:none;
 			&.fc-header {
 				vertical-align:bottom;
 				tr, td { 
@@ -1410,7 +1414,6 @@ body:not(.has-sidebar).page-calendar #content {
 				border: none;
 				border-radius:3px;
 				display: block;
-				box-sizing: border-box;
 				padding: 7px 10px 7px 10px;
 				line-height: 140%;
 				.fc-event-inner {
@@ -1423,6 +1426,10 @@ body:not(.has-sidebar).page-calendar #content {
 				 		background-color:@light-blue;
 				 	}
 				}
+			}
+			.ui-state-highlight {
+				border:2px solid @light-blue;
+				background-color:@as-gray;
 			}
 		}
 	}
@@ -1733,7 +1740,7 @@ body:not(.has-sidebar).page-calendar #content {
 	}
 }
 .badges ul {
-	width:66%;
+	width:50%;
 	min-width:250px;
 	margin:0;
 	font-size: 22px;
@@ -1798,6 +1805,16 @@ body:not(.has-sidebar).page-calendar #content {
 				}
 			}
 		}
+	}
+}
+#block-system-main {
+	.badges {
+		margin: 0 0 20px;
+		border-top:3px solid @uk-blue;
+		padding-top:28px;
+	}
+	ul {
+
 	}
 }
 
