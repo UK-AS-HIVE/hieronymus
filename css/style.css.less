@@ -1085,32 +1085,40 @@ body.html.not-front.page-user-edit #content {
 
 //**** Fieldsets
 fieldset {
-	border:2px solid @light-blue;
 	box-sizing:border-box;
-	padding:30px;
 	vertical-align: top;
-	border-top:36px solid @light-blue;
 	position:relative;
-	border-radius:3px;
+	margin-top: @default-spacing;
 	.fieldset-wrapper {
-		transition: max-height 0.5s;
-		overflow:hidden;
+		border:2px solid @light-blue;
+		border-top: none;
+		padding:30px;
 	}
-
 }
 legend {
-	position:absolute;
-	color:white;
-	top:-37px;
-	left:30px;
 	font-size:1.3em;
 	text-transform: uppercase;
-	width:100%;
-	padding:10px 0 10px 0;
-	box-sizing:border-box;
+	width: 100%;
+	.border-box;
+	padding:10px 19px;
+	background: @light-blue;
+	vertical-align: middle;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	color: white;
+
+	img {
+		float: none !important;
+		display: inline-block !important;
+		margin-left: 0 !important;
+		mergin-right: 6px !important;
+		vertical-align: middle;
+	}
 }
 fieldset.expandable {
 	legend {
+		padding-left: 42px;
+
 		&:hover {
 			cursor: pointer;
 		}
@@ -1119,11 +1127,14 @@ fieldset.expandable {
 			content: "\f054";
 			margin-right:15px;
 			display:inline-block;
+			position: absolute;
+			left: 13px;
 			transition:0.3s;
+		    transition:0.3s;
 		}
 	}
 }
-fieldset.expandable.rotateArrow {
+fieldset.expandable.expanded {
 	legend::before {
 		-ms-transform: rotate(90deg); /* IE 9 */
 	    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */

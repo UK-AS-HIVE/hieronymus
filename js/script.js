@@ -265,31 +265,14 @@
             }
             
             //since its updated on page resize i need to set initial condition
-            if($(this).find('.fieldset-wrapper').attr("data-closed") != "true"){
-              $(this).find('.fieldset-wrapper').attr("data-closed","false")
-              $(this).find('.fieldset-wrapper').css('max-height', fieldHeight);
-                $('.expandable').addClass('rotateArrow');
-            }else{
-              $(this).find('.fieldset-wrapper').attr("data-closed","true")
-              $(this).find('.fieldset-wrapper').css('max-height', 0);
-                $('.expandable').addClass('rotateArrow');
+            if (!$(this).hasClass('expanded')) {
+              $(this).children('.fieldset-wrapper').hide();
             }
 
             //toggles ".expandable>.feildset-wrapper" max-height between 0 and feildHeight on click.
             $(this).children('legend').unbind("click").click(function() {
-              console.log("click triggerd")
-              if($(this).siblings('.fieldset-wrapper').attr("data-closed") != "true"){
-                $(this).siblings('.fieldset-wrapper').css('max-height', 0);
-                $(this).siblings('.fieldset-wrapper').attr("data-closed","true")
-                //Removes class on click to rotate fieldset arrow
-                $('.expandable').has(this).removeClass('rotateArrow');
-                
-              }else{
-                $(this).siblings('.fieldset-wrapper').css('max-height', fieldHeight);
-                $(this).siblings('.fieldset-wrapper').attr("data-closed","false")
-                //Adds class on click to rotate fieldset arrow
-                $('.expandable').has(this).addClass('rotateArrow');
-              }
+              $(this).parent().toggleClass('expanded');
+              $(this).siblings('.fieldset-wrapper').slideToggle(500);
             });
             
 
