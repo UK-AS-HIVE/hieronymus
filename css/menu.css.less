@@ -13,12 +13,18 @@ li.expanded, li.collapsed, li.leaf {
 	overflow: hidden;
 	padding: 31px 0 0;
 	position: relative;
-
+	z-index:10;
 	&:hover {
 		overflow: visible;
+		&:before {
+			-ms-transform: rotate(25deg);
+			-webkit-transform: rotate(25deg);
+			transform: rotate(25deg);
+			transition: transform 0.3s;
+		}
 	}
 	&:before {
-	    content: "\f013 \f063";
+	    content: "\f013";
 	    font-family: FontAwesome;
 	    font-style: normal;
 	    font-weight: normal;
@@ -32,6 +38,17 @@ li.expanded, li.collapsed, li.leaf {
 	    right: 0;
 	    display: block;
 	    text-align: center;
+	    transition: transform 0.3s;
+	}
+	@media @tablet-max {
+		&:hover:before {
+			transition:none;
+			transform:none;
+		}
+		&:before {
+			transition:none;
+			transform:none;
+		}
 	}
 	li {
 		display: block;
@@ -294,6 +311,7 @@ li.expanded, li.collapsed, li.leaf {
 				color: @dark-gray;
 				font-size: 1em;
 				position: relative;
+				top:1px;
 				margin-left:5px;
 				z-index: 5;
 				display:inline-block;

@@ -72,6 +72,13 @@
         }else if(this.page > 1) {
           $(this.arrowbackward).css({'color' : '#005daa', 'pointer-events' : 'auto'});
         }
+        if(1 >= this.maxPageNum){
+          $(this.arrowforward).css({"visibility":"hidden"})
+          $(this.arrowbackward).css({"visibility":"hidden"})
+        }else{
+          $(this.arrowforward).css({"visibility":"visible"})
+          $(this.arrowbackward).css({"visibility":"visible"})
+        }
         //when page resizes, while the current page number exceeds the max page number i trigger clicking the back arrow
         while(this.page>this.maxPageNum){
           this.page -= 1;

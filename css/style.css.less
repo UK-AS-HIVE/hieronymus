@@ -933,156 +933,6 @@ textarea {
 	}
 }
 
-
-//**** Drupal Back End Styles 
-body.html.not-front {
-	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit {
-		.field-type-file,
-		.field-type-image,
-		.text-format-wrapper,
-		.field-type-taxonomy-term-reference {
-			border: 1px solid @as-gray;
-			margin: 0.5em 0;
-			padding: 0 0.5em;
-		}
-		.field-type-taxonomy-term-reference {
-			max-width: 100%;
-			padding-bottom: @default-spacing;
-		}
-		ul {
-			max-width: 100%;
-		}
-		.text-format-wrapper {
-			background: @light-gray;
-			padding-bottom: 1em;
-			.filter-wrapper {
-				font-size: 14px;
-				.form-item {
-					margin-top: 0;
-				}
-			}
-		}
-		.filter-help a {
-			font-size: 13px;
-			float: right;
-		}
-		.ckeditor_links {
-			display: none !important;
-		}
-		textarea {
-			width:100%;
-			background-color:white;
-			max-width:100%;
-			min-width:200px;
-			border:1px solid @as-gray;
-		}
-		fieldset:not(.collapsible):not(.horizontal-tabs-pane) {
-			border:0;
-			padding:0;
-		}
-		legend {
-			position:relative;
-			color:@uk-blue;
-			left:auto;
-			top:auto;
-			padding:10px 0 0 0;
-		}
-		fieldset.collapsible {
-			padding: @default-spacing;
-			margin: 7px 0;
-			legend {
-				a {
-					color: white;
-				}
-				background: @light-blue;
-				border: solid 1px @light-blue;
-				border-top-width: 2px;
-			}
-		}
-		input {
-			max-width:100%;
-		}
-		input[type="file"] {
-			margin-right:@default-spacing;
-		}
-		.field-type-text-long {
-			margin:20px 0 20px 0;
-		}
-		tr.odd .form-type-textarea, tr.even .form-type-textarea {
-			margin-bottom:15px;
-		}
-		.resizable-textarea .grippie {
-			position:relative;
-			top:2px;
-		}
-		.block-wrapper {
-			width:95%;
-			max-width:1200px;
-			margin:0 auto;
-		}
-		.form-type-managed-file .description {
-			color: @dark-gray;
-		}
-		li.horiztonal-tab-item a {
-			.no-underline;
-		}
-		.form-actions {
-			input[type="submit"] {
-				margin-right:14px;
-				margin-bottom:14px;
-			}
-		}
-	}
-}
-body:not(.has-sidebar) {
-	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit {
-		#content {
-			h1,
-			h2,
-			h3,
-			h4,
-			p,
-			ul,
-			li,
-			table,
-			.title {
-				max-width:1200px;
-			}
-		}
-	}
-}
-
-//**** Profile Edit Page
-body.html.not-front.page-user-edit #content {
-	h1 {
-		max-width: 100%;
-	}
-	#user-profile-form {
-		#edit-picture {
-			background: @light-gray;
-			border: solid 1px @as-gray;
-			padding: 4px 11px;
-			float: left;
-			max-width: 360px;
-			width: 30%;
-			margin-right: @default-spacing;
-		}
-		.field-name-field-full-name {
-			margin-top: @default-spacing;
-			float: left;
-			.full_name-name {
-				float: none;
-				display: inline-block;
-				margin-right: 3px;
-				input {
-					max-width: 5em;
-					min-width: 5em;
-				}
-			}
-		}
-	}
-}
-
 //**** Fieldsets
 fieldset {
 	box-sizing:border-box;
@@ -2528,45 +2378,191 @@ body:not(.has-sidebar).page-calendar #content {
 }
 
 //**** Drupal Back End Styles 
-.page-node-edit, .page-node-add {
-	.block-wrapper {
-		width:95%;
-		max-width:1200px;
-		margin:0 auto;
+body.html.not-front {
+	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit {
+		#block-system-main {
+			max-width:1200px;
+			width:90%;
+			margin:0 auto;
+		}
+		.field-type-file,
+		.field-type-image,
+		.text-format-wrapper,
+		.field-type-taxonomy-term-reference {
+			border: 1px solid @as-gray;
+			margin: 1em 0;
+			padding: 0 0.5em;
+			border-radius:3px;
+		}
+		.field-type-image, .field-type-file {
+			background-color:@light-gray;
+			fieldset {
+				margin-top:1em;
+				legend {
+					background:transparent;
+					border:none;
+					border-radius:0;
+					font-size:16px;
+					padding:0;
+					span {
+						font-size:16px;
+						color: rgb(48, 48, 48);
+						text-transform:capitalize;
+					}
+				}
+			}
+		}
+		.field-type-taxonomy-term-reference {
+			max-width: 100%;
+			padding-bottom: @default-spacing;
+		}
+		ul {
+			max-width: 100%;
+		}
+		.text-format-wrapper {
+			background: @light-gray;
+			padding-bottom: 1em;
+			.filter-wrapper {
+				font-size: 14px;
+				.form-item {
+					margin-top: 0;
+				}
+			}
+		}
+		.filter-help a {
+			font-size: 13px;
+			float: right;
+		}
+		.ckeditor_links {
+			display: none !important;
+		}
+		textarea {
+			width:100%;
+			background-color:white;
+			max-width:100%;
+			min-width:200px;
+			border:1px solid @as-gray;
+		}
+		legend {
+			position:relative;
+			color:@uk-blue;
+			left:auto;
+			top:auto;
+			padding:10px 0 0 0;
+		}
+		fieldset {
+			margin-top:0;
+			&:not(.collapsible):not(.horizontal-tabs-pane) {
+				border:0;
+				padding:0;
+			}
+			&.horizontal-tabs-pane {
+				padding:0;
+			}
+			&.collapsible {
+				padding: @default-spacing;
+				margin: 7px 0;
+				legend {
+					a {
+						color: white;
+					}
+					background: @light-blue;
+					border: solid 1px @light-blue;
+					border-top-width: 2px;
+				}
+			}
+		}
+		.required-fields > .fieldset-wrapper {
+			border:none;
+		}
+		#body-add-more-wrapper .fieldset-wrapper {
+			border:none;
+			padding: 1em 0.5em;
+			.form-item {
+				padding:0 0 0.5em 0;
+			}
+		}
+		input {
+			max-width:100%;
+		}
+		input[type="file"] {
+			margin-right:@default-spacing;
+		}
+		.field-type-text-long {
+			margin:20px 0 20px 0;
+		}
+		tr.odd .form-type-textarea, tr.even .form-type-textarea {
+			margin-bottom:15px;
+		}
+		.resizable-textarea .grippie {
+			position:relative;
+			top:2px;
+		}
+		.form-type-managed-file .description {
+			color: @dark-gray;
+		}
+		.form-actions {
+			input[type="submit"] {
+				margin-right:14px;
+				margin-bottom:14px;
+			}
+		}
+		span.cke_skin_kama {
+			padding:0;
+			border-radius:3px;
+			.cke_skin_kama .cke_wrapper {
+				padding:5px;
+				border:none;
+			}
+		}
 	}
-	textarea {
-		width:100%;
-		background-color:white;
-		max-width:100%;
-		min-width:200px;
-		border:1px solid @as-gray;
+}
+body:not(.has-sidebar) {
+	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit {
+		#content {
+			h1,
+			h2,
+			h3,
+			h4,
+			p,
+			ul,
+			li,
+			table,
+			.field-name-body,
+			.title {
+				max-width:1200px;
+			}
+		}
 	}
-	fieldset {
-		border:0;
-		padding:0;
-	}
-	legend {
-		position:relative;
-		color:@uk-blue;
-		left:auto;
-		top:auto;
-		padding:10px 0 0 0;
-	}
-	input {
-		max-width:100%;
-	}
-	input[type="file"] {
-		margin-right:@default-spacing;
-	}
-	.field-type-text-long {
-		margin:20px 0 20px 0;
-	}
-	tr.odd .form-type-textarea, tr.even .form-type-textarea {
-		margin-bottom:15px;
-	}
-	.resizable-textarea .grippie {
-		position:relative;
-		top:2px;
-	}
+}
 
+//**** Profile Edit Page
+body.html.not-front.page-user-edit #content {
+	h1 {
+		max-width: 100%;
+	}
+	#user-profile-form {
+		#edit-picture {
+			background: @light-gray;
+			border: solid 1px @as-gray;
+			padding: 4px 11px;
+			float: left;
+			max-width: 360px;
+			width: 30%;
+			margin-right: @default-spacing;
+		}
+		.field-name-field-full-name {
+			margin-top: @default-spacing;
+			float: left;
+			.full_name-name {
+				float: none;
+				display: inline-block;
+				margin-right: 3px;
+				input {
+					max-width: 5em;
+					min-width: 5em;
+				}
+			}
+		}
+	}
 }
