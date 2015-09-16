@@ -338,6 +338,7 @@ p { font-size:1.08em; }
 .small-text { font-size:13px; }
 .light-text { color: #a4a4a4; }
 strong { font-weight:600; }
+em { font-style:  italic; }
 
 #block-system-main {
 	h2 {
@@ -623,6 +624,9 @@ ol {
 	ol {
 		list-style-type: lower-latin;
 	}
+}
+ul ul, ul ol, ol ol, ol ul {
+	margin-bottom:0;
 }
 ul.links {
 	margin-left:0;
@@ -2394,7 +2398,7 @@ body.html.not-front {
 			padding: 0 0.5em;
 			border-radius:3px;
 		}
-		.field-type-image, .field-type-file {
+		.field-type-image, .field-type-file, .field-type-taxonomy-term-reference {
 			background-color:@light-gray;
 			fieldset {
 				margin-top:1em;
@@ -2410,7 +2414,179 @@ body.html.not-front {
 						text-transform:capitalize;
 					}
 				}
+				.fieldset-wrapper {
+					border:none;
+					padding:0;
+					position:relative;
+				}
+				table {
+					vertical-align: middle;
+					th {
+						background-color:@light-blue;
+						vertical-align: middle;
+					}
+					tr {
+						background-color:white;
+						border:3px solid @light-blue;
+						vertical-align: middle;
+						td {
+							border:3px solid @light-blue;
+							vertical-align: middle;
+						}
+					}
+					.form-managed-file {
+						margin-left:25px;
+					}
+					.image-preview {
+						padding: 0 10px 0 0;
+					}
+					.image-widget-data {
+						position: relative;
+						top: 50%;
+						transform: translateY(50%);
+					}
+					tr.draggable {
+						position:relative;
+						.tabledrag-handle {
+							position:absolute;
+						}
+					}
+				}
 			}
+			#field_tags-bt {
+				padding:0;
+				margin: 0.5em 0 0.5em 0;
+				width:100%;
+				.tagit-new {
+					.tagit-input {
+						min-width:0;
+						background:transparent;
+						&:focus {
+							box-shadow:none;
+						}
+					}
+				}
+			}
+		}
+		.vertical-tabs {
+			.vertical-tabs-panes {
+				fieldset {
+					.fieldset-wrapper {
+						border:none;
+						padding:0 2em 0 2em;
+						position:relative;
+					}
+				}
+			}
+		}
+		.horizontal-tabs-panes {
+			> fieldset {
+				> legend {
+					display:none;
+				}
+				.fieldset-wrapper {
+					//padding: 0 0.5em;
+					border:none;
+					fieldset {
+						padding:0;
+					}
+				}
+				#field-feature-settings-add-more-wrapper {
+					> fieldset {
+						> legend {
+							display:none;
+						}
+						> .fieldset-wrapper {
+							padding:0;
+							fieldset {
+								margin-bottom:36px;
+								.fieldset-wrapper {
+									border: 2px solid #4e97d3;
+									border-top: none;
+									padding: 10px 30px 30px 30px;
+								}
+							}
+							.filter-wrapper {
+								.fieldset-wrapper {
+									border:0;
+									padding:1em 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		fieldset.collapsible {
+			legend {
+				padding:10px 10px 10px 20px;
+				&::before {
+					font-family: 'FontAwesome';
+					content: "\f054";
+					margin-right: 15px;
+					display: inline-block;
+					position: absolute;
+					left: 13px;
+					transition: 0.3s;
+					color:white;
+				}
+			}
+			.fieldset-legend {
+				background:none;
+			}
+			.fieldset-wrapper {
+				padding-top:10px;
+			}
+		}
+		.node-domain_settings-form {
+			.field-group-htabs-wrapper {
+				.horizontal-tabs-panes {
+					background-color:#f8f8f8;
+					table {
+						vertical-align: middle;
+						th {
+							background-color:@light-blue;
+							vertical-align: middle;
+						}
+						tr {
+							background-color:white;
+							border:3px solid @light-blue;
+							border-bottom:14px solid @light-blue;
+							vertical-align: middle;
+							padding:1em;
+							td {
+								border:3px solid @light-blue;
+								vertical-align: middle;
+								.field-type-text-long {
+									width:1050px;
+								}
+							}
+						}
+						.form-managed-file {
+							margin-left:25px;
+						}
+						.image-preview {
+							padding: 0 10px 0 0;
+						}
+						.image-widget-data {
+							position: relative;
+							top: 50%;
+							transform: translateY(50%);
+						}
+						tr.draggable {
+							position:relative;
+							.tabledrag-handle {
+								position:absolute;
+							}
+						}
+					}
+				}
+			}
+		}
+		.tabledrag-toggle-weight-wrapper {
+			position:absolute;
+			right:0;
+			top:0;
 		}
 		.field-type-taxonomy-term-reference {
 			max-width: 100%;
@@ -2486,7 +2662,7 @@ body.html.not-front {
 			max-width:100%;
 		}
 		input[type="file"] {
-			margin-right:@default-spacing;
+			margin-right:34px;
 		}
 		.field-type-text-long {
 			margin:20px 0 20px 0;
