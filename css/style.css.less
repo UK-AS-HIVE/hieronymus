@@ -628,6 +628,12 @@ ol {
 ul ul, ul ol, ol ol, ol ul {
 	margin-bottom:0;
 }
+dt { 
+	font-weight:bold;
+}
+dd {
+	margin-bottom:1em;
+}
 ul.links {
 	margin-left:0;
 }
@@ -2383,7 +2389,14 @@ body:not(.has-sidebar).page-calendar #content {
 
 //**** Drupal Back End Styles 
 body.html.not-front {
-	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit {
+	&.page-node-add {
+		#block-system-main {
+			max-width:1200px;
+			width:90%;
+			margin:0 auto;
+		}
+	}
+	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add {
 		#block-system-main {
 			max-width:1200px;
 			width:90%;
@@ -2544,6 +2557,11 @@ body.html.not-front {
 					background-color:#f8f8f8;
 					table {
 						vertical-align: middle;
+						&#field-front-content-values {
+							tr.draggable {
+								border-bottom:14px solid @light-blue;
+							}
+						}
 						th {
 							background-color:@light-blue;
 							vertical-align: middle;
@@ -2551,7 +2569,6 @@ body.html.not-front {
 						tr {
 							background-color:white;
 							border:3px solid @light-blue;
-							border-bottom:14px solid @light-blue;
 							vertical-align: middle;
 							padding:1em;
 							td {
@@ -2560,7 +2577,60 @@ body.html.not-front {
 								.field-type-text-long {
 									width:1050px;
 								}
+								&.field-multiple-drag {
+									.tabledrag-handle {
+										position:static;
+										padding-right:0;
+									}
+								}
+								.field-type-list-boolean {
+									padding: 0.1em 0;
+									&:nth-child(odd) {
+										display:inline-block;
+										margin-right:400px;
+										width:200px;
+										&.field-name-field-hide-from-display {
+											display:block;
+											margin:0;
+											margin-bottom:1em;
+										}
+									}
+									&:nth-child(even) {
+										display:inline-block;
+										&.field-name-field-hide-from-display {
+											display:block;
+											margin:0;
+											margin-bottom:1em;
+										}
+									}
+								}
+								.field-name-field-classes {
+									margin: 1em 0;
+								}
+								.field-type-text-long {
+									.text-format-wrapper {
+										fieldset {
+											.fieldset-wrapper {
+												padding:0;
+											}
+										}
+										table.cke_editor {
+											tr {
+												border:1px solid @medium-gray;
+												td {
+													border:1px solid @medium-gray;
+												}
+											}
+										}
+									}
+								}
+								.form-submit {
+									margin-bottom:1em;
+								}
 							}
+						}
+						thead label {
+							padding-left:30px;
 						}
 						.form-managed-file {
 							margin-left:25px;
@@ -2694,7 +2764,7 @@ body.html.not-front {
 	}
 }
 body:not(.has-sidebar) {
-	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit {
+	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add {
 		#content {
 			h1,
 			h2,
@@ -2707,6 +2777,39 @@ body:not(.has-sidebar) {
 			.field-name-body,
 			.title {
 				max-width:1200px;
+			}
+		}
+	}
+}
+
+//**** Add Content Pages
+body.html.not-front.page-node-add #content {
+	form {
+		.horizontal-tabs {
+			fieldset {
+				.fieldset-wrapper {
+					.field-type-text {
+						max-width:100%;
+					}
+					.field-type-datetime {
+						max-width:100%;
+						legend {
+							background-color: transparent;
+							span {
+								font-size: 20px;
+								color: @text-color;
+								text-transform: capitalize;
+								font-weight:bold;
+							}
+						}
+						.fieldset-wrapper {
+							padding: 0;
+							#edit-field-asdate-und-0-value, #edit-field-asdate-und-0-value2 {
+								padding:0;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
