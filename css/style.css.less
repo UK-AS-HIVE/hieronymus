@@ -1753,6 +1753,38 @@ body:not(.has-sidebar).page-calendar #content {
 	}
 }
 
+//**** Rows - News
+.view-redesign-news {
+	margin-top:40px;
+	.views-row {
+		/*&:after {
+			content:"";
+			height:14px;
+			width:2px;
+			background-color:@uk-blue;
+			display:inline-block;
+			position:absolute;
+			right:0;
+			top:50%;
+		}*/
+		.views-field-created {
+			span {
+				color:@uk-blue;
+				font-size:22px;
+				font-weight:bold;
+				margin-bottom:1em;
+			}
+		}
+		.views-field-title {
+			span {
+				a {
+					color:@text-color;
+				}
+			}
+		}
+	}
+}
+
 //**** Rows - Departments
 .departments {
 	.block-wrapper {
