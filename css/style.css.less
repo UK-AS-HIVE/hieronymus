@@ -2466,6 +2466,18 @@ body.html.not-front {
 					}
 				}
 			}
+			ul.tagit {
+				width:100%;
+				.tagit-new {
+					.tagit-input {
+						min-width:0;
+						background:transparent;
+						&:focus {
+							box-shadow:none;
+						}
+					}
+				}
+			}
 			#field_tags-bt {
 				padding:0;
 				margin: 0.5em 0 0.5em 0;
@@ -2761,6 +2773,11 @@ body.html.not-front {
 				border:none;
 			}
 		}
+		fieldset.group-audio {
+			> .fieldset-wrapper {
+				border:2px solid #4e97d3;
+			}
+		}
 	}
 }
 body:not(.has-sidebar) {
@@ -2813,6 +2830,16 @@ body.html.not-front.page-node-add #content {
 			}
 		}
 	}
+	.node-course-form {
+		.field-type-text-with-summary {
+			#edit-field-promotional-description-und-0-format {
+				> .fieldset-wrapper {
+					padding:0.5em 0;
+					border:none;
+				}
+			}
+		}
+	}
 }
 
 //**** Profile Edit Page
@@ -2841,6 +2868,56 @@ body.html.not-front.page-user-edit #content {
 					max-width: 5em;
 					min-width: 5em;
 				}
+			}
+		}
+	}
+}
+
+//**** Other Admin Pages
+body:not(.has-sidebar).html.not-front {
+	&.page-admin {
+		#content {
+			.title {
+				max-width:1200px;
+			}
+			#block-system-main,
+			table, 
+			ol, 
+			ul,
+			li,
+			h2 {
+				max-width:1200px;
+				margin:0 auto;
+			}
+			table {
+				small {
+					font-size:0.8em;
+				}
+				.description {
+					font-size:0.92em;
+				}
+			}
+			ul.action-links {
+				list-style-type:none;
+				margin-bottom:14px;
+				li {
+					.standard-button;
+					a {
+						color:white;
+					}
+				}
+			}
+			#features-admin-form {
+				.form-wrapper {
+					.fieldset-wrapper {
+						padding:0;
+						border:none;
+					}
+				}
+			}
+			#edit-pages-apply, #edit-pages-reset, #ctools-export-ui-list-items-apply, #ctools-export-ui-list-items-apply {
+				margin-top:14px;
+				margin-right:2em;
 			}
 		}
 	}
