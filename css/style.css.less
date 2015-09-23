@@ -644,16 +644,22 @@ body ul.links.inline {
 	//margin-top:7px;  ---This was screwing some tabs up, can't remember why I put it here initally. -Will
 }
 body #content .field-name-field-tags {
-	ul.links.inline {
+	ul.links.inline, ul.links {
 		list-style-type:none;
 		li {
 			padding:0;
+			display:inline-block;
 			a {
 				padding: 0 0.5em 0 0.5em;
 			}
 			&:after {
 				content:"/";
 				color:@uk-blue;
+			}
+			&:first-of-type {
+				a {
+					padding-left:0;
+				}
 			}
 			&:last-of-type:after {
 				content:"";
@@ -745,11 +751,160 @@ input:-ms-input-placeholder { .standard-font; }
 //** Special input styles
 input[type=text], input[type=password], input[type=email], input[type=tel] {
 	background:@light-gray;
-	padding:10px 8px 10px 8px;
+	padding:6px 8px 6px 8px;
 	border-radius: 3px;
 	width:30%;
 	max-width:350px;
 	min-width:250px;
+}
+//** Select
+.form-type-select {
+	position: relative;
+	&:after {
+		font-family:FontAwesome;
+		font-size:14px;
+		content:"\f0da";
+		position:absolute;
+		top:2px;
+		right:14px;
+		color:@dark-gray;
+		display:inline-block;
+	}
+	select {
+		-webkit-appearance:none;
+		padding:6px 4px;
+		min-width:170px;
+		border-radius:0;
+		background-color:@light-gray;
+		border:none;
+		position:relative;
+		box-sizing:border-box;
+		border:1px solid @as-gray;
+		transition:border 0.3s;
+		font-size:16px;
+		color:@text-color;
+		line-height:normal;
+		&:focus {
+			outline:0;
+		}
+		&:hover {
+			border:1px solid @light-blue;
+			transition:border 0.3s;
+		}
+		option {
+			padding:6px 4px;
+		}
+	}
+	.chosen-container {
+		a.chosen-single {
+			-webkit-appearance:none;
+			padding:5px 4px 5px 4px;
+			min-width:170px;
+			border-radius:0;
+			background:@light-gray;
+			background-color:@light-gray;
+			border:none;
+			position:relative;
+			//box-sizing:border-box;
+			border:1px solid @as-gray;
+			transition:border 0.3s;
+			font-size:16px;
+			color:@text-color;
+			height:auto;
+			box-shadow: none;
+			line-height:normal;
+			&:focus {
+				outline:0;
+			}
+			&:hover {
+				border:1px solid @light-blue;
+				transition:border 0.3s;
+			}
+			div b {
+				display:none;
+			}
+			span {
+				vertical-align:top;
+			}
+		}
+	}
+}
+.webform-component-select {
+	position: relative;
+	&:after {
+		font-family:FontAwesome;
+		font-size:14px;
+		content:"\f0da";
+		position:absolute;
+		top:27px;
+		right:14px;
+		color:@dark-gray;
+		display:inline-block;
+	}
+	select {
+		-webkit-appearance:none;
+		padding:6px 4px;
+		min-width:170px;
+		border-radius:0;
+		background-color:@light-gray;
+		border:none;
+		position:relative;
+		box-sizing:border-box;
+		border:1px solid @as-gray;
+		transition:border 0.3s;
+		font-size:16px;
+		color:@text-color;
+		line-height:normal;
+		&:focus {
+			outline:0;
+		}
+		&:hover {
+			border:1px solid @light-blue;
+			transition:border 0.3s;
+		}
+		option {
+			padding:6px 4px;
+		}
+	}
+	.chosen-container {
+		a.chosen-single {
+			-webkit-appearance:none;
+			padding:5px 4px 5px 4px;
+			min-width:170px;
+			border-radius:0;
+			background:@light-gray;
+			background-color:@light-gray;
+			border:none;
+			position:relative;
+			//box-sizing:border-box;
+			border:1px solid @as-gray;
+			transition:border 0.3s;
+			font-size:16px;
+			color:@text-color;
+			height:auto;
+			box-shadow: none;
+			line-height:normal;
+			&:focus {
+				outline:0;
+			}
+			&:hover {
+				border:1px solid @light-blue;
+				transition:border 0.3s;
+			}
+			div b {
+				display:none;
+			}
+			span {
+				vertical-align:top;
+			}
+		}
+	}
+}
+.chosen-drop {
+	input {
+		max-width:100%;
+		min-width:0;
+	}
 }
 //** Range Reset
 input[type=range] { -webkit-appearance: none; width: 30%; max-width:350px; min-width:250px; display:inline-block}
@@ -1319,6 +1474,38 @@ body:not(.has-sidebar).page-calendar #content {
 	}
 }
 
+//**** Pages - News
+body.page-news {
+	h1.title {
+		padding-bottom:0.7em;
+	}
+	#block-system-main {
+		.view-news-page {
+			.views-row {
+				padding:19px 0;
+				border-bottom: 1px solid @medium-gray;
+				&:first-of-type {
+					padding-top:0;
+				}
+				h2 {
+					font-size: 18px;
+					font-weight: 600; 
+					text-transform:uppercase; 
+					line-height:130%;
+					padding-bottom:3px;
+				}
+			}
+			.views-field-created {
+				span {
+					color: @dark-gray;
+					font-size: 16px;
+				}
+				padding-bottom:0.5em;
+			}
+		}
+	}
+}
+
 //**** Header 
 #header {
 	background: white;
@@ -1757,25 +1944,28 @@ body:not(.has-sidebar).page-calendar #content {
 .view-redesign-news {
 	margin-top:40px;
 	.views-row {
+		position:relative;
 		/*&:after {
 			content:"";
-			height:14px;
+			height:60px;
 			width:2px;
 			background-color:@uk-blue;
 			display:inline-block;
 			position:absolute;
-			right:0;
-			top:50%;
+			right:8%;
+			top:0;
 		}*/
 		.views-field-created {
 			span {
 				color:@uk-blue;
-				font-size:22px;
+				font-size:18px;
 				font-weight:bold;
 				margin-bottom:1em;
 			}
 		}
 		.views-field-title {
+			box-sizing:border-box;
+			padding-right: 2em;
 			span {
 				a {
 					color:@text-color;
@@ -2428,7 +2618,7 @@ body.html.not-front {
 			margin:0 auto;
 		}
 	}
-	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add {
+	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add, &.page-node-webform {
 		#block-system-main {
 			max-width:1200px;
 			width:90%;
@@ -2488,7 +2678,6 @@ body.html.not-front {
 					.image-widget-data {
 						position: relative;
 						top: 50%;
-						transform: translateY(50%);
 					}
 					tr.draggable {
 						position:relative;
@@ -2619,7 +2808,7 @@ body.html.not-front {
 								border:3px solid @light-blue;
 								vertical-align: middle;
 								.field-type-text-long {
-									width:1050px;
+									max-width:1050px;
 								}
 								&.field-multiple-drag {
 									.tabledrag-handle {
@@ -2813,7 +3002,7 @@ body.html.not-front {
 	}
 }
 body:not(.has-sidebar) {
-	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add {
+	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add, &.page-node-webform {
 		#content {
 			h1,
 			h2,
