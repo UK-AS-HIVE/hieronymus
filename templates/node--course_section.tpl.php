@@ -143,7 +143,7 @@ $image_name = array("A&S" => "courses_default_1063.jpg",
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <div class="course-section-header">
+  <div class="course-section-header views-field">
     <span class="course-section-image">
       <?php
         // If there is an associated author with a profile picture, use that

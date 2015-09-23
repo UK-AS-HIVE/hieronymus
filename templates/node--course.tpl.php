@@ -144,8 +144,7 @@ $image_name = array("A&S" => "courses_default_1063.jpg",
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <span style="float: right; width: 500px">
-    <h1 class="title" id="page-title"><?php print $title ?></h1>
+  <div class="views-field">
   <?php
       print render($content['field_department']);
       print render($content['field_course_prefix']);
@@ -153,10 +152,9 @@ $image_name = array("A&S" => "courses_default_1063.jpg",
       if (!empty($content['field_promotional_description'])) {
         print render($content['field_promotional_description']);
       } else {
-	print render($content['body']);
+	      print render($content['body']);
       }
   ?>
-  </span>
 
   <!--<div><?php print render($content['field_image']); ?></div>-->
   <?php
@@ -164,20 +162,19 @@ $image_name = array("A&S" => "courses_default_1063.jpg",
      //print "<div>". $course_prefix. "</div>";
      if (array_key_exists($course_prefix, $image_name)) {
         //print "<div>Key exists.</div>";
-        print "<div><img typeof=\"foaf:Image\" src=\"". $image_path .
+        print "<img typeof=\"foaf:Image\" src=\"". $image_path .
           $image_name[$course_prefix].
-          "\" width=\"220\" height=\"152\" /></div>";
+          "\" width=\"220\" height=\"152\" />";
       } else {
         //print "<div>Key does not exist.</div>";
-        print "<div><img typeof=\"foaf:Image\" src=\"". $image_path .
-          $image_name['DEFAULT']."\" width=\"220\" height=\"152\" /></div>";
+        print "<img typeof=\"foaf:Image\" src=\"". $image_path .
+          $image_name['DEFAULT']."\" width=\"220\" height=\"152\" />";
       }
   ?>
-  <div style="clear: both;">
   </div>
 
   <div>
-    <h2 class="title" id="page-title">Sections</h2>
+    <h2 class="title">Sections</h2>
     <?php
       //print render($content);
       print views_embed_view('courses_course_sections', 'default', $field_course_prefix[0]['value'], $field_course_number[0]['safe_value']);
