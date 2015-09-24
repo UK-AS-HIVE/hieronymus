@@ -9,13 +9,9 @@
       <div class="content-wrapper table">
         <div class="table-row">
 
-          <?php if ($logo): ?>
-            <div class="table-cell middle logo-cell">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-                <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-              </a>
-            </div>
-          <?php endif; ?>
+          <div class="table-cell middle logo-cell">
+            <?php print views_embed_view('redesign_site_logo', 'block'); ?>
+          </div>
 
           <div class="table-cell middle header-region-cell">
             <?php print render($page['header']); ?>
