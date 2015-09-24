@@ -165,6 +165,7 @@ ul.directory-links {
 		&:after {
 			content: "/";
 			color:@uk-blue;
+			.department-color(color);
 		}
 		&:last-of-type:after {
 			content:""
@@ -238,6 +239,7 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 		transform: translateY(-50%);		
 		transition: color 0.3s;
 		color:@uk-blue;
+		.department-color(color);
 		font-size:30px;
 		&:hover {
 			cursor:pointer;
@@ -322,6 +324,19 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 .background-dark {
 	background-color:@text-color;
 }
+.background-dept-color,
+.background-department-color {
+	background-color: @uk-blue;
+	.department-color(background-color);
+}
+.background-dept-color-light,
+.background-department-color-light {
+	background-color: @dept-color-light;
+}
+.background-dept-color-dark,
+.background-department-color-dark {
+	background-color: @dept-color-dark;
+}
 
 
 //******** Globals
@@ -346,6 +361,7 @@ em { font-style:  italic; }
 		text-transform: none;
 		font-weight:normal;
 		color:@uk-blue;
+		.department-color(color);
 	}
 }
 @media @mobile-max {
@@ -412,6 +428,7 @@ p {
 	box-sizing:border-box;
 	padding:8px 15px 8px 15px;
 	background-color:@uk-blue;
+	.department-color(background-color);
 	transition: background-color 0.3s;
 	width:auto;
 	min-width: 67px;
@@ -478,6 +495,7 @@ p {
 			font-family: FontAwesome;
 			content: "\f0c9";
 			color: @uk-blue;
+			.department-color(color);
 			background-color: transparent;
 			top:0;
 			left:0;
@@ -511,6 +529,7 @@ p {
 		&.tab-menu-open {
 			&::before {
 				background-color: @uk-blue;
+				.department-color(background-color);
 				transition:background-color 0.3s;
 				color:white;
 				transition:color 0.3s;
@@ -522,6 +541,7 @@ p {
 					display: block;  
 					position: relative;
 					background-color:@uk-blue;
+					.department-color(background-color);
 					text-align: left;
 					padding: 14px 30px 14px 30px;
 					box-sizing:border-box;
@@ -655,6 +675,7 @@ body #content .field-name-field-tags {
 			&:after {
 				content:"/";
 				color:@uk-blue;
+				.department-color(color);
 			}
 			&:first-of-type {
 				a {
@@ -681,6 +702,7 @@ h1 a, h2 a, h3 a, h4 a {
 a {
 	text-decoration:none; 
 	color:@uk-blue;
+	.department-color(color);
 }
 .alt-link {
 	color:@dark-blue;
@@ -701,6 +723,7 @@ table {
 	display:block;
 	th {
 		background: @uk-blue;
+		.department-color(background);
 		font-size: 18px; 
 		font-weight: 600; 
 		text-transform:uppercase;
@@ -921,6 +944,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 20px;
   border-radius: 10px;
   background: @uk-blue;
+  .department-color(background);
   cursor: pointer;
   margin-top:-5px;
 }
@@ -930,6 +954,7 @@ input[type=range]::-moz-range-thumb {
   width: 20px;
   border-radius: 10px;
   background: @uk-blue;
+  .department-color(background);
   cursor: pointer;
 }
 /* All the same stuff for IE */
@@ -938,6 +963,7 @@ input[type=range]::-ms-thumb {
   width: 20px;
   border-radius: 10px;
   background: @uk-blue;
+  .department-color(background);
   cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track {
@@ -1232,6 +1258,7 @@ body:not(.has-sidebar).page-users #content {
 .view-redesign-profile-sidebar, .view-redesign-profile-sidebar-mobile {
 	.views-field {
 		border-bottom:1px solid @uk-blue;
+		.department-color(border-bottom-color);
 		box-sizing:border-box;
 		padding:6px 0 6px 0;
 	}
@@ -1252,6 +1279,7 @@ body:not(.has-sidebar).page-users #content {
 	.views-field-field-external-affiliations {
 		border-bottom:0;
 		border-top:1px solid @uk-blue;
+		.department-color(border-top-color);
 		.views-label-field-external-affiliations {
 			font-weight: bold;
 		}
@@ -1657,6 +1685,7 @@ body.page-news {
 			font-size: 22px;
 			font-weight:600;
 			color: @uk-blue;
+			.department-color(color);
 			text-transform: uppercase;
 			margin-bottom:3px;
 			line-height: 130%;
@@ -1715,10 +1744,12 @@ body.page-news {
 	& > .dynamic-scroll-indicator-bubble-selected {	
 		&:after {
 			color:@uk-blue;
+			.department-color(color);
 			transition: color 0.6s;
 		}
 		&:hover:after {
 			color:@uk-blue;
+			.department-color(color);
 		}
 		@media @tablet-max {
 			&:after {
@@ -1770,6 +1801,7 @@ body.page-news {
 			width:66%;
 			height:2px;
 			background-color:@uk-blue;
+			.department-color(background-color);
 			display:block;
 			margin:5px auto;
 		}
@@ -1812,6 +1844,7 @@ body.page-news {
 		margin-bottom:18px;
 		padding-bottom:10px;
 		border-bottom:1px solid @uk-blue;
+		.department-color(border-bottom-color);
 		transition:border-bottom-color 0.3s;
 		position:relative;
 		&:after {
@@ -1824,6 +1857,7 @@ body.page-news {
 			position:absolute;
 			right:0;
 			pointer-events:none;
+			.department-color(color);
 		}
 		a {
 			color:@text-color;
@@ -1856,10 +1890,11 @@ body.page-news {
 		@media @tablet-max {
 			&:hover {
 				.no-effects;
-				border-bottom-color: @uk-blue;
+				.department-color(border-bottom-color);
 				&:after {
 					.no-effects;
 					color:@uk-blue;
+					.department-color(color);
 				}
 			}
 		}
@@ -1869,6 +1904,7 @@ body.page-news {
 	.badges {
 		margin: 0 0 20px;
 		border-top:3px solid @uk-blue;
+		.department-color(border-top-color);
 		padding-top:28px;
 	}
 	ul {
@@ -1958,6 +1994,7 @@ body.page-news {
 		.views-field-created {
 			span {
 				color:@uk-blue;
+				.department-color(color);
 				font-size:18px;
 				font-weight:bold;
 				margin-bottom:1em;
@@ -2016,6 +2053,7 @@ body.page-news {
 				}
 				&:hover h3 {
 					color:@uk-blue;
+					.department-color(color);
 					transition:color 0.3s;
 				}
 				@media @tablet-max {
@@ -2091,6 +2129,7 @@ body.page-news {
 //**** Rows- Footer 
 #footer-wrapper {
 	background-color:@uk-blue;
+	.department-color(background-color);
 	color:white;
 	#footer-buttons {
 		width:100%;
@@ -2363,6 +2402,7 @@ body.page-news {
 		.block-wrapper {
 			.full-width;
 			background-color:@uk-blue;
+			.department-color(department-color);
 			width:100vw;
 			height:100vh;
 			.content {
@@ -2545,29 +2585,29 @@ body.page-news {
 			font-family: FontAwesome;
 			position:relative;
 			font-size:22px;
-			& > div:nth-of-type(1) > div:after { content:"\f015"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(2) > div:after { content:"\f0e0"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(3) > div:after { content:"\f1ad"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(4) > div:after { content:"\f017"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(5) > div:after { content:"\f098"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(6) > div:after { content:"\f144"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(7) > div:after { content:"\f03e"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(8) > div:after { content:"\f14b"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(9) > div:after { content:"\f130"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(10) > div:after { content:"\f002"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(11) > div:after { content:"\f058"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(12) > div:after { content:"\f057"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(13) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(14) > div:after { content:"\f051"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(15) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(16) > div:after { content:"\f048"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(17) > div:after { content:"\f082"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(18) > div:after { content:"\f081"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(19) > div:after { content:"\f143"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(20) > div:after { content:"\f194"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(21) > div:after { content:"\f174"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(22) > div:after { content:"\f16d"; position:absolute; color: @uk-blue; }
-			& > div:nth-of-type(23) > div:after { content:"\f16e"; position:absolute; color: @uk-blue; }
+			& > div:nth-of-type(1) > div:after { content:"\f015"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(2) > div:after { content:"\f0e0"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(3) > div:after { content:"\f1ad"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(4) > div:after { content:"\f017"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(5) > div:after { content:"\f098"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(6) > div:after { content:"\f144"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(7) > div:after { content:"\f03e"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(8) > div:after { content:"\f14b"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(9) > div:after { content:"\f130"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(10) > div:after { content:"\f002"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(11) > div:after { content:"\f058"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(12) > div:after { content:"\f057"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(13) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(14) > div:after { content:"\f051"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(15) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(16) > div:after { content:"\f048"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(17) > div:after { content:"\f082"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(18) > div:after { content:"\f081"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(19) > div:after { content:"\f143"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(20) > div:after { content:"\f194"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(21) > div:after { content:"\f174"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(22) > div:after { content:"\f16d"; position:absolute; color: @uk-blue; .department-color(color);}
+			& > div:nth-of-type(23) > div:after { content:"\f16e"; position:absolute; color: @uk-blue; .department-color(color);}
 		}
 	}
 	.non-row-layout { //Specific style for non-row based layouts
@@ -2925,6 +2965,7 @@ body.html.not-front {
 		legend {
 			position:relative;
 			color:@uk-blue;
+			.department-color(color);
 			left:auto;
 			top:auto;
 			padding:10px 0 0 0;

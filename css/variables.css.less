@@ -8,6 +8,33 @@
 @dark-blue: #00325b;
 @text-color: #252729;
 
+@dept-color-dark: @dark-blue
+@dept-color: @uk-blue; 
+@dept-color-light: @light-blue;
+
+//** Department colors
+.domain-www-as-uky-edu { 
+	@dept-color: @uk-blue; 
+}
+.domain-aaas-as-uky-edu { 
+	@dept-color: #fbab0a; 
+}
+.department-color(@property) {
+	body.domain-aaas-as-uky-edu & {
+		@{property}: #fbab0a;
+	}
+}
+.department-color-light(@property) {
+	body.domain-aaas-as-uky-edu & {
+		@{property}: #fbab0a;
+	}
+}
+.department-color-dark(@property) {
+	body.domain-aaas-as-uky-edu & {
+		@{property}: #fbab0a;
+	}
+}
+
 //**** Sizes
 @default-spacing: 14px;
 @half-spacing: 7px;
