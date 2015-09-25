@@ -196,7 +196,6 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 	width:100%;
 	height:22px;
 	background-color:@medium-gray;
-	.department-color-accent(background-color);
 	-webkit-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
 	box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
@@ -444,6 +443,7 @@ p {
 	}
 	&:hover {
 		background-color:@dark-blue;
+		.department-color-dark(background-color);
 		transition: background-color 0.3s;
 	}
 }
@@ -1254,9 +1254,9 @@ fieldset.expandable.expanded {
 		> a {
 			display: inline-block;
 			vertical-align: middle;
-			margin-right:28px;
+			margin-right:20px;
 			img {
-				max-width: 120px;
+				max-width: 110px;
 			}
 		}
 		.views-field-nothing {
@@ -1940,9 +1940,11 @@ body.page-news {
 		&:hover {
 			cursor:pointer;
 			border-bottom-color:@light-blue;
+			.department-color-light(border-bottom-color);
 			transition:border-bottom-color 0.3s;
 			&:after {
 				color:@light-blue;
+				.department-color-light(color);
 				transition:color 0.3s;
 			}
 		}
@@ -1991,6 +1993,8 @@ body.page-news {
 				padding:10px 15px 25px 15px;
 				& > div:first-child {
 					color:@light-blue;
+					.department-color-dark(color);
+
 				}
 				& > div:nth-child(2) {
 					.date-styles;
@@ -2192,7 +2196,7 @@ body.page-news {
 	body:not(.domain-www-as-uky-edu) & {
 		background-color: @dark-gray;
 	}
-	.department-color-accent(background-color);
+	.department-color(background-color);
 	color:white;
 	#footer-buttons {
 		width:100%;
@@ -2204,7 +2208,6 @@ body.page-news {
 			.content-wrapper {
 				width:100%;
 				background-color:@as-gray;
-				.department-color(background-color);
 				ul {
 					list-style-type: none;
 					max-width: 920px;
@@ -2238,7 +2241,6 @@ body.page-news {
 							height:72px;
 							width:2px;
 							background:@medium-gray;
-							body:not(.domain-www-as-uky-edu) & {background-color: white}
 							top:3px;
 							right:0;
 							@media screen and (max-width:900px) {
@@ -2256,7 +2258,6 @@ body.page-news {
 							height:72px;
 							width:2px;
 							background:@medium-gray;
-							body:not(.domain-www-as-uky-edu) & {background: white}
 							top:3px;
 							left:0;
 							@media screen and (max-width:900px) {
@@ -2271,18 +2272,16 @@ body.page-news {
 						a {
 							.no-underline;
 							color: @uk-blue;
-							body:not(.domain-www-as-uky-edu) & {color: white}
+							.department-color(color);
 							padding:32px 0 28px 0;
 							display:block;
 							background-color:@as-gray;
-							.department-color(background-color);
 							transition: background-color 0.3s;
 							@media screen and (max-width:900px) {
 								padding:22px 0 19px 0;
 							}
 							&:hover {
 								background-color:@medium-gray;
-								.department-color-dark(background-color);
 								transition: background-color 0.3s;
 							}
 							@media @tablet-max {
@@ -2365,6 +2364,7 @@ body.page-news {
 						&:hover {
 							cursor:pointer;
 							color:@light-blue;
+							.department-color-light(color);
 							transition:color 0.3s;
 						}
 						@media @tablet-max {
