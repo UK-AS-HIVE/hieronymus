@@ -194,8 +194,9 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 	content:"";
 	display:block;
 	width:100%;
-	height:25px;
+	height:22px;
 	background-color:@medium-gray;
+	.department-color-accent(background-color);
 	-webkit-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
 	box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
@@ -343,8 +344,8 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 
 //**** Typography
 body { font:300 16px/140% 'Open Sans', sans-serif; color:#303030; }
-h1 { font-size: 28px; color:#005daa; font-weight: 600; text-transform: uppercase; line-height:125%;}
-h2 { font-size: 28px; color:#005daa; font-weight: 600; text-transform: uppercase; line-height:125%;}
+h1 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 600; text-transform: uppercase; line-height:125%;}
+h2 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 600; text-transform: uppercase; line-height:125%;}
 h3 { font-size: 18px; font-weight: 600; text-transform:uppercase; line-height:130%;}
 h4 { font-size: 16px; font-weight:600; color: #00325b; line-height:130%;}
 .subtitle { font-size: 26px; color: #6e7071; text-transform: none; font-weight:300; line-height:130%;}
@@ -378,6 +379,9 @@ p {
 	margin-bottom: @default-spacing;
 	line-height:145%;
 	width:100%;
+	a, a:hover {
+		.department-color-dark(color)
+	}
 }
 .field-type-text-with-summary {
 	img { display:block; margin:0 auto; }
@@ -702,7 +706,6 @@ h1 a, h2 a, h3 a, h4 a {
 a {
 	text-decoration:none; 
 	color:@uk-blue;
-	.department-color(color);
 }
 .alt-link {
 	color:@dark-blue;
@@ -1245,6 +1248,62 @@ fieldset.expandable.expanded {
 	width:auto;
 }
 
+//**** Header
+.view-redesign-site-logo {
+	.views-row {
+		> a {
+			display: inline-block;
+			vertical-align: middle;
+			margin-right:28px;
+			img {
+				max-width: 120px;
+			}
+		}
+		.views-field-nothing {
+			display:inline-block;
+			vertical-align: middle;
+			height: 100%;
+			.field-content > .site-logo-text {
+				position:relative;
+				display:inline-block;
+				height: 100%;
+				h2 {
+					font-size:18px;
+					font-weight:300;
+					text-transform:none;
+					display:block;
+					margin-top: @default-spacing;
+					margin-bottom: 0.1em;
+					padding-bottom: 0;
+					line-height: 1;
+					body.domain-www-as-uky-edu & {
+						a, a:hover {
+							color: @uk-blue;
+						}
+					}
+				}
+				h1 {
+					font-size:32px;
+					font-weight:600;
+					text-transform:uppercase;
+					display:block;
+					max-width: 420px;
+					margin-bottom: @default-spacing;
+					line-height: 1.1;
+					a, a:hover {
+						.department-color-dark(color);
+					}
+					body.domain-www-as-uky-edu & {
+						a, a:hover {
+							color: @uk-blue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 //**** Pages - User
 body:not(.has-sidebar).page-users #content {
 	table,
@@ -1538,8 +1597,7 @@ body.page-news {
 #header {
 	background: white;
 	.logo-cell {
-		max-width:450px;
-		width:33%;
+		max-width:650px;
 		img {
 			margin: 17px 0 13px;
 
@@ -1724,6 +1782,7 @@ body.page-news {
 		}
 		&:hover:after {
 			color:@light-blue;
+			.department-color-light(color);
 			transition: color 0.6s;
 		}
 		@media @tablet-max {
@@ -1926,7 +1985,7 @@ body.page-news {
 		.views-row {
 			height:290px;
 			.event-date-wrapper {
-				.blue-gradient;
+				.department-color-gradient;
 				color:white;
 				box-sizing:border-box;
 				padding:10px 15px 25px 15px;
@@ -1970,6 +2029,7 @@ body.page-news {
 					bottom:0;
 					font-weight:600;
 					color:@dark-blue;
+					.department-color-accent(color);
 				}
 			}
 		}
@@ -2129,7 +2189,10 @@ body.page-news {
 //**** Rows- Footer 
 #footer-wrapper {
 	background-color:@uk-blue;
-	.department-color(background-color);
+	body:not(.domain-www-as-uky-edu) & {
+		background-color: @dark-gray;
+	}
+	.department-color-accent(background-color);
 	color:white;
 	#footer-buttons {
 		width:100%;
@@ -2141,6 +2204,7 @@ body.page-news {
 			.content-wrapper {
 				width:100%;
 				background-color:@as-gray;
+				.department-color(background-color);
 				ul {
 					list-style-type: none;
 					max-width: 920px;
@@ -2174,6 +2238,7 @@ body.page-news {
 							height:72px;
 							width:2px;
 							background:@medium-gray;
+							body:not(.domain-www-as-uky-edu) & {background-color: white}
 							top:3px;
 							right:0;
 							@media screen and (max-width:900px) {
@@ -2191,6 +2256,7 @@ body.page-news {
 							height:72px;
 							width:2px;
 							background:@medium-gray;
+							body:not(.domain-www-as-uky-edu) & {background: white}
 							top:3px;
 							left:0;
 							@media screen and (max-width:900px) {
@@ -2205,15 +2271,18 @@ body.page-news {
 						a {
 							.no-underline;
 							color: @uk-blue;
+							body:not(.domain-www-as-uky-edu) & {color: white}
 							padding:32px 0 28px 0;
 							display:block;
 							background-color:@as-gray;
+							.department-color(background-color);
 							transition: background-color 0.3s;
 							@media screen and (max-width:900px) {
 								padding:22px 0 19px 0;
 							}
 							&:hover {
 								background-color:@medium-gray;
+								.department-color-dark(background-color);
 								transition: background-color 0.3s;
 							}
 							@media @tablet-max {
