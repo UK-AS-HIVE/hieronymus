@@ -522,6 +522,61 @@ li.expanded, li.collapsed, li.leaf {
 		}
 	}
 }
+/* 
+	Larger - 6 items left, medium-gray left of 7th
+	-- Requires classes "restricted-width background-dark-gray" (or similarly dark color)
+*/ 
+.domain-chem-as-uky-edu {
+	.region-navigation > .block-menu .content > .menu {
+		@media @desktop {
+			// First five top-level items go to the left
+			> li:nth-child(-n+6) {
+				float: left;
+			}
+			// Lighter background for the first five items. Requires a sixth
+			> li:nth-child(7):before {
+				content: '';
+				display: block;
+				height: 100%;
+				position: absolute;
+				background: @medium-gray;
+				width: 10000px;
+				margin-left: -10042px;
+				top: 0;
+				pointer-events: none;
+			}
+			// Sixth and after have lighter text
+			> li:nth-child(n+7):hover > a {
+				background-color:@text-color;
+			}
+			> li:nth-child(n+7) > ul.menu {
+				background-color:@text-color;
+				a {
+					background-color:transparent;
+					color: @medium-gray;
+					&:hover {
+						color: white;
+					}
+				}
+				ul.menu > li {
+					&:hover a {
+						color:white;
+					}
+					a {
+						background-color:transparent;
+						color: @medium-gray;
+					}
+				}
+			}
+			> li:nth-child(n+7) a:after {
+				color: @medium-gray;
+			}
+			> li:nth-child(n+7) > a {
+				color: @medium-gray;
+			}
+		}
+	}
+}
 
 // Special for www full departments list
 .domain-www-as-uky-edu {
