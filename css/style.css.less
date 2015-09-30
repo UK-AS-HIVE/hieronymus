@@ -2008,7 +2008,7 @@ body.page-news {
 				padding:10px 15px 25px 15px;
 				& > div:first-child {
 					color:@light-blue;
-					.department-color-dark(color);
+					.department-color-white(color);
 
 				}
 				& > div:nth-child(2) {
@@ -2038,6 +2038,9 @@ body.page-news {
 					}
 					h3 {
 						padding-bottom:4px;
+						a {
+							.department-color(color);
+						}
 					}
 					br {
 						display:none;
@@ -2047,8 +2050,11 @@ body.page-news {
 					position:absolute;
 					bottom:0;
 					font-weight:600;
+					line-height:140%;
 					color:@dark-blue;
-					.department-color-accent(color);
+					body:not(.domain-www-as-uky-edu) & {
+						color: @text-color;
+					}
 				}
 			}
 		}
@@ -2211,7 +2217,7 @@ body.page-news {
 	body:not(.domain-www-as-uky-edu) & {
 		background-color: @dark-gray;
 	}
-	.department-color(background-color);
+	.department-color-dark(background-color);
 	color:white;
 	#footer-buttons {
 		width:100%;
@@ -2288,7 +2294,7 @@ body.page-news {
 							.no-underline;
 							color: @uk-blue;
 							.department-color(color);
-							padding:32px 0 28px 0;
+							padding:29px 0 28px 0;
 							display:block;
 							background-color:@as-gray;
 							transition: background-color 0.3s;
