@@ -350,7 +350,7 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 //******** Globals
 
 //**** Typography
-body { font:300 16px/140% 'Open Sans', sans-serif; color:#303030; }
+body { font:300 16px/140% 'Roboto', sans-serif; color:#303030; }
 h1 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 600; text-transform: uppercase; line-height:125%;}
 h2 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 600; text-transform: uppercase; line-height:125%;}
 h3 { font-size: 18px; font-weight: 600; text-transform:uppercase; line-height:130%;}
@@ -2016,7 +2016,9 @@ body.page-news {
 				padding:10px 15px 25px 15px;
 				& > div:first-child {
 					color:@light-blue;
-					.department-color-white(color);
+					body:not(.domain-www-as-uky-edu) & {
+						color: white;
+					}
 
 				}
 				& > div:nth-child(2) {
@@ -2046,6 +2048,7 @@ body.page-news {
 					}
 					h3 {
 						padding-bottom:4px;
+						text-transform:capitalize;
 					}
 					br {
 						display:none;

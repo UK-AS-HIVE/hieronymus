@@ -194,7 +194,7 @@
               var textTest = document.createElement("div")
               $(textTest).css({
                 "font-size": "35px",
-                "font-family": "'Open Sans', sans-serif",
+                "font-family": "'Roboto', sans-serif",
                 "text-transform": "uppercase",
                 "visibility": "hidden",
                 "white-space": "nowrap",
