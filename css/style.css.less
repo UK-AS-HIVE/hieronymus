@@ -1276,6 +1276,9 @@ fieldset.expandable.expanded {
 			display: inline-block;
 			vertical-align: middle;
 			margin-right:20px;
+			@media @mobile-max {
+				margin-right:0;
+			}
 			img {
 				max-width: 110px;
 			}
@@ -1321,6 +1324,85 @@ fieldset.expandable.expanded {
 					}
 				}
 			}
+		}
+	}
+}
+
+//**** Header 
+#header {
+	background: white;
+	.logo-cell {
+		max-width:650px;
+		img {
+			margin: 17px 0 13px;
+			@media @mobile-max {
+				width:15%;
+				min-width:90px;
+			}
+			@media screen and (max-width:450px) {
+				display:none;
+			}
+		}
+	}
+	.width-container .width-container,
+	.content-wrapper .content-wrapper {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	#block-user-login {
+		text-align: right;
+		padding-top: 1em;
+		.form-item {
+			position: relative;
+			margin-top: 0;
+			margin-bottom: 0.6em;
+			display:inline-block;
+			label {
+				position: absolute;
+				bottom: -3px;
+				right: 4px;
+				font-size: 0.8em;
+				.form-required {
+					display: none;
+				}
+			}
+			input {
+				font-size: 0.9em;
+				padding: 0.4em 0.4em;
+				min-width: 100px;
+				//max-width: 80%;
+				width: 191px;
+			}
+		}
+		.form-actions {
+			margin-top: 0;
+
+			input {
+				margin: 0;
+			}
+		}
+
+		@media @tablet-max {
+			display: none;
+		}
+	}
+	#block-views-redesign-user-menu-block {
+		float: right;
+		text-align: right;
+		@media screen and (max-width: 1024px) {
+			display:none;
+		}
+		.views-field-field-name {
+			font-weight:bold;
+			text-transform:uppercase;
+		}
+		a {
+			transition: color 0.3s;
+		}
+		a:hover {
+			color:@light-blue;
+			transition: color 0.3s;
 		}
 	}
 }
@@ -1621,83 +1703,6 @@ body.page-news {
 			> li {
 				width: 19.2%;
 			}
-		}
-	}
-}
-
-//**** Header 
-#header {
-	background: white;
-	.logo-cell {
-		max-width:650px;
-		img {
-			margin: 17px 0 13px;
-
-			@media @mobile-max {
-				width: 201px;
-				max-width: 201px;
-			}
-		}
-	}
-	.width-container .width-container,
-	.content-wrapper .content-wrapper {
-		width: 100%;
-		padding: 0;
-		margin: 0;
-	}
-	#block-user-login {
-		text-align: right;
-		padding-top: 1em;
-		.form-item {
-			position: relative;
-			margin-top: 0;
-			margin-bottom: 0.6em;
-			display:inline-block;
-			label {
-				position: absolute;
-				bottom: -3px;
-				right: 4px;
-				font-size: 0.8em;
-				.form-required {
-					display: none;
-				}
-			}
-			input {
-				font-size: 0.9em;
-				padding: 0.4em 0.4em;
-				min-width: 100px;
-				//max-width: 80%;
-				width: 191px;
-			}
-		}
-		.form-actions {
-			margin-top: 0;
-
-			input {
-				margin: 0;
-			}
-		}
-
-		@media @tablet-max {
-			display: none;
-		}
-	}
-	#block-views-redesign-user-menu-block {
-		float: right;
-		text-align: right;
-		@media screen and (max-width: 1024px) {
-			display:none;
-		}
-		.views-field-field-name {
-			font-weight:bold;
-			text-transform:uppercase;
-		}
-		a {
-			transition: color 0.3s;
-		}
-		a:hover {
-			color:@light-blue;
-			transition: color 0.3s;
 		}
 	}
 }
