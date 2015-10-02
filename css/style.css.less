@@ -1143,9 +1143,17 @@ fieldset {
 	margin-top: @default-spacing;
 	.fieldset-wrapper {
 		border:2px solid @light-blue;
+		.department-color(border-color);
 		border-top: none;
 		padding:30px;
 	}
+}
+html.js fieldset.collapsed {
+    height: 2.5em;
+}
+html.js fieldset.collapsible .fieldset-legend {
+    background: url(//www.as.uky.edu/misc/menu-expanded.png) 5px 65% no-repeat;
+    padding-left: 25px;
 }
 legend {
 	font-size:1.3em;
@@ -1154,11 +1162,16 @@ legend {
 	.border-box;
 	padding:10px 19px;
 	background: @light-blue;
+	.department-color(background);
 	vertical-align: middle;
 	border-top-left-radius:3px;
 	border-top-right-radius:3px;
 	color: white;
-
+	a {
+		body:not(.domain-www-as-uky-edu) & {
+			color: white;
+		}
+	}
 	img {
 		float: none !important;
 		display: inline-block !important;
@@ -1170,7 +1183,7 @@ legend {
 fieldset.expandable {
 	legend {
 		padding-left: 42px;
-
+	
 		&:hover {
 			cursor: pointer;
 		}

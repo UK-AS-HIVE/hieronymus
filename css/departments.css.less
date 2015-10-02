@@ -1,0 +1,116 @@
+@import "variables.css.less";
+
+//**** Chemistry
+.domain-chem-as-uky-edu {
+	&.page-chem-courses {
+		.view-eng-course-list {
+			.as-exposed-filter {
+				background-color:#a5bcda;
+				border-radius: 0;
+				box-shadow:none;
+				padding: 28px 0 28px 0;
+				margin-bottom:28px;
+				> form {
+					max-width:810px;
+					margin:0 auto;
+					width:90%;
+					.clearfix;
+					.form-type-textfield {
+						width:auto;
+						float: left;
+						margin:0;
+						label {
+							text-align: left;
+						}
+					}
+					.artsci-views-exposed-wrapper {
+						width:250px;
+						float: left;
+						.artsci-views-or {
+							padding-top:0;
+							position:relative;
+							top:3px;
+						}
+						.form-type-select {
+							padding-top:0;
+						}
+					}
+					input.form-submit {
+						margin-left:0;
+					}
+				}
+				@media @tablet-max {
+					> form {
+						.form-type-textfield {
+							float:none;
+							margin-bottom:14px;
+							display:block;
+						}
+						.artsci-views-exposed-wrapper {
+							float:none;
+							margin-bottom:14px;
+							display:block;
+							position:relative;
+							left:95px;
+							.artsci-views-or {
+								padding-left:0;
+								position:relative;
+								top:3px;
+								padding-right:25px;
+							}
+						}
+						input.form-submit {
+							float:none;
+							display:block;
+							position: relative;
+							left: 133px;
+						}
+					}
+				}
+				@media @tablet-max {
+					> form {
+						.form-type-textfield {
+							float:none;
+							margin-bottom:14px;
+							display:block;
+							label {
+								display:block;
+								margin-bottom:7px;
+								float:none;
+							}
+							input {
+								display:block;
+								&[type=text] { min-width:150px; }
+							}
+						}
+						.artsci-views-exposed-wrapper {
+							float:none;
+							margin-bottom:28px;
+							display:block;
+							position:relative;
+							left:0;
+							.artsci-views-or {
+								padding-left:0;
+								position:relative;
+								top:3px;
+								padding-right:25px;
+								display:block;
+								float:none;
+								margin-bottom:7px;
+							}
+							.form-type-select {
+								display:block;
+							}
+						}
+						input.form-submit {
+							float:none;
+							display:block;
+							position: relative;
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
