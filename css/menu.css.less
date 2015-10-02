@@ -610,11 +610,14 @@ li.expanded, li.collapsed, li.leaf {
 		@media @desktop {
 			padding:7px 10px 7px 10px;
 			border-bottom: 2px solid @dark-blue;
+			.department-color-dark(border-bottom);
 		}
 		a {
 			color:@dark-blue;
+			.department-color-dark(color);
 			@media @tablet-max {
 				background: @dark-blue;
+				.department-color-dark(background-color);
 				color: @light-gray;
 				display: block;
 				padding:7px 10px 7px 10px;
@@ -637,6 +640,7 @@ li.expanded, li.collapsed, li.leaf {
 					transition:color 0.3s;
 					&:hover {
 						color:@light-blue;
+						.department-color-light(color);
 						transition:color 0.3s;
 					}
 					@media @tablet-max {
@@ -649,8 +653,10 @@ li.expanded, li.collapsed, li.leaf {
 					&.active {
 						color:white;
 						background-color:@uk-blue;
-						font-weight:600;
+						.department-color(background-color);
+						font-weight: 700;
 						border-bottom-color:@uk-blue;
+						.department-color(border-bottom-color);
 						margin-top:-1px;
 					}
 					&.active + a > i {
