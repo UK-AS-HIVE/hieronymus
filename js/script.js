@@ -39,27 +39,10 @@
         $(".auto-slider").has(this.slider).mouseover(this.sliderMouseOver).mouseout(this.sliderMouseOut);
       }
       this.update = function(){
-        var maxWidth = 1200; //the max width of the main content wrapper
-        var minColumnWidth = 0.95; //percent of the slider as compared to the full content wrapper width
-        //find the correct value for curSlidesCount by decreasing till you find one that fits. minimum 1
-        this.curSlidesCount = this.maxSlidesCount;//assume cur should be max by default.
-        while (this.curSlidesCount > 1 && ($(window).width()/this.curSlidesCount) < (maxWidth * minColumnWidth)/this.maxSlidesCount) {
-          this.curSlidesCount--;
-          //i dont know what this next line does but it doesnt look like it belongs here so im commenting it
-          //$('.view-content').css('left', 0 + "%"); 
-          $(this.slider).attr('data-page', 1);
-        }
-        this.galleryLength=$(this.slider).find(".views-row").length; 
-        
-        //finding the max page number of slider depending on number of columns
-        this.maxPageNum=Math.ceil(this.galleryLength/this.curSlidesCount); 
+        this.galleryLength=$(this.slider).find(".views-row").length;
 
-        //Rounding number of gallery elements to nearest multiple of number of columns
-        this.galleryLengthRounded = this.maxPageNum*this.curSlidesCount; 
-        
-        //Setting width of slider using maxPageNum as a percentage. or actually no clue...
-        $(this.slider).find('.view-content').css('width', this.maxPageNum * 100 + '%'); 
-        $(this.slider).find('.views-row').css('width', (100/this.galleryLengthRounded) + '%');
+        if (this.maxSlidesCount == '1') this.updateSingle();
+        else this.updateSlider();
         
         //update slider arrows.
         if(this.page >= this.maxPageNum) {
@@ -79,10 +62,6 @@
           $(this.arrowforward).css({"opacity":"1"})
           $(this.arrowbackward).css({"opacity":"1"})
         }
-        //when page resizes, while the current page number exceeds the max page number i trigger clicking the back arrow
-        while(this.page>this.maxPageNum){
-          this.page -= 1;
-        }
         
         $(this.arrowforward).unbind("click").click(this.forwardArrowClick);
         $(this.arrowbackward).unbind("click").click(this.backwardArrowClick);
@@ -90,6 +69,39 @@
         if(this.autoscroll){this.autoscrollSetup();}
         this.moveSlider()
         
+      }
+      this.updateSlider = function(){
+        var maxWidth = 1200; //the max width of the main content wrapper
+        var minColumnWidth = 0.95; //percent of the slider as compared to the full content wrapper width
+        //find the correct value for curSlidesCount by decreasing till you find one that fits. minimum 1
+        this.curSlidesCount = this.maxSlidesCount;//assume cur should be max by default.
+        while (this.curSlidesCount > 1 && ($(window).width()/this.curSlidesCount) < (maxWidth * minColumnWidth)/this.maxSlidesCount) {
+          this.curSlidesCount--;
+          //i dont know what this next line does but it doesnt look like it belongs here so im commenting it
+          //$('.view-content').css('left', 0 + "%"); 
+          $(this.slider).attr('data-page', 1);
+        }
+        
+        //finding the max page number of slider depending on number of columns
+        this.maxPageNum=Math.ceil(this.galleryLength/this.curSlidesCount); 
+
+        //Rounding number of gallery elements to nearest multiple of number of columns
+        this.galleryLengthRounded = this.maxPageNum*this.curSlidesCount; 
+        
+        //Setting width of slider using maxPageNum as a percentage. or actually no clue...
+        $(this.slider).find('.view-content').css('width', this.maxPageNum * 100 + '%'); 
+        $(this.slider).find('.views-row').css('width', (100/this.galleryLengthRounded) + '%');
+
+        //when page resizes, while the current page number exceeds the max page number i trigger clicking the back arrow
+        while(this.page>this.maxPageNum){
+          this.page -= 1;
+        }
+      }
+      this.updateSingle = function() {
+        // Single sliders don't deal with changing slide counts
+        this.curSlidesCount = this.maxSlidesCount;
+        this.maxPageNum = this.galleryLength;
+        this.galleryLengthRounded = this.galleryLength;
       }
       
       this.forwardArrowClick = function(){
@@ -135,12 +147,19 @@
         
       }
       this.moveSlider = function(){
+        if (this.maxSlidesCount != '1') {
           var move=100*(this.page-1);
           $('.visible-arrows').has(this.slider).find('.view-content').css('left', -move + "%");
-          if(this.autoscroll){
-            $(".dynamic-scroll-indicator-bubble-selected").removeClass("dynamic-scroll-indicator-bubble-selected")
-            $(this.slider).parent().find(".dynamic-scroll-indicator").find("[data-page-indicator="+this.page+"]").addClass("dynamic-scroll-indicator-bubble-selected")
-          }
+        }
+        else {
+          $(this.slider).find(".views-row").removeClass('slider-active');
+          $(this.slider).find(".views-row:nth-child("+this.page+")").addClass('slider-active');
+        }
+
+        if(this.autoscroll){
+          $(".dynamic-scroll-indicator-bubble-selected").removeClass("dynamic-scroll-indicator-bubble-selected")
+          $(this.slider).parent().find(".dynamic-scroll-indicator").find("[data-page-indicator="+this.page+"]").addClass("dynamic-scroll-indicator-bubble-selected")
+        }
       }
       this.createScrollIndicator = function(){
         $(this.slider).parent().find(".dynamic-scroll-indicator").remove()

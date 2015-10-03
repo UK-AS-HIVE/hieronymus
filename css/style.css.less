@@ -1708,7 +1708,7 @@ body.page-news {
 }
 
 //**** Rows - Standard
-.slide {
+.slide:not(.slide-1) {
 	height:auto;
 	&:after {
 		.clearfixing;
@@ -1730,18 +1730,39 @@ body.page-news {
 	}
 }
 
-//**** Front Page Features
-.view-redesign-front-features {
+//**** Single 'slider', e.g. Front Page Features
+.slide.slide-1 {
 	margin-top:0;
 	position: relative;
 	.view-content {
 		.clearfix;
 		position: relative;
+		width: 100%;
+		height: 0;
+		padding-top: 33.273381%;
+		@media @phablet-max {
+			// @TODO This needs to be better.
+			padding-bottom: 180px;
+		}
+
 		.views-row {
-			float: left;
 			vertical-align: top;
 			box-sizing: border-box;
 			padding:0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			
+			&:not(.slider-active) {
+				opacity: 0;
+				z-index: 1;
+				transition: opacity 0.5s;
+			}
+			&.slider-active {
+				opacity: 1;
+				z-index: 10;
+				transition: opacity 0.5s;
+			}
 		}
 	}
 
