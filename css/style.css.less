@@ -1707,6 +1707,156 @@ body.page-news {
 	}
 }
 
+//**** Pages - Tutorials
+.page-tutorials {
+	.view-tutorials {
+		.views-row {
+			margin-bottom:14px;
+			margin-top:14px;
+			border-bottom:1px solid @as-gray;
+			min-height:150px;
+			.views-field-title {
+				margin-bottom:10px;
+				position:relative;
+				&:after {
+					content:"";
+					height:1px;
+					width:100px;
+					background:@light-blue;
+					position:absolute;
+					bottom:-4px;
+					left:0;
+				}
+				a {
+					font-size: 18px; 
+					font-weight: 700; 
+					text-transform:capitalize; 
+					line-height:130%;
+					color: @light-blue;
+				}
+			}
+			.views-field-field-audience {
+				margin-bottom:7px;
+			}
+		}
+	}
+}
+
+//**** Pages - Courses
+.view-course-list {
+	.view-header {
+		background-color:#a5bcda;
+		border-radius: 0;
+		box-shadow:none;
+		padding: 28px 0 28px 0;
+		margin-bottom:28px;
+		> form {
+			max-width:810px;
+			margin:0 auto;
+			width:90%;
+			.clearfix;
+			.form-type-textfield {
+				width:auto;
+				float: left;
+				margin:0;
+				clear:both;
+				margin-bottom:14px;
+				label {
+					text-align: left;
+				}
+			}
+			.artsci-views-exposed-wrapper {
+				width:370px;
+				float: left;
+				.artsci-views-or {
+					padding-top:0;
+					position:relative;
+					top:3px;
+				}
+				.form-type-select {
+					padding-top:0;
+				}
+			}
+			input.form-submit {
+				margin-left:0;
+				clear:both;
+				display:block;
+			}
+		}
+		@media @tablet-max {
+			> form {
+				.form-type-textfield {
+					float:none;
+					margin-bottom:14px;
+					display:block;
+				}
+				.artsci-views-exposed-wrapper {
+					float:none;
+					margin-bottom:14px;
+					display:block;
+					position:relative;
+					left:95px;
+					.artsci-views-or {
+						padding-left:0;
+						position:relative;
+						top:3px;
+						padding-right:25px;
+					}
+				}
+				input.form-submit {
+					float:none;
+					display:block;
+					position: relative;
+					left: 133px;
+				}
+			}
+		}
+		@media @tablet-max {
+			> form {
+				.form-type-textfield {
+					float:none;
+					margin-bottom:14px;
+					display:block;
+					label {
+						display:block;
+						margin-bottom:7px;
+						float:none;
+					}
+					input {
+						display:block;
+						&[type=text] { min-width:150px; }
+					}
+				}
+				.artsci-views-exposed-wrapper {
+					float:none;
+					margin-bottom:28px;
+					display:block;
+					position:relative;
+					left:0;
+					.artsci-views-or {
+						padding-left:0;
+						position:relative;
+						top:3px;
+						padding-right:25px;
+						display:block;
+						float:none;
+						margin-bottom:7px;
+					}
+					.form-type-select {
+						display:block;
+					}
+				}
+				input.form-submit {
+					float:none;
+					display:block;
+					position: relative;
+					left: 0;
+				}
+			}
+		}
+	}
+}
+
 //**** Rows - Standard
 .slide:not(.slide-1) {
 	height:auto;
