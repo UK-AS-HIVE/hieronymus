@@ -1857,6 +1857,97 @@ body.page-news {
 	}
 }
 
+//**** Pages - Course 
+body.node-type-course:not(.has-sidebar) #content{
+	#page-title {
+		display:none;
+	}
+
+	h1.title,
+	h2.title,
+	.views-field,
+	.field-name-body, 
+	table,
+	p {
+		max-width:1200px;
+	}
+
+	.views-field,
+	table {
+		width:90%;
+	}
+	@media screen and (max-width:850px) {
+		.views-field,
+		table {
+			width:100%;
+		}
+	}
+
+	table {
+		td, th {
+			min-width:170px;
+		}
+	}
+	@media screen and (max-width:850px) {
+		table {
+			td, th {
+				min-width:40px;
+			}
+		}
+	}
+	.views-field {
+		margin-bottom:28px;
+		img {
+			max-width:75px;
+			float: left;
+			margin-bottom:28px;
+		}
+		.course-header-info {
+			margin-left: 14px;
+			float: left;
+			position: relative;
+			top: 8px;
+			h1.title {
+				padding-bottom:0;
+			}
+			.field-name-field-course-prefix {
+				display:inline-block;
+				margin-right:7px;
+				font-size: 18px;
+				color:@dark-gray;
+				.field-label {
+					display:none;
+				}
+			}
+			.field-name-field-course-number {
+				display:inline-block;
+				font-size: 18px;
+				color:@dark-gray;
+				.field-label {
+					display:none;
+				}
+			}
+		}
+		.field-name-body {
+			clear: both;
+			p {
+				max-width:810px;
+				margin:0;
+			}
+		}
+	}
+	.course-sections-wrapper {
+		h2.title {
+			display:none;
+		}
+		.view-courses-course-sections {
+			caption {
+				text-align: left;
+			}
+		}
+	}
+}
+
 //**** Rows - Standard
 .slide:not(.slide-1) {
 	height:auto;
