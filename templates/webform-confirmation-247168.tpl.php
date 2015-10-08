@@ -39,6 +39,26 @@ switch ($submission->data[1][0]) {
 if (!empty($submission->data[29][0])) {
   $cost += intval($submission->data[29][0]);
 }
+foreach ($submission->data[41] as $key) {
+  switch ($key) {
+    case 'mountaintop':
+      $cost += 35;
+      break;
+    case 'spiritky':
+      $cost += 25;
+      break;
+    case 'localag':
+      $cost += 20;
+      break;
+    case 'walking':
+      $cost += 10;
+      break;
+    case 'mammoth':
+      $cost += 35;
+      break;
+  }
+}
+
 
 ?>
 
