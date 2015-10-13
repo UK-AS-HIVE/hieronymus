@@ -206,9 +206,10 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 	.department-color-accent(background-color);
 }
 .more-button {
+	padding-bottom:30px;
 	a.standard-button {
 		float: right;
-		margin-top:-33px;
+		margin-top:-14px;
 		margin-left:14px;
 		@media @tablet-max {
 			margin-top:-20px;
@@ -431,10 +432,10 @@ p {
 //**** Buttons
 .standard-button {
 	display:inline-block;
-	text-transform:uppercase;
+	text-transform:capitalize;
 	color:@uk-blue;
 	.department-color(color);
-	border:2px solid @uk-blue;
+	border:1px solid @uk-blue;
 	.department-color(border-color);
 	box-sizing:border-box;
 	border-radius:3px;
@@ -536,6 +537,7 @@ p {
 				display: none;  
 				h2 {
 					font-size:20px;
+					text-transform: capitalize;
 				}
 				&:after {
 					width:0px;
