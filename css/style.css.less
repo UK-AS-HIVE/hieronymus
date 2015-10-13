@@ -432,16 +432,19 @@ p {
 .standard-button {
 	display:inline-block;
 	text-transform:uppercase;
-	color:white;
+	color:@uk-blue;
+	.department-color(color);
+	border:2px solid @uk-blue;
+	.department-color(border-color);
 	box-sizing:border-box;
+	border-radius:3px;
 	padding:8px 15px 8px 15px;
-	background-color:@uk-blue;
-	.department-color(background-color);
-	transition: background-color 0.3s;
+	transition:  0.3s;
 	width:auto;
 	min-width: 67px;
 	max-width:175px;
 	text-align: center;
+	font-weight:700;
 	@media @mobile-max {
 		max-width:100%;
 		width:100%;
@@ -449,7 +452,11 @@ p {
 	&:hover {
 		background-color:@dark-blue;
 		.department-color-dark(background-color);
-		transition: background-color 0.3s;
+		border-color: @dark-blue;
+		.department-color-dark(border-color);
+		color:white;
+		transition: 0.3s;
+
 	}
 }
 
@@ -1102,6 +1109,9 @@ input[type=button]:focus {
 }
 input[type=submit] {
 	.standard-button;
+	background-color:@uk-blue;
+	.department-color(background-color);
+	color:white;
 	transition:none;
 	border:0;
 }
