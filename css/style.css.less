@@ -201,12 +201,9 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 	content:"";
 	display:block;
 	width:100%;
-	height:22px;
+	height:2px;
 	background-color:@medium-gray;
 	.department-color-accent(background-color);
-	-webkit-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
-	box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.2);
 }
 .more-button {
 	a.standard-button {
@@ -1948,6 +1945,50 @@ body.node-type-course:not(.has-sidebar) #content{
 	}
 }
 
+//**** Pages - Course Section
+.node-type-course-section {
+	#sidebar {
+		h2 {
+			display:none;
+		}
+		.view-redesign-course-section-sidebar {
+			.views-field {
+				padding-bottom:0.5em;
+			}
+			.views-field-field-semester {
+				font-weight:700;
+				color:@dark-gray;
+			}
+			.views-field-field-start-date {
+				display:inline-block;
+				position:relative;
+				&:after {
+					content:"-";
+					position:absolute;
+					right:-11px;
+					top:0;
+				}
+			}
+			.views-field-field-end-date {
+				display:inline-block;
+				padding-left:14px;
+			}
+			.views-field-field-credits {
+				> .field-content {
+					font-weight:700;
+					position:relative;
+					display:inline-block;
+					&:after {
+						content:"Credits";
+						padding-left:7px;
+						font-weight:300;
+					}
+				}
+			}
+		}
+	}
+}
+
 //**** Rows - Standard
 .slide:not(.slide-1) {
 	height:auto;
@@ -3043,6 +3084,19 @@ body.html.not-front {
 			max-width:1200px;
 			width:90%;
 			margin:0 auto;
+		}
+	}
+	&.page-manage-domains {
+		h1.title {
+			max-width: 1200px;
+		}
+		#block-system-main {
+			table {
+				max-width: 1200px;
+			}
+			.view-filters {
+				max-width: 1200px;
+			}
 		}
 	}
 	&.page-user-edit, &.page-node-edit, &.page-taxonomy-term-edit, &.page-node-add, &.page-node-webform {
