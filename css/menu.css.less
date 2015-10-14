@@ -409,179 +409,71 @@ li.expanded, li.collapsed, li.leaf {
 		}
 	}
 } 
+//**** Main Menu Settings
+// -- Requires classes "restricted-width background-dark-gray" (or similarly dark color)
+@media @desktop {
+	.region-navigation > .block-menu {
+		// First n top-level items go to the left
+		&.menu-left-4 .content > .menu > li:nth-child(-n+4),
+		&.menu-left-5 .content > .menu > li:nth-child(-n+5),
+		&.menu-left-6 .content > .menu > li:nth-child(-n+6) {
+			float: left;
+		}
+		// Lighter background for the first n items. Requires n+1
+		&.menu-left-4 .content > .menu > li:nth-child(5):before,
+		&.menu-left-5 .content > .menu > li:nth-child(6):before,
+		&.menu-left-6 .content > .menu > li:nth-child(7):before {
+			content: '';
+			display: block;
+			height: 100%;
+			position: absolute;
+			background: @medium-gray;
+			width: 10000px;
+			margin-left: -10042px;
+			top: 0;
+			pointer-events: none;
+		}
+		// n+1 and after have lighter text
+		&.menu-left-4 .content > .menu > li:nth-child(n+5):hover > a,
+		&.menu-left-5 .content > .menu > li:nth-child(n+6):hover > a,
+		&.menu-left-6 .content > .menu > li:nth-child(n+7):hover > a {
+			background-color:@text-color;
+		}
+		&.menu-left-4 .content > .menu > li:nth-child(n+5) > ul.menu,
+		&.menu-left-5 .content > .menu > li:nth-child(n+6) > ul.menu,
+		&.menu-left-6 .content > .menu > li:nth-child(n+7) > ul.menu {
+			background-color:@text-color;
+			a {
+				background-color:transparent;
+				color: @medium-gray;
+				&:hover {
+					color: white;
+				}
+			}
+			ul.menu > li {
+				&:hover a {
+					color:white;
+				}
+				a {
+					background-color:transparent;
+					color: @medium-gray;
+				}
+			}
+		}
+		&.menu-left-4 .content > .menu > li:nth-child(n+5) a:after,
+		&.menu-left-5 .content > .menu > li:nth-child(n+6) a:after,
+		&.menu-left-6 .content > .menu > li:nth-child(n+7) a:after {
+			color: @medium-gray;
+		}
+		&.menu-left-4 .content > .menu > li:nth-child(n+5) > a,
+		&.menu-left-5 .content > .menu > li:nth-child(n+6) > a,
+		&.menu-left-6 .content > .menu > li:nth-child(n+7) > a {
+			color: @medium-gray;
+		}
+	}
+}
+
 //**** Domain-specific Main Menu Settings
-
-/* 
-	Standard - 5 items left, medium-gray left of 6th
-	-- Requires classes "restricted-width background-dark-gray" (or similarly dark color)
-*/
-.domain-www-as-uky-edu,
-.domain-aaas-as-uky-edu,
-.domain-chem-as-uky-edu,
-.domain-alumni-friends-as-uky-edu,
-.domain-neuroscience-as-uky-edu,
-.domain-students-as-uky-edu {
-	.region-navigation > .block-menu .content > .menu {
-		@media @desktop {
-			// First five top-level items go to the left
-			> li:nth-child(-n+5) {
-				float: left;
-			}
-			// Lighter background for the first five items. Requires a sixth
-			> li:nth-child(6):before {
-				content: '';
-				display: block;
-				height: 100%;
-				position: absolute;
-				background: @medium-gray;
-				width: 10000px;
-				margin-left: -10042px;
-				top: 0;
-				pointer-events: none;
-			}
-			// Sixth and after have lighter text
-			> li:nth-child(n+6):hover > a {
-				background-color:@text-color;
-			}
-			> li:nth-child(n+6) > ul.menu {
-				background-color:@text-color;
-				a {
-					background-color:transparent;
-					color: @medium-gray;
-					&:hover {
-						color: white;
-					}
-				}
-				ul.menu > li {
-					&:hover a {
-						color:white;
-					}
-					a {
-						background-color:transparent;
-						color: @medium-gray;
-					}
-				}
-			}
-			> li:nth-child(n+6) a:after {
-				color: @medium-gray;
-			}
-			> li:nth-child(n+6) > a {
-				color: @medium-gray;
-			}
-		}
-	}
-}
-/* 
-	Smaller - 4 items left, medium-gray left of 5th
-	-- Requires classes "restricted-width background-dark-gray" (or similarly dark color)
-*/ 
-.not-currently-used {
-	.region-navigation > .block-menu .content > .menu {
-		@media @desktop {
-			// First five top-level items go to the left
-			> li:nth-child(-n+4) {
-				float: left;
-			}
-			// Lighter background for the first five items. Requires a sixth
-			> li:nth-child(5):before {
-				content: '';
-				display: block;
-				height: 100%;
-				position: absolute;
-				background: @medium-gray;
-				width: 10000px;
-				margin-left: -10042px;
-				top: 0;
-				pointer-events: none;
-			}
-			// Sixth and after have lighter text
-			> li:nth-child(n+5):hover > a {
-				background-color:@text-color;
-			}
-			> li:nth-child(n+5) > ul.menu {
-				background-color:@text-color;
-				a {
-					background-color:transparent;
-					color: @medium-gray;
-					&:hover {
-						color: white;
-					}
-				}
-				ul.menu > li {
-					&:hover a {
-						color:white;
-					}
-					a {
-						background-color:transparent;
-						color: @medium-gray;
-					}
-				}
-			}
-			> li:nth-child(n+5) a:after {
-				color: @medium-gray;
-			}
-			> li:nth-child(n+5) > a {
-				color: @medium-gray;
-			}
-		}
-	}
-}
-/* 
-	Larger - 6 items left, medium-gray left of 7th
-	-- Requires classes "restricted-width background-dark-gray" (or similarly dark color)
-*/ 
-.not-currently-used {
-	.region-navigation > .block-menu .content > .menu {
-		@media @desktop {
-			// First five top-level items go to the left
-			> li:nth-child(-n+6) {
-				float: left;
-			}
-			// Lighter background for the first five items. Requires a sixth
-			> li:nth-child(7):before {
-				content: '';
-				display: block;
-				height: 100%;
-				position: absolute;
-				background: @medium-gray;
-				width: 10000px;
-				margin-left: -10042px;
-				top: 0;
-				pointer-events: none;
-			}
-			// Sixth and after have lighter text
-			> li:nth-child(n+7):hover > a {
-				background-color:@text-color;
-			}
-			> li:nth-child(n+7) > ul.menu {
-				background-color:@text-color;
-				a {
-					background-color:transparent;
-					color: @medium-gray;
-					&:hover {
-						color: white;
-					}
-				}
-				ul.menu > li {
-					&:hover a {
-						color:white;
-					}
-					a {
-						background-color:transparent;
-						color: @medium-gray;
-					}
-				}
-			}
-			> li:nth-child(n+7) a:after {
-				color: @medium-gray;
-			}
-			> li:nth-child(n+7) > a {
-				color: @medium-gray;
-			}
-		}
-	}
-}
-
 // Special for www full departments list
 .domain-www-as-uky-edu {
 	.region-navigation > .block-menu .content > .menu {
