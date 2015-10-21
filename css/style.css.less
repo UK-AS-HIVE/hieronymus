@@ -457,7 +457,9 @@ p {
 		.department-color-dark(border-color);
 		color:white !important;
 		transition: 0.3s;
-
+		a {
+			color:white;
+		}
 	}
 }
 
@@ -1174,6 +1176,7 @@ legend {
 		body:not(.domain-www-as-uky-edu) & {
 			color: white;
 		}
+		color:white;
 	}
 	img {
 		float: none !important;
@@ -1181,6 +1184,11 @@ legend {
 		margin-left: 0 !important;
 		mergin-right: 6px !important;
 		vertical-align: middle;
+	}
+}
+legend .fieldset-legend {
+	span.summary {
+		color:white;
 	}
 }
 fieldset.expandable {
@@ -3512,46 +3520,81 @@ body:not(.has-sidebar) {
 
 //**** Content Page
 body.html.not-front.page-admin-content #content {
-
+	margin-bottom:40px;
+	fieldset {
+		margin-bottom:14px;
+	}
 }
 
 //**** Add Content Pages
-body.html.not-front.page-node-add #content {
-	form {
-		.horizontal-tabs {
-			fieldset {
-				.fieldset-wrapper {
-					.field-type-text {
-						max-width:100%;
-					}
-					.field-type-datetime {
-						max-width:100%;
-						legend {
-							background-color: transparent;
-							span {
-								font-size: 20px;
-								color: @text-color;
-								text-transform: capitalize;
-								font-weight:bold;
+body.html.not-front {
+	&.page-node-add {
+		#content {
+			form {
+				.horizontal-tabs {
+					fieldset {
+						.fieldset-wrapper {
+							.field-type-text {
+								max-width:100%;
+							}
+							.field-type-datetime {
+								max-width:100%;
+								legend {
+									background-color: transparent;
+									span {
+										font-size: 20px;
+										color: @text-color;
+										text-transform: capitalize;
+										font-weight:bold;
+									}
+								}
+								.fieldset-wrapper {
+									padding: 0;
+									#edit-field-asdate-und-0-value, #edit-field-asdate-und-0-value2 {
+										padding:0;
+									}
+								}
 							}
 						}
-						.fieldset-wrapper {
-							padding: 0;
-							#edit-field-asdate-und-0-value, #edit-field-asdate-und-0-value2 {
-								padding:0;
-							}
+					}
+				}
+			}
+			.node-course-form {
+				.field-type-text-with-summary {
+					#edit-field-promotional-description-und-0-format {
+						> .fieldset-wrapper {
+							padding:0.5em 0;
+							border:none;
 						}
 					}
 				}
 			}
 		}
 	}
-	.node-course-form {
-		.field-type-text-with-summary {
-			#edit-field-promotional-description-und-0-format {
-				> .fieldset-wrapper {
-					padding:0.5em 0;
-					border:none;
+}
+
+//**** Add Distillery Project
+body.html.not-front.page-admin-structure-taxonomy-distillery-project-add {
+	#content {
+		form {
+			.horizontal-tabs-panes {
+				> fieldset {
+					> .fieldset-wrapper {
+						border:0;
+						padding-top:0;
+						fieldset {
+							.fieldset-wrapper {
+								border: 2px solid @light-blue;
+							}
+						}
+						.filter-wrapper {
+							padding-top:0;
+							.fieldset-wrapper {
+								border:0;
+								padding:0;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -3641,6 +3684,10 @@ body:not(.has-sidebar).html.not-front {
 			.title {
 				max-width:1200px;
 			}
+			p {
+				margin:0;
+				margin-bottom:14px;
+			}
 			#block-system-main,
 			table, 
 			ol, 
@@ -3674,8 +3721,74 @@ body:not(.has-sidebar).html.not-front {
 				}
 			}
 			#edit-pages-apply, #edit-pages-reset, #ctools-export-ui-list-items-apply, #ctools-export-ui-list-items-apply {
-				margin-top:14px;
+				margin-top:21px;
 				margin-right:2em;
+			}
+		}
+		#main-wrapper {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+//**** Views Page
+body:not(.has-sidebar).html.not-front {
+	&.page-admin-structure-views {
+		#content {
+			#block-system-main,
+			table {
+				max-width:100%;
+			}
+		}
+	}
+}
+
+//**** Add New View Page
+body:not(.has-sidebar).html.not-front {
+	&.page-admin-structure-views-add {
+		#content {
+			#block-system-main,
+			table {
+				max-width:1200px;
+			}
+			form.views-admin {
+				#edit-view-displays-wrapper {
+					> fieldset {
+						> .fieldset-wrapper {
+							border:2px solid @as-gray;
+							border-radius:3px;
+							.form-item-show-sort {
+								display:block;
+								padding-left:0;
+							}
+						}
+					}
+					#edit-page {
+						#edit-view-displays-page-options-wrapper {
+							#edit-page-wrapper {
+								margin:0;
+								fieldset {
+									.fieldset-wrapper {
+										border:0;
+										padding:0;
+									}
+								}
+							}
+						}
+					}
+					#edit-block {
+						margin-bottom:20px;
+						#edit-block-wrapper {
+							margin:0;
+							fieldset {
+								.fieldset-wrapper {
+									border:0;
+									padding:0;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
