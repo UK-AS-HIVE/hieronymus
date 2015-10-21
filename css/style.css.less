@@ -800,7 +800,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 //** Select
 .form-type-select {
 	position: relative;
-	&:after {
+	/*&:after {
 		font-family:FontAwesome;
 		font-size:14px;
 		content:"\f0da";
@@ -809,9 +809,9 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 		right:14px;
 		color:@dark-gray;
 		display:inline-block;
-	}
+	}*/
 	select {
-		-webkit-appearance:none;
+		//-webkit-appearance:none;
 		padding:6px 4px;
 		min-width:170px;
 		border-radius:0;
@@ -837,7 +837,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 	}
 	.chosen-container {
 		a.chosen-single {
-			-webkit-appearance:none;
+			//-webkit-appearance:none;
 			padding:5px 4px 5px 4px;
 			min-width:170px;
 			border-radius:0;
@@ -861,7 +861,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 				transition:border 0.3s;
 			}
 			div b {
-				display:none;
+				//display:none;
 			}
 			span {
 				vertical-align:top;
@@ -3510,6 +3510,11 @@ body:not(.has-sidebar) {
 	}
 }
 
+//**** Content Page
+body.html.not-front.page-admin-content #content {
+
+}
+
 //**** Add Content Pages
 body.html.not-front.page-node-add #content {
 	form {
@@ -3555,30 +3560,75 @@ body.html.not-front.page-node-add #content {
 
 //**** Profile Edit Page
 body.html.not-front.page-user-edit #content {
-	h1 {
-		max-width: 100%;
+	h1.title {
+		max-width: 1200px;
+		width: 90%;
+		margin:0 auto;
+		margin-bottom:0.7em;
 	}
 	#user-profile-form {
-		#edit-picture {
-			background: @light-gray;
-			border: solid 1px @as-gray;
-			padding: 4px 11px;
-			float: left;
-			max-width: 360px;
-			width: 30%;
-			margin-right: @default-spacing;
-		}
-		.field-name-field-full-name {
-			margin-top: @default-spacing;
-			float: left;
-			.full_name-name {
-				float: none;
-				display: inline-block;
-				margin-right: 3px;
-				input {
-					max-width: 5em;
-					min-width: 5em;
+		.horizontal-tabs-panes {
+			#edit-picture {
+				background: @light-gray;
+				border: solid 1px @as-gray;
+				float: left;
+				max-width: 360px;
+				width: 30%;
+				margin-right: 28px;
+				margin-bottom:14px;
+				> legend {
+					padding: 7px 14px;
+					font-weight: 700;
+					color:white;
+					background-color: @uk-blue;
+					border-radius:0;
 				}
+			}
+			.field-name-field-full-name {
+				float: left;
+				.full_name-name {
+					float: none;
+					display: inline-block;
+					margin-right: 3px;
+					.form-item {
+						margin:0;
+						input {
+							max-width: 5em;
+							min-width: 5em;
+						}
+					}
+				}
+			}
+			.field-name-field-name {
+				float: left;
+			}
+			.field-name-field-user-email {
+				float: left;
+				#field-user-email-add-more-wrapper {
+					> .form-item {
+						margin-top:0;
+					}
+				}
+			}
+			.field-name-field-office {
+				clear:both;
+				margin-bottom:14px;
+			}
+			table {
+				th.field-label {
+					padding-left:14px;
+				}
+			}
+
+		}
+	}
+	fieldset.collapsible {
+		padding:0;
+	}
+	.group-admin {
+		fieldset {
+			.fieldset-wrapper {
+				border: 2px solid @light-blue;
 			}
 		}
 	}
@@ -3613,9 +3663,6 @@ body:not(.has-sidebar).html.not-front {
 				margin-bottom:14px;
 				li {
 					.standard-button;
-					a {
-						color:white;
-					}
 				}
 			}
 			#features-admin-form {
