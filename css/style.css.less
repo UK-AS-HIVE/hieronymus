@@ -75,7 +75,6 @@ body.has-sidebar #main-wrapper {
 		p, h1, h2, h3, h4, h5, h6 {
 			margin-left:0;
 			margin-right:0;
-
 		}
 	}
 }
@@ -457,7 +456,9 @@ p {
 		.department-color-dark(border-color);
 		color:white !important;
 		transition: 0.3s;
-
+		a {
+			color:white;
+		}
 	}
 }
 
@@ -798,18 +799,33 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 	min-width:250px;
 }
 //** Select
+select {
+	//-webkit-appearance:none;
+	padding:6px 4px;
+	min-width:170px;
+	border-radius:0;
+	background-color:@light-gray;
+	border:none;
+	position:relative;
+	box-sizing:border-box;
+	border:1px solid @as-gray;
+	transition:border 0.3s;
+	font-size:16px;
+	color:@text-color;
+	line-height:normal;
+	&:focus {
+		outline:0;
+	}
+	&:hover {
+		border:1px solid @light-blue;
+		transition:border 0.3s;
+	}
+	option {
+		padding:6px 4px;
+	}
+}
 .form-type-select {
 	position: relative;
-	/*&:after {
-		font-family:FontAwesome;
-		font-size:14px;
-		content:"\f0da";
-		position:absolute;
-		top:2px;
-		right:14px;
-		color:@dark-gray;
-		display:inline-block;
-	}*/
 	select {
 		//-webkit-appearance:none;
 		padding:6px 4px;
@@ -835,6 +851,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 			padding:6px 4px;
 		}
 	}
+
 	.chosen-container {
 		a.chosen-single {
 			//-webkit-appearance:none;
@@ -1101,6 +1118,14 @@ input[type=button] {
 	transition:none;
 	border:0;
 }
+input[type="button"] {
+	background-color:transparent;
+	border:1px solid @uk-blue;
+	&:hover {
+		background-color:@dark-blue;
+		border-color:@dark-blue;
+	}
+}
 input[type=button]:hover {
 	background-color:@dark-blue;
 	transition:0.3s;
@@ -1174,6 +1199,7 @@ legend {
 		body:not(.domain-www-as-uky-edu) & {
 			color: white;
 		}
+		color:white;
 	}
 	img {
 		float: none !important;
@@ -1181,6 +1207,11 @@ legend {
 		margin-left: 0 !important;
 		mergin-right: 6px !important;
 		vertical-align: middle;
+	}
+}
+legend .fieldset-legend {
+	span.summary {
+		color:white;
 	}
 }
 fieldset.expandable {
@@ -2795,291 +2826,345 @@ body.node-type-course:not(.has-sidebar) #content{
 
 
 //********* Style Guide Styles
-.page-node-280132 {
-	.breadcrumb, .title, .tabs { display: none; }
-
-	.sg { // Applies to all style guide blocks on page.
-		position: relative;
-		p { margin-bottom: 5px; }
-		.block-wrapper {
-			.full-width;
-			.content {
-				max-width:1200px;
-				width:95%;
-				margin:0 auto;
-				.to-top {
-					position:absolute;
-					right:40px;
-					top:45px;
-					color:white;
-					text-transform:uppercase;
-					width: auto;
-					a {
-						color:white;
-					}
-				}
-				h2 { display: block; }
-				& > div {
-					border-bottom:1px solid @as-gray;
-					padding-bottom:15px;
-					margin-bottom:15px;
-					&:last-child { border-bottom: none; }
-				}
-			}
-			& > h2 { 
-				display: block; 
-				background-color:@light-blue;
-				padding: 33px 0 30px;
-				text-align:center;
-				color:white;
-				margin-bottom:50px;
-			}
-		}
+body.page-node-280132:not(.has-sidebar) {
+	#main-wrapper {
+		margin-top:0;
 	}
+	#content {
+		.breadcrumb, .title, .tabs { display: none; }
 
-	.contents { // Specific to contents block.
-		.block-wrapper {
-			.full-width;
-			background-color:@uk-blue;
-			.department-color(department-color);
-			width:100vw;
-			height:100vh;
-			.content {
-				max-width:1200px;
-				width:95%;
-				margin:0 auto;
-				position:relative;
-				top:100px;
+		.sg { // Applies to all style guide blocks on page.
+			position: relative;
+			.width-container {
 				h2 {
-					margin-bottom:15px;
-					background:transparent;
-					color:white;
+					max-width:100%;
 				}
-				ul {
-					margin-left:0;
-					li {
-						list-style-type: none;
-						a {
-							color:@light-blue;
-						}
-					}
-				}
-			}
-		}
-	}
-	.typography { // Specific to typography block
-		.block-wrapper {
-			.content {
-				& > div {
-					p:first-child {
-						margin-bottom:10px;
-					}
-				}
-			}
-		}
-	}
-	.paragraph { // Specific to paragraph blocl
-		.content {
-			& > div {
-				p { margin-bottom: @default-spacing; max-width:730px; width:100%; }
-				img {
-					display:block;
-					margin:0 auto;
-				}
-				&:first-of-type {
-					h1, h2, h3, h4, p {
-						background:@light-gray;
-						margin-bottom:15px;
-						width:100%;
-					}
-					h4 ~ p {
-						background:transparent;
-						margin-bottom:5px;
-					}
-				}
-				.small-text:first-child {
-					background:transparent;
-				}
-			}
-		}
-	}
-	.buttons { //Specific to buttons block
-		.block-wrapper {
-			.content {
-				.full-width;
-				& > div {
+				.content-wrapper {
 					max-width:1200px;
 					width:95%;
 					margin:0 auto;
-					margin-bottom:10px;
-					ul {
-						margin-bottom:15px;
-					}
-				}
-				ul {
-					margin-left:0;
-					li {
-						list-style-type: none;
+					p, 
+					h1, 
+					h2, 
+					h3, 
+					h4, 
+					h5, 
+					h6, 
+					ul, 
+					ol, 
+					li, 
+					table, 
+					.links,
+					.view-filters, 
+					.webform-client-form, 
+					.title,
+					.field-name-field-asdate,
+					.field-name-field-location,
+					.field-name-body,
+					.views-field,
+					.field-name-field-presenter {
+						max-width:100%;
+						margin-left:auto;
+						margin-right:auto;
+					} 
+					.to-top {
+						position:absolute;
+						right:0;
+						top:-104px;
+						text-transform:lowercase;
+						width: auto;
 						a {
-							float:none;
+							color:white;
 						}
 					}
-				}
-			}
-		}
-	}
-	.page-tabs { // Specific to tabs block
-		.block-wrapper {
-			.content-wrapper {
-				.full-width;
-				.content {
-					.full-width;
-					& > div > p {
-						width:100%;
-						max-width:1200px;
-						margin:0 auto;
-					}
-				}
-			}
-		}
-	}
-	.colors { //specific to colors block
-		.content {
-			div {
-				width:100%;
-				padding: 15px 0 20px 0;
-				color:white;
-				text-align:center;
-			}
-		}
-	}
-	.departments { // Specific to Departments block
-		.content {
-			& > div {
-				&:after {
-					content:"";
-					display:table;
-					clear:both;
-				}
-				& > div {
-					width:300px;
-					display: inline-block;
-					margin-top:25px;
-					margin-left:50px;
-					color:white;
-					text-align:center;
-					padding:10px 100px 10px 100px;
-				}
-				& > p:first-of-type {
-					margin-bottom:10px;
-				}
-				& > p:last-of-type {
-					width:100px;
-					display:inline-block;
-					float: left;
-					img {
-						width:100px;
-						height:auto;
-					}
-				}
-			}
-		}
-	}
-	.avatars { // Specific to avatars block
-		.content {
-			& > div:first-child > p:last-of-type {
-				width:250px;
-				height:250px;
-				overflow:hidden;
-				border-radius:150px;
-			}
-			& > div:nth-child(2) > p:last-of-type {
-				width:250px;
-				height:250px;
-				overflow:hidden;
-				border-radius:150px;
-			}
-			& > div:nth-child(3) > p:last-of-type {
-				width:175px;
-				height:175px;
-				overflow:hidden;
-				border-radius:100px;
-			}
-			& > div:nth-child(4) > p:last-of-type {
-				width:115px;
-				height:115px;
-				overflow:hidden;
-				border-radius:80px;
-			}
-			& > div:last-child > p:last-of-type {
-				width:65px;
-				height:65px;
-				overflow:hidden;
-				border-radius:50px;
-			}
-		}
-	}
-	.icons {
-		.content {
-			font-family: FontAwesome;
-			position:relative;
-			font-size:22px;
-			& > div:nth-of-type(1) > div:after { content:"\f015"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(2) > div:after { content:"\f0e0"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(3) > div:after { content:"\f1ad"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(4) > div:after { content:"\f017"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(5) > div:after { content:"\f098"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(6) > div:after { content:"\f144"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(7) > div:after { content:"\f03e"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(8) > div:after { content:"\f14b"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(9) > div:after { content:"\f130"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(10) > div:after { content:"\f002"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(11) > div:after { content:"\f058"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(12) > div:after { content:"\f057"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(13) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(14) > div:after { content:"\f051"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(15) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(16) > div:after { content:"\f048"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(17) > div:after { content:"\f082"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(18) > div:after { content:"\f081"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(19) > div:after { content:"\f143"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(20) > div:after { content:"\f194"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(21) > div:after { content:"\f174"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(22) > div:after { content:"\f16d"; position:absolute; color: @uk-blue; .department-color(color);}
-			& > div:nth-of-type(23) > div:after { content:"\f16e"; position:absolute; color: @uk-blue; .department-color(color);}
-		}
-	}
-	.non-row-layout { //Specific style for non-row based layouts
-		.block-wrapper {
-			.content {
-				.full-width;
-				& > div {
-					max-width:1200px;
-					width:95%;
-					margin:0 auto;
-					.non-row-layout-sidebar {
-						background:@as-gray;
+					h2 { display: block; }
+					.content {
 						& > div {
-							span {
-								color:white;
-								display:inline-block;
-								width:100%;
-								text-align:center;
-								margin-top:30px;
+							border-bottom:1px solid @as-gray;
+							padding-bottom:15px;
+							margin-bottom:15px;
+							&:last-child { border-bottom: none; }
+							p.small-text:first-child {
+								margin-bottom:5px;
+							}
+							p {
+								margin-bottom:14px;
 							}
 						}
-						& > div:first-child {
-							background:@dark-gray;
-							width:280px;
-							height:800px;
-							margin-right:40px;
-							display:inline-block;
+					}
+				}
+				& > h2 { 
+					display: block; 
+					background-color:@light-blue;
+					padding: 33px 0 30px;
+					text-align:center;
+					color:white;
+					margin-bottom:50px;
+				}
+			}
+		}
+
+		.contents { // Specific to contents block.
+			.width-container {
+				background-color:@uk-blue;
+				.department-color(department-color);
+				width:100vw;
+				height:100vh;
+				.content {
+					position:relative;
+					top:100px;
+					h2 {
+						font-size:34px;
+						background:transparent;
+						color:white;
+					}
+					ul {
+						margin-left:0;
+						li {
+							list-style-type: none;
+							a {
+								color:@light-blue;
+							}
 						}
-						& > div:last-child {
-							background: @dark-gray;
-							width:730px;
-							height:800px;
-							display:inline-block;
+					}
+				}
+			}
+		}
+		.typography { // Specific to typography block
+
+		}
+		.paragraph .width-container { // Specific to paragraph block
+			.content-wrapper .content {
+				& > div {
+					max-width:810px;
+					p { 
+						margin-bottom: @default-spacing; 
+						max-width:810px; 
+						margin:0;
+						margin-bottom:14px;
+					}
+					img {
+						display:block;
+						margin:0 auto;
+						margin-bottom:14px;
+					}
+					img.float-left, img.float-right {
+						margin-bottom:0;
+					}
+					&:first-of-type {
+						h1, h2, h3, h4, p {
+							background:@light-gray;
+							margin-bottom:15px;
+							width:100%;
+						}
+						h4 ~ p {
+							background:transparent;
+							margin-bottom:5px;
+						}
+					}
+					.small-text:first-child {
+						background:transparent;
+					}
+				}
+			}
+		}
+		.buttons { //Specific to buttons block
+			.width-container {
+				.content {
+					ul {
+						margin-left:0;
+						margin-bottom:15px;
+						li {
+							list-style-type: none;
+							margin-bottom:14px;
+							a {
+								float:none;
+							}
+						}
+					}
+				}
+			}
+		}
+		.page-tabs { // Specific to tabs block
+			.width-container {
+				.content-wrapper {
+					max-width:100%;
+					width:100%;
+					.content {
+						& > div > p {
+							width:100%;
+							max-width:1200px;
+							margin:0 auto;
+						}
+						.tab-all-wrapper {
+							.tab-wrapper {
+								ul.tabbed {
+									max-width:1200px;
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+		.lists { //specific to lists block
+			.width-container {
+				.content-wrapper {
+					ul, ol {
+						margin-left:2em;
+					}
+				}
+			}
+		}
+		.links { //specific to links block
+			max-width:100%;
+			.width-container {
+				.content-wrapper {
+					p {
+						max-width:810px;
+						margin:0 0 14px 0;
+					}
+				}
+			}
+		}
+		.colors { //specific to colors block
+			.content {
+				div {
+					width:100%;
+					padding: 15px 0 20px 0;
+					color:white;
+					text-align:center;
+				}
+			}
+		}
+		.departments { // Specific to Departments block
+			.content {
+				& > div {
+					&:after {
+						content:"";
+						display:table;
+						clear:both;
+					}
+					& > div {
+						width:300px;
+						display: inline-block;
+						margin-top:25px;
+						margin-left:50px;
+						color:white;
+						text-align:center;
+						padding:10px 100px 10px 100px;
+					}
+					& > p:first-of-type {
+						margin-bottom:10px;
+					}
+					& > p:last-of-type {
+						width:100px;
+						display:inline-block;
+						float: left;
+						img {
+							width:100px;
+							height:auto;
+						}
+					}
+				}
+			}
+		}
+		.avatars { // Specific to avatars block
+			.content {
+				& > div:first-child > p:last-of-type {
+					width:250px;
+					height:250px;
+					overflow:hidden;
+					border-radius:150px;
+				}
+				& > div:nth-child(2) > p:last-of-type {
+					width:250px;
+					height:250px;
+					overflow:hidden;
+					border-radius:150px;
+				}
+				& > div:nth-child(3) > p:last-of-type {
+					width:175px;
+					height:175px;
+					overflow:hidden;
+					border-radius:100px;
+				}
+				& > div:nth-child(4) > p:last-of-type {
+					width:115px;
+					height:115px;
+					overflow:hidden;
+					border-radius:80px;
+				}
+				& > div:last-child > p:last-of-type {
+					width:65px;
+					height:65px;
+					overflow:hidden;
+					border-radius:50px;
+				}
+			}
+		}
+		.icons {
+			.content {
+				font-family: FontAwesome;
+				position:relative;
+				font-size:22px;
+				& > div:nth-of-type(1) > div:after { content:"\f015"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(2) > div:after { content:"\f0e0"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(3) > div:after { content:"\f1ad"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(4) > div:after { content:"\f017"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(5) > div:after { content:"\f098"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(6) > div:after { content:"\f144"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(7) > div:after { content:"\f03e"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(8) > div:after { content:"\f14b"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(9) > div:after { content:"\f130"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(10) > div:after { content:"\f002"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(11) > div:after { content:"\f058"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(12) > div:after { content:"\f057"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(13) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(14) > div:after { content:"\f051"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(15) > div:after { content:"\f04b"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(16) > div:after { content:"\f048"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(17) > div:after { content:"\f082"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(18) > div:after { content:"\f081"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(19) > div:after { content:"\f143"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(20) > div:after { content:"\f194"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(21) > div:after { content:"\f174"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(22) > div:after { content:"\f16d"; position:absolute; color: @uk-blue; .department-color(color);}
+				& > div:nth-of-type(23) > div:after { content:"\f16e"; position:absolute; color: @uk-blue; .department-color(color);}
+			}
+		}
+		.non-row-layout { //Specific style for non-row based layouts
+			.block-wrapper {
+				.content {
+					.full-width;
+					& > div {
+						max-width:1200px;
+						width:95%;
+						margin:0 auto;
+						.non-row-layout-sidebar {
+							background:@as-gray;
+							& > div {
+								span {
+									color:white;
+									display:inline-block;
+									width:100%;
+									text-align:center;
+									margin-top:30px;
+								}
+							}
+							& > div:first-child {
+								background:@dark-gray;
+								width:280px;
+								height:800px;
+								margin-right:40px;
+								display:inline-block;
+							}
+							& > div:last-child {
+								background: @dark-gray;
+								width:730px;
+								height:800px;
+								display:inline-block;
+							}
 						}
 					}
 				}
@@ -3515,46 +3600,81 @@ body:not(.has-sidebar) {
 
 //**** Content Page
 body.html.not-front.page-admin-content #content {
-
+	margin-bottom:40px;
+	fieldset {
+		margin-bottom:14px;
+	}
 }
 
 //**** Add Content Pages
-body.html.not-front.page-node-add #content {
-	form {
-		.horizontal-tabs {
-			fieldset {
-				.fieldset-wrapper {
-					.field-type-text {
-						max-width:100%;
-					}
-					.field-type-datetime {
-						max-width:100%;
-						legend {
-							background-color: transparent;
-							span {
-								font-size: 20px;
-								color: @text-color;
-								text-transform: capitalize;
-								font-weight:bold;
+body.html.not-front {
+	&.page-node-add {
+		#content {
+			form {
+				.horizontal-tabs {
+					fieldset {
+						.fieldset-wrapper {
+							.field-type-text {
+								max-width:100%;
+							}
+							.field-type-datetime {
+								max-width:100%;
+								legend {
+									background-color: transparent;
+									span {
+										font-size: 20px;
+										color: @text-color;
+										text-transform: capitalize;
+										font-weight:bold;
+									}
+								}
+								.fieldset-wrapper {
+									padding: 0;
+									#edit-field-asdate-und-0-value, #edit-field-asdate-und-0-value2 {
+										padding:0;
+									}
+								}
 							}
 						}
-						.fieldset-wrapper {
-							padding: 0;
-							#edit-field-asdate-und-0-value, #edit-field-asdate-und-0-value2 {
-								padding:0;
-							}
+					}
+				}
+			}
+			.node-course-form {
+				.field-type-text-with-summary {
+					#edit-field-promotional-description-und-0-format {
+						> .fieldset-wrapper {
+							padding:0.5em 0;
+							border:none;
 						}
 					}
 				}
 			}
 		}
 	}
-	.node-course-form {
-		.field-type-text-with-summary {
-			#edit-field-promotional-description-und-0-format {
-				> .fieldset-wrapper {
-					padding:0.5em 0;
-					border:none;
+}
+
+//**** Add Distillery Project
+body.html.not-front.page-admin-structure-taxonomy-distillery-project-add {
+	#content {
+		form {
+			.horizontal-tabs-panes {
+				> fieldset {
+					> .fieldset-wrapper {
+						border:0;
+						padding-top:0;
+						fieldset {
+							.fieldset-wrapper {
+								border: 2px solid @light-blue;
+							}
+						}
+						.filter-wrapper {
+							padding-top:0;
+							.fieldset-wrapper {
+								border:0;
+								padding:0;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -3644,6 +3764,10 @@ body:not(.has-sidebar).html.not-front {
 			.title {
 				max-width:1200px;
 			}
+			p {
+				margin:0;
+				margin-bottom:14px;
+			}
 			#block-system-main,
 			table, 
 			ol, 
@@ -3677,8 +3801,74 @@ body:not(.has-sidebar).html.not-front {
 				}
 			}
 			#edit-pages-apply, #edit-pages-reset, #ctools-export-ui-list-items-apply, #ctools-export-ui-list-items-apply {
-				margin-top:14px;
+				margin-top:21px;
 				margin-right:2em;
+			}
+		}
+		#main-wrapper {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+//**** Views Page
+body:not(.has-sidebar).html.not-front {
+	&.page-admin-structure-views {
+		#content {
+			#block-system-main,
+			table {
+				max-width:100%;
+			}
+		}
+	}
+}
+
+//**** Add New View Page
+body:not(.has-sidebar).html.not-front {
+	&.page-admin-structure-views-add {
+		#content {
+			#block-system-main,
+			table {
+				max-width:1200px;
+			}
+			form.views-admin {
+				#edit-view-displays-wrapper {
+					> fieldset {
+						> .fieldset-wrapper {
+							border:2px solid @as-gray;
+							border-radius:3px;
+							.form-item-show-sort {
+								display:block;
+								padding-left:0;
+							}
+						}
+					}
+					#edit-page {
+						#edit-view-displays-page-options-wrapper {
+							#edit-page-wrapper {
+								margin:0;
+								fieldset {
+									.fieldset-wrapper {
+										border:0;
+										padding:0;
+									}
+								}
+							}
+						}
+					}
+					#edit-block {
+						margin-bottom:20px;
+						#edit-block-wrapper {
+							margin:0;
+							fieldset {
+								.fieldset-wrapper {
+									border:0;
+									padding:0;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
