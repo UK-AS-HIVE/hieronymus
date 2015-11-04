@@ -102,7 +102,10 @@ body:not(.has-sidebar) #content {
 	.views-field,
 	.field-name-field-presenter,
 	#block-views-course-promotions-block-2,
-	.field-type-taxonomy-term-reference:not(.form-wrapper) {
+	.field-type-taxonomy-term-reference:not(.form-wrapper),
+	.node-tutorial .meta.submitted,
+	.field-name-field-audience,
+	.field-name-field-tutorial-steps {
 		max-width:810px;
 		margin-left:auto;
 		margin-right:auto;
@@ -132,9 +135,12 @@ body:not(.has-sidebar) #content {
 		.field-name-body,
 		.field-name-field-presenter,
 		#block-views-course-promotions-block-2,
-		.field-type-taxonomy-term-reference:not(.form-wrapper) {
-			max-width:100%;
-			width:100%;
+		.field-type-taxonomy-term-reference:not(.form-wrapper),
+		.node-tutorial .meta.submitted,
+		.field-name-field-audience,
+		.field-name-field-tutorial-steps {
+				max-width:100%;
+				width:100%;
 		}
 	}
 }
@@ -1772,6 +1778,26 @@ body.page-news {
 			.views-field-field-audience {
 				margin-bottom:7px;
 			}
+		}
+	}
+}
+
+//**** Pages - Individual Tutorial
+.node-type-tutorial {
+	.content {
+		margin-top: 14px;
+	}
+	.field-name-field-audience {
+		margin-bottom:14px;
+	}
+	.link-wrapper {
+		li:first-child {
+			padding-left:0;
+		}
+	}
+	.field-name-field-tutorial-category, .field-name-field-category {
+		li {
+			list-style-type: none;
 		}
 	}
 }
