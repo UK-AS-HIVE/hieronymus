@@ -3095,40 +3095,6 @@ body.page-node-280132:not(.has-sidebar) {
 				}
 			}
 		}
-		.avatars { // Specific to avatars block
-			.content {
-				& > div:first-child > p:last-of-type {
-					width:250px;
-					height:250px;
-					overflow:hidden;
-					border-radius:150px;
-				}
-				& > div:nth-child(2) > p:last-of-type {
-					width:250px;
-					height:250px;
-					overflow:hidden;
-					border-radius:150px;
-				}
-				& > div:nth-child(3) > p:last-of-type {
-					width:175px;
-					height:175px;
-					overflow:hidden;
-					border-radius:100px;
-				}
-				& > div:nth-child(4) > p:last-of-type {
-					width:115px;
-					height:115px;
-					overflow:hidden;
-					border-radius:80px;
-				}
-				& > div:last-child > p:last-of-type {
-					width:65px;
-					height:65px;
-					overflow:hidden;
-					border-radius:50px;
-				}
-			}
-		}
 		.icons {
 			.content {
 				font-family: FontAwesome;
@@ -3160,36 +3126,56 @@ body.page-node-280132:not(.has-sidebar) {
 			}
 		}
 		.non-row-layout { //Specific style for non-row based layouts
-			.block-wrapper {
+			.width-container {
+				.content-wrapper {
+					max-width:100%;
+					width:100%;
+				}
 				.content {
-					.full-width;
 					& > div {
-						max-width:1200px;
-						width:95%;
-						margin:0 auto;
-						.non-row-layout-sidebar {
-							background:@as-gray;
+						background:@as-gray;
+						p.small-text {
+							max-width:1200px;
+							margin:0 auto;
+							width:90%;
+						}
+						.non-row-layout-sidebar, .non-row-layout-sidebar-feature, .non-row-layout-article, .non-row-layout-article {
+							max-width:1200px;
+							margin:0 auto;
+							width:90%;
 							& > div {
 								span {
 									color:white;
 									display:inline-block;
-									width:100%;
+									width:90%;
 									text-align:center;
+									margin: 0 auto;
 									margin-top:30px;
 								}
 							}
-							& > div:first-child {
+							div.sg-sidebar {
 								background:@dark-gray;
-								width:280px;
+								max-width:360px;
+								width:29%;
 								height:800px;
-								margin-right:40px;
+								padding-right:45px;
 								display:inline-block;
+								box-sizing:border-box;
 							}
-							& > div:last-child {
+							div.sg-content {
 								background: @dark-gray;
-								width:730px;
+								max-width:810px;
+								width:70%;
 								height:800px;
 								display:inline-block;
+								float: right;
+							}
+						}
+						.non-row-layout-article {
+							div.sg-content {
+								float:none;
+								display:block;
+								margin: 0 auto;
 							}
 						}
 					}
