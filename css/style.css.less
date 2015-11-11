@@ -2074,6 +2074,14 @@ body.node-type-course:not(.has-sidebar) #content{
 		float: right;
 	}
 }
+.field-collection-item-field-front-content {
+	.view {
+		.view-header {
+			padding-left:7px;
+			margin-bottom:7px;
+		}
+	}
+}
 
 //**** Single 'slider', e.g. Front Page Features
 .slide.slide-1 {
@@ -2614,6 +2622,41 @@ body.node-type-course:not(.has-sidebar) #content{
 //**** Rows- Pubmed
 .view-redesign-pubmed {
 	margin-top: 40px;
+	.views-row {
+		.citation-wrapper {
+			position:relative;
+			box-sizing:border-box;
+			padding: 7px 20px 7px 20px;
+			border: 1px solid @as-gray;
+			border-bottom:none;
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			min-height:170px;
+		}
+		.pubmed-links-wrapper {
+			font-weight:700;
+			box-sizing:border-box;
+			border:1px solid @as-gray;
+			border-bottom:2px solid @dark-blue;
+			.department-color-dark(border-bottom-color);
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+			span {
+				display:inline-block;
+				width:49%;
+				text-align:center;
+				&:first-child {
+					border-right:1px solid @as-gray;
+				}
+			}
+			a {
+				.department-color-dark(color);
+				padding:7px 0;
+				width:100%;
+				display:block;
+			}
+		}
+	}
 }
 
 //**** Rows- Footer 
@@ -3132,6 +3175,14 @@ body.page-node-280132:not(.has-sidebar) {
 					width:100%;
 				}
 				.content {
+					p {
+						max-width:1200px;
+						margin:0 auto;
+						width:90%;
+						&:last-child {
+							margin-bottom: 40px;
+						}
+					}
 					& > div {
 						background:@as-gray;
 						p.small-text {
