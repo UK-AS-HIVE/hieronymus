@@ -154,7 +154,7 @@ li.expanded, li.collapsed, li.leaf {
 	}
 	@media @mobile-max {
 		.region-navigation {
-			padding: 123px 16px 42px 16px;
+			padding: 180px 16px 42px 16px;
 			width:100%;
 			max-width:100%;
 			right:auto;
@@ -256,7 +256,8 @@ li.expanded, li.collapsed, li.leaf {
 					text-indent:0;
 				}
 				li.expanded:hover:after {
-					background: @uk-blue;
+					//background: @uk-blue;
+					cursor:pointer;
 				}
 				li.expanded.open:after {
 					content: "\f10c";
@@ -393,10 +394,12 @@ li.expanded, li.collapsed, li.leaf {
 						}
 						> a {
 							font-weight:bold;
+							text-transform:uppercase;
 						}
 					}
 					> li.expanded > a {
 						font-weight: bold;
+						text-transform:uppercase;
 						.no-underline;
 					}
 				}
