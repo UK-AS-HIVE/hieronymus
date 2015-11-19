@@ -1,6 +1,7 @@
 <?php
   hide($content['field_embed']);
   hide($content['field_audio']);
+  hide($content['field_image2']);
 ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
@@ -23,7 +24,6 @@
   <div class="content clearfix"<?php print $content_attributes; ?>>
     <?
       if(!empty($content['field_audio']['#items'])){
-      	print render($content['field_image2']);
         drupal_add_css('//cdn.as.uky.edu/third-party/mediaelement/mediaelementplayer.min.css');
         drupal_add_js('//cdn.as.uky.edu/third-party/mediaelement/mediaelement-and-player.min.js', 'external');
         $url = file_create_url($content['field_audio']['#items'][0]['uri']);
