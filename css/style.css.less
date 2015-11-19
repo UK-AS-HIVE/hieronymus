@@ -1509,7 +1509,6 @@ body:not(.has-sidebar) #content .view-all-users{
 		box-sizing:border-box;
 	}
 	.views-field-nothing {
-		border-bottom:0;
 		padding: 6px 0 0 0;
 	}
 	.views-field-field-user-email {
@@ -1572,11 +1571,58 @@ body:not(.has-sidebar) #content .view-all-users{
 		}
 	}
 }
+#block-views-redesign-user-links-block {
+	margin-top:10px;
+	h2 {
+		display:none;
+	}
+	.view-redesign-user-links {
+		.view-content {
+			ul {
+				margin-bottom:0;
+				li {
+					margin:0;
+					list-style-type: none;
+					.entity-field-collection-item {
+						padding:0;
+						&.clearfix:before {
+							content:none;
+							display:none;
+							clear:none;
+						}
+					}
+					a {
+						display:inline-block;
+						&:before {
+							font-family:FontAwesome;
+							content:"\f14c";
+							font-size:14px;
+							color:@light-blue;
+							display:inline-block;
+							margin-right:7px;
+						}
+					}
+				}
+			}
+		}
+		.view-redesign-user-extra-pages {
+			.view-content {
+				ul {
+					li {
+						a {
+							&:before {
+								display:none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 @media @tablet-max {
 	.page-user {
-		#sidebar {
-			display:none;
-		}
 		#content {
 			.responsive-element {
 				display:block;
