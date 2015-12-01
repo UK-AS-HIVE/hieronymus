@@ -1461,7 +1461,18 @@ body:not(.has-sidebar) #content .view-all-users{
 }
 
 //**** Pages - Profile
-.view-redesign-profile-sidebar, .view-redesign-profile-sidebar-mobile {
+.view-redesign-user-links-single-column {
+	display:none;
+}
+@media @tablet-max {
+	.page-user #sidebar {
+		display:none;
+	}
+	.view-redesign-user-links-single-column {
+		display:block;
+	}
+}
+.view-redesign-profile-sidebar, .view-redesign-user-links-single-column {
 	.views-field {
 		border-bottom:1px solid @uk-blue;
 		.department-color(border-bottom-color);
@@ -1624,6 +1635,36 @@ body:not(.has-sidebar) #content .view-all-users{
 		}
 	}
 }
+.view-redesign-user-links-single-column {
+	.view-content {
+		ul {
+			margin-bottom:0;
+			li {
+				margin:0;
+				list-style-type: none;
+				.entity-field-collection-item {
+					padding:0;
+					&.clearfix:before {
+						content:none;
+						display:none;
+						clear:none;
+					}
+				}
+				a {
+					display:inline-block;
+					&:before {
+						font-family:FontAwesome;
+						content:"\f14c";
+						font-size:14px;
+						color:@light-blue;
+						display:inline-block;
+						margin-right:7px;
+					}
+				}
+			}
+		}
+	}
+}
 
 @media @tablet-max {
 	.page-user {
@@ -1638,11 +1679,16 @@ body:not(.has-sidebar) #content .view-all-users{
 					margin-right:20px;
 					float: left;
 				}
-				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-nothing, .views-field-field-external-affiliations {
+				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-field-phone, .views-field-nothing, .views-field-field-external-affiliations {
 					display:inline-block;
-					width:60%;
-					float: left;
+					width:67%;
+					float: right;
 				}
+			}
+			.view-redesign-user-links-single-column {
+				display:inline-block;
+				width:67%;
+				float: right;
 			}
 		}
 	}
@@ -1654,9 +1700,12 @@ body:not(.has-sidebar) #content .view-all-users{
 				.views-field-picture {
 					width:45%;
 				}
-				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-nothing, .views-field-field-external-affiliations {
-					width:45%;
+				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-field-phone, .views-field-nothing, .views-field-field-external-affiliations {
+					width:51%;
 				}
+			}
+			.view-redesign-user-links-single-column {
+				width:51%;
 			}
 		}
 	}
@@ -1670,11 +1719,16 @@ body:not(.has-sidebar) #content .view-all-users{
 					max-width:400px;
 					float:none;
 				}
-				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-nothing, .views-field-field-external-affiliations {
+				.views-field-field-job, .views-field-field-assignments, .views-field-field-user-email, .views-field-field-office, .views-field-field-phone, .views-field-nothing, .views-field-field-external-affiliations {
 					width:100%;
 					max-width:400px;
 					float:none;
 				}
+			}
+			.view-redesign-user-links-single-column {
+				width:100%;
+				max-width:400px;
+				float:none;
 			}
 		}
 	}
@@ -1781,17 +1835,6 @@ body.page-news {
 					font-size: 16px;
 				}
 				padding-bottom:0.5em;
-			}
-		}
-	}
-}
-
-//*** Pages - Departments and Programs
-.has-sidebar {
-	.departments {
-		.department-circles {
-			> li {
-				width: 19.2%;
 			}
 		}
 	}
@@ -2575,79 +2618,81 @@ body.node-type-course:not(.has-sidebar) #content{
 		}
 	}
 }
-.departments {
-	.department-circles {
-		margin-left:0;
-		& > li {
-			width:16.3%;
-			display:inline-block;
-			vertical-align: top;
-			margin-bottom:@default-spacing;
-			a {
-				display:inline-block;
-				width:100%;
-				height:auto;
-				text-align:center;
-				transition:color 0.3s;
-				img {
-					width:60%;
-					max-width:135px;
-					margin-bottom:7px;
-				}
-				h3 {
-					text-align:center;
-					width:100%;
-					color:@text-color;
-					font-size:16px;
-					font-weight:normal;
-					@media screen and (max-width:425px) {
-						width:65%;
-						margin:0 auto;
-					}
-				}
-				&:hover h3 {
-					color:@uk-blue;
-					.department-color(color);
-					transition:color 0.3s;
-				}
-				@media @tablet-max {
-					&:hover h3 {
-						color:@text-color;
-						.no-effects;
-					}
-				}
-			}
-			@media screen and (max-width:1200px) {
-				width:24.5%;
-			}
-			@media screen and (max-width:1024px) {
-				width:32.5%;
-			}
-			@media screen and (max-width:768px) {
-				width:49%;
-			}
-			@media screen and (max-width:425px) {
-				width:100%;
-			}
-		}
-		@media @mobile-max {
+.front, .not-front {
+	.departments {
+		.department-circles {
+			margin-left:0;
 			& > li {
-				width:100%;
+				width:16.3%;
+				display:inline-block;
+				vertical-align: top;
+				margin-bottom:@default-spacing;
 				a {
+					display:inline-block;
+					width:100%;
+					height:auto;
+					text-align:center;
+					transition:color 0.3s;
 					img {
-						margin:0 14px 0 0;
-						width:30%;
-						max-width:none;
-						display:inline-block;
-						vertical-align: middle;
+						width:60%;
+						max-width:135px;
+						margin-bottom:7px;
 					}
 					h3 {
-						margin:0;
-						text-align: left;
-						width:60%;
-						display:inline-block;
-						vertical-align: middle;
-						padding-bottom:0;
+						text-align:center;
+						width:100%;
+						color:@text-color;
+						font-size:16px;
+						font-weight:normal;
+						@media screen and (max-width:425px) {
+							width:65%;
+							margin:0 auto;
+						}
+					}
+					&:hover h3 {
+						color:@uk-blue;
+						.department-color(color);
+						transition:color 0.3s;
+					}
+					@media @tablet-max {
+						&:hover h3 {
+							color:@text-color;
+							.no-effects;
+						}
+					}
+				}
+				@media screen and (max-width:1200px) {
+					width:24.5%;
+				}
+				@media screen and (max-width:1024px) {
+					width:32.5%;
+				}
+				@media screen and (max-width:768px) {
+					width:49%;
+				}
+				@media screen and (max-width:425px) {
+					width:100%;
+				}
+			}
+			@media @mobile-max {
+				& > li {
+					width:100%;
+					a {
+						img {
+							margin:0 14px 0 0;
+							width:30%;
+							max-width:none;
+							display:inline-block;
+							vertical-align: middle;
+						}
+						h3 {
+							margin:0;
+							text-align: left;
+							width:60%;
+							display:inline-block;
+							vertical-align: middle;
+							padding-bottom:0;
+						}
 					}
 				}
 			}
