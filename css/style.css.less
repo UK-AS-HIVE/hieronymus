@@ -406,6 +406,39 @@ p {
 		.department-color-dark(color)
 	}
 }
+
+blockquote {
+	.department-color-light(background-color);
+	border-left: 1px solid @dark-gray;
+	.department-color-dark(border-left-color);
+	font-style: italic;
+	margin: 1.5em 10px;
+	padding: .5em 10px;
+
+	*:first-child {
+		display: inline;
+	}
+
+	&:before {
+		color: @medium-gray;
+		.department-color(color);
+		content: "“";
+		font-size: 3em;
+		line-height: 0.1em;
+		margin-right: 0.2em;
+		vertical-align: -0.4em;
+	}
+
+	&:after {
+		color: @medium-gray;
+		.department-color(color);
+		content: "”";
+		font-size: 3em;
+		line-height: 0.1em;
+		vertical-align: -0.45em;
+	}
+}
+
 .field-type-text-with-summary {
 	img { display:block; margin:0 auto; }
 }
