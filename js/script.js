@@ -191,7 +191,7 @@
 	  }
 
 	  this.hideEmptyRows = function() {
-		if ($(this.slider).find('.views-row').length == 0) {
+		if ($(this.slider).find('.views-row').length == 0 && $(this.slider).parents('.row-tabs').length == 0) {
 			var fieldItem = $(this.slider).parents('.field-item');
 			fieldItem.hide();
 			if (fieldItem.next().find('.more-button').length == 1) {

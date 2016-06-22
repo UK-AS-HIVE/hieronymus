@@ -92,7 +92,6 @@ body:not(.has-sidebar) #content {
 	ol, 
 	li, 
 	table, 
-	form,
 	.links,
 	.view-filters, 
 	.webform-client-form, 
@@ -108,7 +107,6 @@ body:not(.has-sidebar) #content {
 	.field-name-field-audience,
 	.field-name-field-tutorial-steps,
 	.field-name-field-image2,
-	.submitted.meta,
 	.mejs-container.mejs-audio {
 		max-width:810px;
 		margin-left:auto;
@@ -130,7 +128,6 @@ body:not(.has-sidebar) #content {
 		ol, 
 		li, 
 		table, 
-		form,
 		.links,
 		.view-filters, 
 		.webform-client-form,
@@ -145,7 +142,6 @@ body:not(.has-sidebar) #content {
 		.field-name-field-audience,
 		.field-name-field-tutorial-steps,
 		.field-name-field-image2,
-		.submitted.meta,
 		.mejs-container.mejs-audio {
 			max-width:100%;
 			width:100%;
@@ -164,6 +160,13 @@ body:not(.has-sidebar).node-type-gallery #content {
 }
 div.vertical-tabs {
 	margin:1em 0 1em 0em;
+}
+.meta.submitted {
+	font-size:1.08em;
+	margin-bottom:7px;
+	margin-left:auto;
+	margin-right:auto;
+	max-width:810px;
 }
 .slide-5 .views-row {
 	width:18vw;
@@ -402,15 +405,11 @@ p {
 	margin-bottom: @default-spacing;
 	line-height:145%;
 	width:100%;
-	a, a:hover {
-		.department-color-dark(color)
-	}
 }
 
 blockquote {
-	.department-color-light(background-color);
-	border-left: 1px solid @dark-gray;
-	.department-color-dark(border-left-color);
+	border-left: 3px solid @dark-gray;
+	.department-color(border-left-color);
 	font-style: italic;
 	margin: 1.5em 10px;
 	padding: .5em 10px;
@@ -494,6 +493,7 @@ blockquote {
 	transition:  0.3s;
 	width:auto;
 	min-width: 67px;
+	max-width:175px;
 	text-align: center;
 	font-weight:700;
 	@media @mobile-max {
@@ -2858,7 +2858,6 @@ body.node-type-course:not(.has-sidebar) #content{
 				}
 			}
 			a {
-				.department-color-dark(color);
 				padding:7px 0;
 				width:100%;
 				display:block;
@@ -2997,7 +2996,7 @@ body.node-type-course:not(.has-sidebar) #content{
 				}
 			}
 		}
-		#block-block-343 {
+		#block-views-redesign-footer-contact-block {
 			display:inline-block;
 			@media screen and (max-width: 900px) {
 				margin-left:0;
@@ -3103,7 +3102,7 @@ body.node-type-course:not(.has-sidebar) #content{
 
 
 //********* Style Guide Styles
-body.page-node-280132:not(.has-sidebar) {
+body.page-node-309439:not(.has-sidebar) {
 	#main-wrapper {
 		margin-top:0;
 	}
@@ -4144,3 +4143,25 @@ body:not(.has-sidebar).html.not-front {
 		}
 	}
 }
+
+.sharethis-wrapper {
+  display: inline-block;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 28px;
+  vertical-align: bottom;
+
+  div {
+    float: left;
+    margin-left: 5px;
+  }
+
+  .share-text {
+      color: #444444;
+      float: left;
+      font-size: 0.85em;
+      font-weight: bold;
+      margin-right: 5px;
+  }
+}
+

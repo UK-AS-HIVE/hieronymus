@@ -51,6 +51,29 @@
       <?php if ($title): ?>
         <h1 class="title" id="page-title">
           <?php print $title; ?>
+	  <?php 
+	    $get = $_GET;
+	    $mPath = url($get['q'], array('absolute' => TRUE));
+	    unset($get['q']);
+	    $url_args = array();
+	    foreach($get as $var => $value)
+	      $url_args[] = $var . '=' . $value;
+	    if(!empty($url_args))
+	      $mPath .= '?' . implode('&', $url_args);
+	    $mTitle = $title;
+	    global $base_url;
+	      print '<div class="sharethis-wrapper"><span class="share-text">Share this page: </span>
+	      <div class="share-mail"><a title="mail" alt="mail" href="mailto:?subject=' . str_replace('+', ' ', urlencode($mTitle . ' - College of Arts & Sciences, University of Kentucky')) . '&body=' . urlencode($mPath) . '">
+		<img src="' . $base_url . '/' . drupal_get_path('theme', 'hieronymus') . '/images/social/node/social-email.png"/>
+	      </a></div>
+	      <div class="share-facebook"><a title="facebook" alt="facebook" href="http://www.facebook.com/sharer.php?u=' . urlencode($mPath) . '&t=' . urlencode($mTitle) . '" target="_blank">
+		<img src="' . $base_url . '/' . drupal_get_path('theme', 'hieronymus') . '/images/social/node/facebook.png"/>
+	      </a></div>
+	      <div class="share-twitter"><a title="twitter" alt="twitter" href="https://twitter.com/intent/tweet?url=' . urlencode($mPath) . '&text=' . urlencode($mTitle) . '" target="_blank">
+		<img src="' . $base_url . '/' . drupal_get_path('theme', 'hieronymus') . '/images/social/node/twitter-2.png"/>
+	      </a></div>
+	      </div>';
+	    ?>
         </h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
