@@ -270,24 +270,6 @@ li.expanded, li.collapsed, li.leaf {
 						opacity: 0.5;
 					}
 				}
-				//** These parts are specific to www
-				//@TODO Generalize for other domains
-				> li:first-child {
-					> .menu > li:nth-child(n+2):nth-child(-n+3) {
-						padding: 0;
-
-						&:after {
-							display: none;
-						}
-						> a {
-							display: none;
-						}
-					}
-					> .menu > li.open:first-child + li:nth-child(2) > .menu,
-					> .menu > li.open:first-child + li:nth-child(2) + li:nth-child(3) > .menu {
-						height: auto;
-					}
-				}
 			}
 		}
 	}
@@ -480,6 +462,24 @@ li.expanded, li.collapsed, li.leaf {
 // Special for www full departments list
 .domain-www-as-uky-edu {
 	.region-navigation > .block-menu .content > .menu {
+		@media @tablet-max {
+			> li:first-child {
+				> .menu > li:nth-child(n+2):nth-child(-n+3) {
+					padding: 0;
+
+					&:after {
+						display: none;
+					}
+					> a {
+						display: none;
+					}
+				}
+				> .menu > li.open:first-child + li:nth-child(2) > .menu,
+				> .menu > li.open:first-child + li:nth-child(2) + li:nth-child(3) > .menu {
+					height: auto;
+				}
+			}
+		}
 		@media @desktop {
 			
 			> li:nth-child(1) > .menu > li:nth-child(2),
