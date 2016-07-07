@@ -41,6 +41,13 @@
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
+      if (isset($content['field_embed'])): 
+        hide($content['field_embed']);
+        ?>
+        <div class="field field-name-embed field-label-hidden">
+          <?php print $content['field_embed']['#items'][0]['value']; ?>
+        </div>
+      <?php endif; 
       print render($content);
     ?>
   </div>
