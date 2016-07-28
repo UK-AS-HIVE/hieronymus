@@ -17,7 +17,6 @@ scripts[] = js/menu.js
 scripts[] = js/script.js
 scripts[] = js/gallery.js
 
-regions[global-nav] = Global Nav
 regions[header] = Header
 regions[navigation] = Navigation
 regions[help] = Help
