@@ -20,7 +20,7 @@
 
             <div class="uk-search-bar__form">
               <form action="http://ukcc.uky.edu/cse/">
-                <input class="uk-search-bar__input" type="search" name="q">
+                <input class="uk-search-bar__input" type="search" name="q" placeholder="search uky.edu">
                 <input  class="uk-search-bar__submit" type="submit" value="Search">
               </form>
 
@@ -41,8 +41,8 @@
       <header>
 
         <div class="uk-global-header__logo">
-          <a href="http://www.uky.edu">
-            <img src="/sites/all/themes/hieronymus/images/uk-lockup.svg" alt="University of Kentucky Logo"/>
+          <a href="http://www.as.uky.edu">
+            <img src="/sites/all/themes/hieronymus/images/uk-as-white.png" alt="University of Kentucky Logo"/>
           </a>
         </div>
 

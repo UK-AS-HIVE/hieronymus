@@ -192,6 +192,15 @@ textarea {
     }
 }
 
+@media (min-width:1500px) {
+    .uk-search-bar__container,
+    .uk-global-header header,
+    .uk-container {
+        width: 1470px
+    }
+}
+
+
 .uk-search-bar__input,
 .uk-search-bar__submit,
 .uk-global-header__search-button button {
@@ -673,7 +682,7 @@ input.uk-search-bar__submit:hover {
 
 .uk-global-header__logo img {
     height: 50px;
-    width: 100%
+    width: auto;
 }
 
 .uk-global-header__left-nav {
