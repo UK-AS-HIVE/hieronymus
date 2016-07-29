@@ -1,8 +1,70 @@
 <div id="page-wrapper"><div id="page">
   <div id="shadow"></div>
-  <?php if ($page['global-nav']): ?>
-    <?php print render($page['global-nav']); ?>
-  <?php endif; ?>
+    <link rel="stylesheet" href="/sites/all/themes/hieronymus/css/patterns.css">
+    <div class="uk-global-header">
+      <div class="uk-search-bar" aria-hidden="true" id="uk-global-header-searchbar">
+
+        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+          <symbol id="x" Viewbox="-110.7 118.8 23.3 23.3">
+            <path d="M-87.3 121l-2.2-2.2-9.5 9.6-9.5-9.6-2.2 2.2 9.6 9.5-9.6 9.5 2.2 2.2 9.5-9.6 9.5 9.6 2.2-2.2-9.6-9.5"></path>
+          </symbol><!--end x-->
+        </svg>
+        <div class="uk-search-bar__container">
+          <div class="uk-search-bar__row">
+
+            <div class="uk-search-bar__menu">
+              <a href="http://www.uky.edu/Directory/" class="uk-search-bar__menu-item">People</a>
+              <a href="http://maps.uky.edu/campusmap/" class="uk-search-bar__menu-item">Map</a>
+            </div>
+
+
+            <div class="uk-search-bar__form">
+              <form action="http://ukcc.uky.edu/cse/">
+                <input class="uk-search-bar__input" type="search" name="q" placeholder="search uky.edu">
+                <input  class="uk-search-bar__submit" type="submit" value="Search">
+              </form>
+
+              <button type="button" title="Close" class="uk-search-bar__dismiss">
+                <svg height="30px" width="30px"><use xlink:href="#x"></use></svg>
+                <span class="hide">Close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <symbol id="search" viewBox="0 0 16.7 16.8">
+        <path d="M9.7 0c-3.9 0-7 3.1-7 7 0 1.6.5 3.1 1.4 4.2L0 15.4l1.4 1.4 4.2-4.2c1.2.9 2.6 1.4 4.1 1.4 3.9 0 7-3.1 7-7s-3.1-7-7-7zm0 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z" class="st0"></path>
+        </symbol>
+      </svg>
+
+      <header>
+
+        <div class="uk-global-header__logo">
+          <a href="http://www.as.uky.edu">
+            <img src="/sites/all/themes/hieronymus/images/uk-as-white.png" alt="University of Kentucky Logo"/>
+          </a>
+        </div>
+
+        <div class="uk-global-header__left-nav">
+
+        </div>
+
+        <div class="uk-global-header__right-nav">
+          <ul class="uk-global-header__nav-list">
+            <li class="uk-global-header__nav-item uk-global-header__myUK"><a href="https://myuk.uky.edu">myUK</a></li>
+            <li class="uk-global-header__nav-item uk-global-header__search-button">
+              <button aria-expanded="false" aria-controls="uk-global-header-searchbar">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <script type="text/javascript" src="/sites/all/themes/hieronymus/js/all.js"></script>
+      </header>
+    </div>
   
   <div id="header" class="block-wrapper restricted-width <?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
     <div class="width-container clearfix">
@@ -31,7 +93,7 @@
   <?php endif; ?>
 
   <?php if ($page['featured']): ?>
-    <div id="featured"><div class="section clearfix">
+    <div id="featured" style="text-align: center;"><div class="section clearfix">
       <?php print render($page['featured']); ?>
     </div></div> <!-- /.section, /#featured -->
   <?php endif; ?>
