@@ -456,6 +456,7 @@ input[type="search"] {
 .uk-search-bar__input {
     float: left;
     width: 66.66666667%;
+    max-width: none !important;
     margin-left: 0;
     position: relative;
     min-height: 1px;
@@ -488,6 +489,7 @@ input[type="search"] {
 input.uk-search-bar__submit {
     float: left;
     width: 25% !important;
+    max-width: 200px !important;
     margin-left: 0 !important;
     position: relative;
     min-height: 1px;
