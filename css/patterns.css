@@ -651,7 +651,7 @@ input.uk-search-bar__submit:hover {
     }
 }
 
-@media (max-width:900px) {
+@media (min-width:651px) {
     .uk-footer-text__list {
         text-align: left;
     }
