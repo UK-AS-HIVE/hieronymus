@@ -606,7 +606,8 @@ input.uk-search-bar__submit:hover {
 .uk-footer-text__list {
     width: auto;
     padding-left: 0;
-    text-align: left
+    padding-top: 10px;
+    text-align: center;
 }
 
 .uk-footer-text__list-item {
@@ -644,9 +645,21 @@ input.uk-search-bar__submit:hover {
     padding: 0 0 0 10px
 }
 
-@media (min-width:992px) {
+@media (max-width:650px) {
     .uk-footer-text__list {
         text-align: center
+    }
+}
+
+@media (max-width:900px) {
+    .uk-footer-text__list {
+        text-align: left;
+    }
+}
+
+@media (min-width:901px) {
+    .uk-footer-text__list {
+        text-align: center;
     }
 }
 

@@ -170,6 +170,15 @@
     <?php if ($page['footer']): ?>
       <div id="footer" class="clearfix">
         <?php print render($page['footer']); ?>
+        <div class="uk-footer-text">
+          <ul class="uk-footer-text__list">
+            <li class="uk-footer-text__list-item">&copy; University of Kentucky</li>
+            <!--<li class="uknow-footertext__list-item">Lexington, Kentucky 40506</li>-->
+            <li class="uk-footer-text__list-item">An Equal Opportunity University</li>
+            <li class="uk-footer-text__list-item"><a href="http://www.uky.edu/accreditation/">Accreditation</a></li>
+            <li class="uk-footer-text__list-item"><a href="http://www.uky.edu/Directory/">Directory</a></li>
+          </ul>
+        </div>
       </div> <!-- /#footer -->
     <?php endif; ?>
 
