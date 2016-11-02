@@ -93,7 +93,7 @@
   <?php endif; ?>
 
   <?php if ($page['featured']): ?>
-    <div id="featured" style="text-align: center;"><div class="section clearfix">
+    <div id="featured" style="text-align: left;"><div class="section clearfix">
       <?php print render($page['featured']); ?>
     </div></div> <!-- /.section, /#featured -->
   <?php endif; ?>
