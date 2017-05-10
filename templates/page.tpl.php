@@ -1,6 +1,11 @@
+<?php
+global $base_url;
+
+$hieronymus_path = $base_url . '/' . drupal_get_path('theme', 'hieronymus');
+?>
 <div id="page-wrapper"><div id="page">
   <div id="shadow"></div>
-    <link rel="stylesheet" href="/sites/all/themes/hieronymus/css/patterns.css">
+    <link rel="stylesheet" href="<?php print $hieronymus_path; ?>/css/patterns.css">
     <div class="uk-global-header">
       <div class="uk-search-bar" aria-hidden="true" id="uk-global-header-searchbar">
 
@@ -42,7 +47,7 @@
 
         <div class="uk-global-header__logo">
           <a href="http://www.as.uky.edu">
-            <img src="/sites/all/themes/hieronymus/images/uk-as-white.png" alt="University of Kentucky Logo"/>
+            <img src="<?php print $hieronymus_path; ?>/images/uk-as-white.png" alt="University of Kentucky Logo"/>
           </a>
         </div>
 
@@ -52,7 +57,7 @@
 
         <div class="uk-global-header__right-nav">
           <ul class="uk-global-header__nav-list">
-            <li class="uk-global-header__nav-item uk-global-header__myUK"><a href="https://myuk.uky.edu">myUK</a></li>
+          <li class="uk-global-header__nav-item uk-global-header__myUK"><a href="https://myuk.uky.edu" style="background-image: url(<?php print $hieronymus_path; ?>/images/my-UK.png);">myUK</a></li>
             <li class="uk-global-header__nav-item uk-global-header__search-button">
               <button aria-expanded="false" aria-controls="uk-global-header-searchbar">
                 <svg>
@@ -62,7 +67,7 @@
             </li>
           </ul>
         </div>
-        <script type="text/javascript" src="/sites/all/themes/hieronymus/js/all.js"></script>
+        <script type="text/javascript" src="<?php print $hieronymus_path; ?>/js/all.js"></script>
       </header>
     </div>
   
@@ -123,16 +128,16 @@
 	    if(!empty($url_args))
 	      $mPath .= '?' . implode('&', $url_args);
 	    $mTitle = $title;
-	    global $base_url;
+
 	      print '<div class="sharethis-wrapper"><span class="share-text">Share this page: </span>
 	      <div class="share-mail"><a title="mail" alt="mail" href="mailto:?subject=' . str_replace('+', ' ', urlencode($mTitle . ' - College of Arts & Sciences, University of Kentucky')) . '&body=' . urlencode($mPath) . '">
-		<img src="' . $base_url . '/' . drupal_get_path('theme', 'hieronymus') . '/images/social/node/social-email.png"/>
+		<img src="' . $hieronymus_path . '/images/social/node/social-email.png"/>
 	      </a></div>
 	      <div class="share-facebook"><a title="facebook" alt="facebook" href="http://www.facebook.com/sharer.php?u=' . urlencode($mPath) . '&t=' . urlencode($mTitle) . '" target="_blank">
-		<img src="' . $base_url . '/' . drupal_get_path('theme', 'hieronymus') . '/images/social/node/facebook.png"/>
+		<img src="' . $hieronymus_path . '/images/social/node/facebook.png"/>
 	      </a></div>
 	      <div class="share-twitter"><a title="twitter" alt="twitter" href="https://twitter.com/intent/tweet?url=' . urlencode($mPath) . '&text=' . urlencode($mTitle) . '" target="_blank">
-		<img src="' . $base_url . '/' . drupal_get_path('theme', 'hieronymus') . '/images/social/node/twitter-2.png"/>
+		<img src="' . $hieronymus_path . '/images/social/node/twitter-2.png"/>
 	      </a></div>
 	      </div>';
 	    ?>
