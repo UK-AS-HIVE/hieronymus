@@ -200,6 +200,7 @@ $image_name = array("A&S" => "default-department-circle.png",
           print '<div class="short-fields">';
           print render($content['field_semester']);
           print render($content['field_room']);        
+          print render($content['field_building']);
           if (isset($node->field_course_section_days['und'][0]['value'])): ?>
             <div class="field field-name-field-course-section-days field-type-text field-label-inline clearfix">
               <div class="field-label">Meeting time:&nbsp;</div>
