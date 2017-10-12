@@ -1,5 +1,7 @@
 @import "variables.css.less";
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700');
+
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
@@ -382,8 +384,8 @@ div.block-wrapper.restricted-width:not(.visible-arrows) .content-wrapper,
 
 //**** Typography
 body { font:300 16px/140% 'Roboto', sans-serif; color:#303030; }
-h1 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 700; line-height:125%;}
-h2 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 700; line-height:125%;}
+h1 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 400; line-height:125%;}
+h2 { font-size: 28px; color:@uk-blue; .department-color(color); font-weight: 400; line-height:125%;}
 h3 { font-size: 18px; font-weight: 700; line-height:130%;}
 h4 { font-size: 16px; font-weight: 700; color: #00325b; line-height:130%;}
 .subtitle { font-size: 26px; color: #6e7071; text-transform: none; font-weight:300; line-height:130%;}
@@ -1401,7 +1403,6 @@ fieldset.expandable.expanded {
 				}
 				h1 {
 					font-size:32px;
-					font-weight: 700;
 					display:block;
 					max-width: 420px;
 					margin-bottom: @default-spacing;
