@@ -951,7 +951,7 @@ select {
 }
 .webform-component-select {
 	position: relative;
-	&:after {
+	.hieronymus-dropdown-wrapper:after {
 		font-family:FontAwesome;
 		font-size:14px;
 		content:"\f0d7";
@@ -959,6 +959,7 @@ select {
 		right:20px;
 		color:@dark-gray;
 		display:inline-block;
+		pointer-events: none;
 	}
 	select {
 		-webkit-appearance:none;

@@ -178,3 +178,62 @@ function hieronymus_field__taxonomy_term_reference($variables) {
 
   return $output;
 }
+
+/**
+ * Replacement for theme_form_element().
+ */
+function hieronymus_webform_element($variables) {
+  dpm($variables);
+  $element = $variables['element'];
+
+  $output = '<div ' . drupal_attributes($element['#wrapper_attributes']) . '>' . "\n";
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . webform_filter_xss($element['#field_suffix']) . '</span>' : '';
+
+  // Generate description for above or below the field.
+  $above = !empty($element['#webform_component']['extra']['description_above']);
+  $description = array(
+    FALSE => '',
+    TRUE => !empty($element['#description']) ? ' <div class="description">' . $element['#description'] . "</div>\n" : '',
+  );
+
+  // If #children does not contain an element with a matching @id, do not
+  // include @for in the label.
+  if (strpos($element['#children'], ' id="' . $variables['element']['#id'] . '"') === FALSE) {
+    $variables['element']['#id'] = NULL;
+  }
+
+  // This workaround is needed to customize the dropdown arrow, since ::after
+  // pseudo-element doesn't work well on <select> elements
+  if ($element['#type'] == 'select') {
+    $element['#children'] = '<span class="hieronymus-dropdown-wrapper">' . $element['#children'] . '</span>';
+  }
+
+  switch ($element['#title_display']) {
+    case 'inline':
+      $output .= $description[$above];
+      $description[$above] = '';
+      // FALL THRU.
+    case 'before':
+    case 'invisible':
+      $output .= ' ' . theme('form_element_label', $variables);
+      $output .= ' ' . $description[$above] . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+
+    case 'after':
+      $output .= ' ' . $description[$above] . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      break;
+
+    case 'none':
+    case 'attribute':
+      // Output no label and no required marker, only the children.
+      $output .= ' ' . $description[$above] . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+  }
+
+  $output .= $description[!$above];
+  $output .= "</div>\n";
+
+  return $output;
+}
