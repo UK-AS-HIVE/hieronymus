@@ -183,7 +183,6 @@ function hieronymus_field__taxonomy_term_reference($variables) {
  * Replacement for theme_form_element().
  */
 function hieronymus_webform_element($variables) {
-  dpm($variables);
   $element = $variables['element'];
 
   $output = '<div ' . drupal_attributes($element['#wrapper_attributes']) . '>' . "\n";
