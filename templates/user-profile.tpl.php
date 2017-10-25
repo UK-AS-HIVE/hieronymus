@@ -63,7 +63,7 @@
 			  $permit = ($uid == $user->uid || in_array('administrator', $user->roles) || in_array('content moderator', $user->roles));
 			  $page = $permit ? 'page_1' : 'page'; //Page_1 includes the show/hide button for biblio nodes
 			  print views_embed_view('user_pubmed_publications', $page, array($uid));
-			  print '<div class="pubmed-notice"><em>* Publications are automatically pulled from pubmed.gov based on a user-specific query.  Results may include incorrect citations.  See: <a href="http://www.as.uky.edu/tutorials/importing-pubmed-publications">Tutorial on improving PubMed results.</em></div>';
+			  print '<div class="pubmed-notice"><em>* Publications are automatically pulled from pubmed.gov based on a user-specific query.  Results may include incorrect citations.  See: <a href="http://www.as.uky.edu/tutorials/importing-pubmed-publications">Tutorial on improving PubMed results.</a></em></div>';
 			  if($permit) {
 			    print views_embed_view('user_pubmed_publications', 'page_2', array($uid));
 			  }
