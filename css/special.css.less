@@ -1,5 +1,47 @@
 @import 'variables.css.less';
 
+// For Learning Amplified
+#jumbotron {
+  #header {
+    height: 0;
+    line-height: 22.4px;
+
+    ul li {
+      list-style: none;
+    }
+
+    color: white !important;
+    a {
+      color: white !important;
+    }
+    input {
+      color: white;
+      border-color: white;
+      background: transparent;
+    }
+  }
+  line-height: 0;
+
+  img, video {
+    width: 100vw;
+    border-top: 1px solid antiquewhite;
+  }
+
+  #jumbrotron-inset {
+    position: absolute;
+    z-index: 10;
+    color: antiquewhite;
+    background: transparent;
+    margin: 15px;
+    right: 0;
+    font-size: 40px;
+
+    @media @desktop {
+      display: none;
+    }
+  }
+}
+
 // For /departments-programs
 .quick-links {
 	background: @uk-blue;

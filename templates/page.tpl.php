@@ -70,7 +70,15 @@ $hieronymus_path = $base_url . '/' . drupal_get_path('theme', 'hieronymus');
         <script type="text/javascript" src="<?php print $hieronymus_path; ?>/js/all.js"></script>
       </header>
     </div>
-  
+
+
+  <?php $rendered_jumbotron = render($page['jumbotron']); ?>
+  <?php $show_jumbotron = (strpos($rendered_jumbotron, '<img') > -1); ?>
+  <?php if ($show_jumbotron): ?>
+  <div id="jumbotron">
+  <?php endif; ?>
+
+  <?php if ($page['site_logo'] || $page['header']): ?>
   <div id="header" class="block-wrapper restricted-width <?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
     <div class="width-container clearfix">
       <div class="content-wrapper table">
@@ -87,6 +95,14 @@ $hieronymus_path = $base_url . '/' . drupal_get_path('theme', 'hieronymus');
       </div>
     </div>
   </div> <!-- /.section, /#header -->
+  <?php endif; ?>
+
+  <?php if ($show_jumbotron): ?>
+    <div class="jumbotron-background">
+      <?php print $rendered_jumbotron; ?>
+    </div>
+  </div>
+  <?php endif; ?>
 
 
   <?php print render($page['navigation']); ?>
