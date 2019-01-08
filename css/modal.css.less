@@ -1,0 +1,89 @@
+@import "variables.css.less";
+
+.modal-wrapper {
+  display: none;
+
+  &> .modal-left {
+    background: @wildcat-black;
+    width: 60%;
+    align-items: stretch;
+  }
+
+  &> .modal-right {
+    width: 40%;
+  }
+
+  &> .modal-left, &> .modal-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+}
+
+@media @phablet-max {
+  .modal-wrapper {
+    flex-direction: column;
+    
+    &> .modal-left, &> .modal-right {
+      width: 100%;
+    }
+
+    &> .modal-right {
+      padding: 1em;
+    }
+  }
+}
+
+.modal-wrapper.show {
+  display: flex;
+  position: fixed;
+  z-index: 10000;
+  top: 100px;
+  bottom: 100px;
+  left: 50px;
+  right: 50px;
+  background-color: white;
+
+  .back-arrow {
+		&:after {
+			content: "\f053";
+		    font-family: FontAwesome;
+		    font-style: normal;
+		    font-weight: normal;
+		    text-decoration: inherit;
+		    font-size:40px;
+		}
+    position: absolute;
+		left:-40px;
+    top:50%;
+	}
+	.forward-arrow {
+		&:after {
+			content: "\f054";
+		    font-family: FontAwesome;
+		    font-style: normal;
+		    font-weight: normal;
+		    text-decoration: inherit;
+		    font-size:40px;
+		}
+    position: absolute;
+		right:-40px;
+    top:50%;
+	}
+
+}
+
+.modal-open {
+	overflow: hidden;
+
+  #shadow {
+    right: 0;
+    opacity: 1;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+}
+
+
