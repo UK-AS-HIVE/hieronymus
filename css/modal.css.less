@@ -20,22 +20,9 @@
     overflow: hidden;
     flex-direction: column;
     text-align: center;
+    padding: 1em;
   }
 
-}
-
-@media @phablet-max {
-  .modal-wrapper {
-    flex-direction: column;
-    
-    &> .modal-left, &> .modal-right {
-      width: 100%;
-    }
-
-    &> .modal-right {
-      padding: 1em;
-    }
-  }
 }
 
 .modal-wrapper.show {
@@ -49,36 +36,36 @@
   background-color: white;
 
   .back-arrow {
-		&:after {
-			content: "\f053";
-		    font-family: FontAwesome;
-		    font-style: normal;
-		    font-weight: normal;
-		    text-decoration: inherit;
-		    font-size:40px;
-		}
+    &:after {
+      content: "\f053";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        font-size:40px;
+    }
     position: absolute;
-		left:-40px;
+    left:-40px;
     top:50%;
-	}
-	.forward-arrow {
-		&:after {
-			content: "\f054";
-		    font-family: FontAwesome;
-		    font-style: normal;
-		    font-weight: normal;
-		    text-decoration: inherit;
-		    font-size:40px;
-		}
+  }
+  .forward-arrow {
+    &:after {
+      content: "\f054";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        font-size:40px;
+    }
     position: absolute;
-		right:-40px;
+    right:-40px;
     top:50%;
-	}
+  }
 
 }
 
 .modal-open {
-	overflow: hidden;
+  overflow: hidden;
 
   #shadow {
     right: 0;
@@ -88,4 +75,30 @@
   }
 }
 
+@media only screen and (orientation: portrait) {
+  .modal-wrapper.show {
+    flex-direction: column;
+
+    &> .modal-left, &> .modal-right {
+      width: 100%;
+    }
+
+    &> .modal-left {
+      flex-direction: row;
+    }
+
+    &> .modal-right {
+      padding: 1em;
+      justify-content: initial;
+      overflow: scroll;
+    }
+  }
+}
+
+@media @phablet-max {
+  .modal-wrapper.show {
+    top: 25px;
+    bottom: 25px;
+  }
+}
 
