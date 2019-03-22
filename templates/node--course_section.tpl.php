@@ -147,6 +147,9 @@ $image_name = array("A&S" => "default-department-circle.png",
   <div class="course-section-header views-field">
     <span class="course-section-image">
       <?php
+
+        $course_prefix = $node->field_course_prefix['und'][0]['value'];
+
         // If there is an associated author with a profile picture, use that
         $user_load = user_load(array('uid' => $node->uid));    
         if (($node->uid != 0) && ($user_load->picture != 0)) {
@@ -172,7 +175,6 @@ $image_name = array("A&S" => "default-department-circle.png",
     <?php
         
         // Full Course Number
-        $course_prefix = $node->field_course_prefix['und'][0]['value'];
         print "<h2 class='course-section-title'>".$course_prefix . " " 
           . $node->field_course_number['und'][0]['value'] . "-"
           . $node->field_course_section['und'][0]['value']."</h2>";
