@@ -22,7 +22,7 @@
   <?php endif; ?>
 
   <div class="content clearfix"<?php print $content_attributes; ?>>
-    <?
+    <?php
       if(!empty($content['field_audio']['#items'])){
         drupal_add_css('//cdn.as.uky.edu/third-party/mediaelement/mediaelementplayer.min.css');
         drupal_add_js('//cdn.as.uky.edu/third-party/mediaelement/mediaelement-and-player.min.js', 'external');

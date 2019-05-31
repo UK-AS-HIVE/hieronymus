@@ -73,7 +73,7 @@
 	<?php endif; ?>
 	</div>
 		
-	<?  
+	<?php
     //Profile Extras
     print views_embed_view('profile_extras_main_body', 'block', array($uid));
 	?>
