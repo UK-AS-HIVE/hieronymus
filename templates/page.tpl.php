@@ -84,9 +84,11 @@ $hieronymus_path = $base_url . '/' . drupal_get_path('theme', 'hieronymus');
       <div class="content-wrapper table">
         <div class="table-row">
 
-          <div class="table-cell middle logo-cell">
-            <?php print views_embed_view('redesign_site_logo', 'block'); ?>
-          </div>
+          <?php if (!$show_jumbotron): ?>
+            <div class="table-cell middle logo-cell">
+              <?php print views_embed_view('redesign_site_logo', 'block'); ?>
+            </div>
+          <?php endif; ?>
 
           <div class="table-cell middle header-region-cell">
             <?php print render($page['header']); ?>
