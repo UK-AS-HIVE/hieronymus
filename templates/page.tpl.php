@@ -68,6 +68,7 @@ $hieronymus_path = $base_url . '/' . drupal_get_path('theme', 'hieronymus');
           </ul>
         </div>
         <script type="text/javascript" src="<?php print $hieronymus_path; ?>/js/all.js"></script>
+        <script type="text/javascript" src="https://api.meritpages.com/merit.js" async defer></script>
       </header>
     </div>
 
