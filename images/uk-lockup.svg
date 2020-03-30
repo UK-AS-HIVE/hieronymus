@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  height="60px" >
+<svg  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px">
 	<style  type="text/css">
 		svg * {
 		transition: fill .1s ease-out, opacity .1s ease-out;
@@ -31,7 +31,7 @@
 
 	</style>
 
-	<svg id="logo-only" preserveAspectRatio="xMinYMid meet" viewBox="0 0 148.6 121.6"
+	<svg id="logo-only" preserveAspectRatio="xMinYMax meet" viewBox="0 0 148.6 121.6"
 		>
 	<polyline points="43.2,59.4 35.1,59.4 35.1,16.2 43.2,16.2 43.2,5.4 5.4,5.4 5.4,16.2 13.5,16.2 13.5,59.4 24.3,70.2 43.2,70.2
 		43.2,59.4 "/>
@@ -46,7 +46,7 @@
 		v-5.4h14.9l9.5,9.5v17.6h51.3l0-21.6H136.4z"/>
 	</svg>
 
-	<svg id="lockup" preserveAspectRatio="xMinYMid meet" display="none"
+	<svg id="lockup" preserveAspectRatio="xMinYMax meet" display="none"
 		 viewBox="0 0 586.7 155.5"
 		>
 	<polyline points="51.4,69.7 43.3,69.7 43.3,26.4 51.4,26.4 51.4,15.6 13.6,15.6 13.6,26.4 21.7,26.4 21.7,69.7 32.5,80.5 51.4,80.5
