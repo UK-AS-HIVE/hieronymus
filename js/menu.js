@@ -8,6 +8,9 @@
     $('#shadow').click(function(){
       body.removeClass('menu-open');
     });
+    window.addEventListener('hashchange', function() {
+      body.removeClass('menu-open');
+    });
 
     $('.region-navigation .menu li.expanded').click(function(e){
       if (body.hasClass('menu-open')) {
